@@ -1,5 +1,5 @@
 - platform: bluetooth_tracker
 - platform: ping
-    hosts:
-      choiz_phone_ip: !secret choiz_phone_ip
-      geraldine_phone_ip: !secret geraldine_phone_ip
+  hosts:
+    francois_phone_ip: !secret francois_phone_ip
+    geraldine_phone_ip: !secret geraldine_phone_ip
