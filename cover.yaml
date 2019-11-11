@@ -1,0 +1,13 @@
+- platform: rfxtrx
+  automatic_add: false
+  devices:
+    071a00000a000101:
+      name: "salon haut"
+    071a00000a000201:
+      name: "salon bas"
+    071a00000a000301:
+      name: "cuisine"
+    071a00000a000401:
+      name: "chambre 1"
+    071a00000a000501:
+      name: "chambre 2"

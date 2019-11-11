@@ -1,0 +1,32 @@
+fermeture_volet:
+  alias: script_fermeture_volet
+  sequence:
+  - data:
+      entity_id: cover.chambre_2
+    service: cover.close_cover
+  - delay: 00:00:15
+  - data:
+      entity_id: cover.chambre_2
+    service: cover.stop_cover
+  - service: notify.pushbullet
+    data_template:
+        title: "fermeture volet"
+        message: "fermeture {{ volet }}"
+
+open_cover:
+  sequence:
+    - service: cover.open_cover
+      data_template:
+        entity_id: "{{ cover_entity_id }}"
+    - service: input_boolean.turn_on
+      data_template:
+        entity_id: "{{ input_boolean_entity_id }}"
+
+close_cover:
+  sequence:
+    - service: cover.close_cover
+      data_template:
+        entity_id: "{{ cover_entity_id }}"
+    - service: input_boolean.turn_off
+      data_template:
+        entity_id: "{{ input_boolean_entity_id }}"

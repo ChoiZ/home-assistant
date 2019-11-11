@@ -3,12 +3,13 @@
 ####################################################
 
 homeassistant:
-   elevation: 5,
-   latitude: 48.98160415046025,
-   longitude: 2.269970923662186,
-   name: Casa,
-   time_zone: Europe/Paris,
-   unit_system: metric
+   elevation: 5
+   latitude: 48.98160415046025
+   longitude: 2.269970923662186
+   name: 'Casa'
+   time_zone: 'Europe/Paris'
+   unit_system: 'metric'
+   customize: !include customize.yaml
 
 # Configure a default setup of Home Assistant (frontend, api, etc)
 default_config:
@@ -22,11 +23,22 @@ tts:
   - platform: google_translate
 
 group: !include groups.yaml
-automation: !include automations.yaml
+automation: !include_dir_merge_named automations
 script: !include scripts.yaml
-notify: !include notify.yaml
-device_tracker: !include device_tracker.yaml
 
-rfxtrx: !include_dir_merge_named third_party/rfxtrx
-tuya: !include_dir_merge_named third_party/tuya
-xiaomi_aqara: !include_dir_merge_named third_party/xiaomi
+#device_tracker: !include device_tracker.yaml
+notify: !include notify.yaml
+sensor: !include sensor.yaml
+switch: !include switch.yaml
+
+# third party
+cover: !include cover.yaml
+rfxtrx:
+  device: /dev/ttyUSB1
+tuya: !include third_party/tuya.yaml
+xiaomi_aqara: !include third_party/xiaomi.yaml
+
+# input (bool, number…)
+input_boolean: !include_dir_merge_named input_boolean
+input_number: !include_dir_merge_named input_number
+input_select: !include_dir_merge_named input_select
