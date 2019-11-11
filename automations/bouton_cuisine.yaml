@@ -1,0 +1,35 @@
+- alias: 'bouton cuisine click lumiere'
+  trigger:
+    - platform: event
+      event_type: xiaomi_aqara.click
+      event_data:
+        entity_id: binary_sensor.switch_158d00035a995a
+        click_type: single
+  action:
+    - service: switch.toggle
+      entity_id: switch.0220052668c63aac1fc7
+
+- alias: 'bouton cuisine long clic volet'
+  trigger:
+    - platform: event
+      event_type: xiaomi_aqara.click
+      event_data:
+        entity_id: binary_sensor.switch_158d00035a995a
+        click_type: long_click_press
+  action:
+    - service: switch.toggle
+      entity_id:
+        - switch.cover_state_cuisine
+        - switch.cover_state_salon_bas
+        - switch.cover_state_salon_haut
+
+- alias: 'bouton cuisine double clic volet'
+  trigger:
+    - platform: event
+      event_type: xiaomi_aqara.click
+      event_data:
+        entity_id: binary_sensor.switch_158d00035a995a
+        click_type: double
+  action:
+    - service: switch.toggle
+      entity_id: switch.cover_state_cuisine

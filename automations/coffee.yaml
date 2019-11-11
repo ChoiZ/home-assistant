@@ -1,0 +1,10 @@
+- alias: turn off coffee machine after 15mn on
+  trigger:
+    platform: state
+    entity_id: switch.002009152c3ae81bacf6
+    to: 'on'
+    for:
+      minutes: 15
+  action:
+    service: switch.turn_off
+    entity_id: switch.002009152c3ae81bacf6

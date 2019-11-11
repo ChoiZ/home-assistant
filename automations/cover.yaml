@@ -1,0 +1,85 @@
+- alias: 'sun close covers'
+  trigger:
+    - platform: sun
+      event: sunset
+      offset: '+03:40:00'
+  condition:
+    - condition: time
+      after: '17:00:00'
+      before: '23:00:00'
+  action:
+    - service: switch.turn_off
+      entity_id:
+        - switch.cover_state_cuisine 
+        - switch.cover_state_salon_bas
+        - switch.cover_state_salon_haut 
+        - switch.cover_state_chambre_1 
+
+- alias: 'ouvrir les volets en bas à 8h la semaine'
+  trigger:
+    - platform: time
+      at: '08:00:00'
+  condition:
+    - condition: time
+      weekday:
+        - mon
+        - tue
+        - wed
+        - thu
+        - fri
+  action:
+    - service: switch.turn_on
+      entity_id:
+        - switch.cover_state_cuisine 
+        - switch.cover_state_salon_bas
+        - switch.cover_state_salon_haut 
+
+- alias: 'ouvrir les volets en bas à 10h le weekend'
+  trigger:
+    - platform: time
+      at: '10:00:00'
+  condition:
+    - condition: time
+      weekday:
+        - sat
+        - sun
+  action:
+    - service: switch.turn_on
+      entity_id:
+        - switch.cover_state_cuisine 
+        - switch.cover_state_salon_bas
+        - switch.cover_state_salon_haut 
+
+- alias: 'ouvrir les volets en haut à 10h la semaine'
+  trigger:
+    - platform: time
+      at: '10:00:00'
+  condition:
+    - condition: time
+      weekday:
+        - mon
+        - tue
+        - wed
+        - thu
+        - fri
+  action:
+    - service: switch.turn_on
+      entity_id:
+        - switch.cover_state_chambre_1 
+        - switch.cover_state_chambre_2
+
+- alias: 'ouvrir les volets en haut à 11h le weekend'
+  trigger:
+    - platform: time
+      at: '10:00:00'
+  condition:
+    - condition: time
+      weekday:
+        - sat
+        - sun
+  action:
+    - service: switch.turn_on
+      entity_id:
+        - switch.cover_state_cuisine 
+        - switch.cover_state_salon_bas
+        - switch.cover_state_salon_haut 
