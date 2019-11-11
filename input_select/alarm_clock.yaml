@@ -1,6 +1,6 @@
-alarm_action:
+alarm_clock_action:
   name: alarm action
   options:
     - ouvrir le volet
-    - allumer le chevet
+    - allumer la lumière
   initial: ouvrir le volet

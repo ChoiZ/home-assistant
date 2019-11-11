@@ -1,6 +1,27 @@
 - platform: time_date
   display_options:
     - 'time'
+- platform: history_stats
+  name: "historique lumière salon"
+  entity_id: switch.0220052668c63aac1fc7
+  state: 'on'
+  type: time
+  start: '{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}'
+  end: '{{ now() }}'
+- platform: history_stats
+  name: "historique alimentation cafetière"
+  entity_id: switch.002009152c3ae81bacf6
+  state: 'on'
+  type: time
+  start: '{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}'
+  end: '{{ now() }}'
+- platform: history_stats
+  name: "historique alimentation freebox mini 4k"
+  entity_id: switch.03200172dc4f22245507
+  state: 'on'
+  type: time
+  start: '{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}'
+  end: '{{ now() }}'
 - platform: template
   sensors:
     alarm_clock_hour:
@@ -22,3 +43,15 @@
           0
         {%- endif -%}
           {{ states.sensor.alarm_clock_minute.state }}'
+    bouton_chambre_1:
+      friendly_name: "baterie bouton chambre 1"
+      unit_of_measurement: '%'
+      value_template: "{{ state_attr('binary_sensor.switch_158d00033e8984', 'battery_level') }}"
+    bouton_chambre_2:
+      friendly_name: "baterie bouton chambre 2"
+      unit_of_measurement: '%'
+      value_template: "{{ state_attr('binary_sensor.switch_158d00033ef6d8', 'battery_level') }}"
+    bouton_cuisine:
+      friendly_name: "baterie bouton cuisine"
+      unit_of_measurement: '%'
+      value_template: "{{ state_attr('binary_sensor.switch_158d00035a995a', 'battery_level') }}"

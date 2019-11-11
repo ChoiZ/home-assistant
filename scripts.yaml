@@ -1,20 +1,35 @@
 fermeture_volet:
   alias: script_fermeture_volet
   sequence:
-  - data:
-      entity_id: cover.chambre_2
-    service: cover.close_cover
-  - delay: 00:00:15
-  - data:
-      entity_id: cover.chambre_2
-    service: cover.stop_cover
   - service: notify.pushbullet
     data_template:
         title: "fermeture volet"
-        message: "fermeture {{ volet }}"
+        message: "fermeture {{ cover_entity_id }}"
+  - data:
+      entity_id: cover.chambre_2
+    service: cover.close_cover
+  - delay:
+      milliseconds: 16900
+  - data:
+      entity_id: cover.chambre_2
+    service: cover.stop_cover
+
+test_pushbullet:
+  alias: 'test pushbullet'
+  sequence:
+  - service: notify.pushbullet
+    data:
+      title: TEST ALERT!
+      message: This is a notification via pushbullet
+      data:
+        file_url: http://img.gawkerassets.com/img/17ur6gzij8qbsjpg/original.jpg
 
 open_cover:
   sequence:
+    - service: notify.pushbullet
+      data_template:
+        title: "ouverture volet"
+        message: "ouverture {{ cover_entity_id }}"
     - service: cover.open_cover
       data_template:
         entity_id: "{{ cover_entity_id }}"
@@ -24,6 +39,10 @@ open_cover:
 
 close_cover:
   sequence:
+    - service: notify.pushbullet
+      data_template:
+        title: "fermeture volet"
+        message: "fermeture {{ cover_entity_id }}"
     - service: cover.close_cover
       data_template:
         entity_id: "{{ cover_entity_id }}"
