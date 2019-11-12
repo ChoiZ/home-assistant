@@ -1,28 +1,21 @@
-fermeture_volet:
-  alias: script_fermeture_volet
+close_bedroom_shutter:
+  alias: "close bedroom shutter"
   sequence:
   - service: notify.pushbullet
     data_template:
-        title: "fermeture volet"
+        title: "close bedroom shutter"
         message: "fermeture {{ cover_entity_id }}"
-  - data:
-      entity_id: cover.chambre_2
-    service: cover.close_cover
+  - service: input_boolean.turn_off
+    data_template:
+      entity_id: "{{ input_boolean_entity_id }}"
+  - service: cover.close_cover
+    data_template:
+      entity_id: "{{ cover_entity_id }}"
   - delay:
       milliseconds: 16900
-  - data:
-      entity_id: cover.chambre_2
-    service: cover.stop_cover
-
-test_pushbullet:
-  alias: 'test pushbullet'
-  sequence:
-  - service: notify.pushbullet
-    data:
-      title: TEST ALERT!
-      message: This is a notification via pushbullet
-      data:
-        file_url: http://img.gawkerassets.com/img/17ur6gzij8qbsjpg/original.jpg
+  - service: cover.stop_cover
+    data_template:
+      entity_id: "{{ cover_entity_id }}"
 
 open_cover:
   sequence:
@@ -49,3 +42,13 @@ close_cover:
     - service: input_boolean.turn_off
       data_template:
         entity_id: "{{ input_boolean_entity_id }}"
+
+test_pushbullet:
+  alias: 'test pushbullet'
+  sequence:
+  - service: notify.pushbullet
+    data:
+      title: TEST ALERT!
+      message: This is a notification via pushbullet
+      data:
+        file_url: http://img.gawkerassets.com/img/17ur6gzij8qbsjpg/original.jpg
