@@ -1,8 +1,12 @@
-- alias: 'sun close covers'
+#########################################################
+# Sunset +30mn close all shutters                       #
+#########################################################
+
+- alias: "Sunset +30mn close all shutters"
   trigger:
     - platform: sun
       event: sunset
-      offset: '+03:40:00'
+      offset: '+00:30:00'
   condition:
     - condition: time
       after: '17:00:00'
@@ -10,12 +14,17 @@
   action:
     - service: switch.turn_off
       entity_id:
-        - switch.cover_state_cuisine 
+        - switch.cover_state_cuisine
         - switch.cover_state_salon_bas
-        - switch.cover_state_salon_haut 
-        - switch.cover_state_chambre_1 
+        - switch.cover_state_salon_haut
+        - switch.cover_state_chambre_1
+        - switch.cover_state_chambre_2
 
-- alias: 'ouvrir les volets en bas à 8h la semaine'
+#########################################################
+# Open all shutters in ground floor at 8am (weekday)    #
+#########################################################
+
+- alias: "Open all shutters in ground floor at 8am (weekday)"
   trigger:
     - platform: time
       at: '08:00:00'
@@ -30,11 +39,15 @@
   action:
     - service: switch.turn_on
       entity_id:
-        - switch.cover_state_cuisine 
+        - switch.cover_state_cuisine
         - switch.cover_state_salon_bas
-        - switch.cover_state_salon_haut 
+        - switch.cover_state_salon_haut
 
-- alias: 'ouvrir les volets en bas à 10h le weekend'
+#########################################################
+# Open all shutters in ground floor at 10am (weekend)   #
+#########################################################
+
+- alias: "Open all shutters in ground floor at 10am (weekend)"
   trigger:
     - platform: time
       at: '10:00:00'
@@ -46,11 +59,15 @@
   action:
     - service: switch.turn_on
       entity_id:
-        - switch.cover_state_cuisine 
+        - switch.cover_state_cuisine
         - switch.cover_state_salon_bas
-        - switch.cover_state_salon_haut 
+        - switch.cover_state_salon_haut
 
-- alias: 'ouvrir les volets en haut à 10h la semaine'
+#########################################################
+# Open all shutters in first floor at 10am (weekday)    #
+#########################################################
+
+- alias: "Open all shutters in first floor at 10am (weekday)"
   trigger:
     - platform: time
       at: '10:00:00'
@@ -65,13 +82,17 @@
   action:
     - service: switch.turn_on
       entity_id:
-        - switch.cover_state_chambre_1 
+        - switch.cover_state_chambre_1
         - switch.cover_state_chambre_2
 
-- alias: 'ouvrir les volets en haut à 11h le weekend'
+#########################################################
+# Open all shutters in first floor at 10:30am (weekend) #
+#########################################################
+
+- alias: "Open all shutters in first floor at 10:30am (weekend)"
   trigger:
     - platform: time
-      at: '10:00:00'
+      at: '10:30:00'
   condition:
     - condition: time
       weekday:
@@ -80,6 +101,9 @@
   action:
     - service: switch.turn_on
       entity_id:
-        - switch.cover_state_cuisine 
-        - switch.cover_state_salon_bas
-        - switch.cover_state_salon_haut 
+        - switch.cover_state_chambre_1
+        - switch.cover_state_chambre_2
+
+#########################################################
+# End                                                   #
+#########################################################

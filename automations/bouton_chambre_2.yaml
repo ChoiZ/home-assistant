@@ -1,4 +1,8 @@
-- alias: 'interrupteur chambre 2 click lumiere'
+#########################################################
+# Button bedroom 2 - one click: toggle light            #
+#########################################################
+
+- alias: "Button bedroom 2 - one click: toggle light"
   trigger:
     - platform: event
       event_type: xiaomi_aqara.click
@@ -9,7 +13,11 @@
     - service: switch.toggle
       entity_id: switch.50052752dc4f22e1706a
 
-- alias: 'interrupteur chambre 2 long clic volet'
+#########################################################
+# Button bedroom 2 - long press: toggle shutters        #
+#########################################################
+
+- alias: "Button bedroom 2 - long press: toggle shutters"
   trigger:
     - platform: event
       event_type: xiaomi_aqara.click
@@ -19,3 +27,7 @@
   action:
     - service: switch.toggle
       entity_id: switch.cover_state_chambre_2
+
+#########################################################
+# End                                                   #
+#########################################################

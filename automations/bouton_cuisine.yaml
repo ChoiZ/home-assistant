@@ -1,4 +1,8 @@
-- alias: 'bouton cuisine click lumiere'
+#########################################################
+# Button kitchen - one click: toggle light              #
+#########################################################
+
+- alias: "Button kitchen - one click: toggle light"
   trigger:
     - platform: event
       event_type: xiaomi_aqara.click
@@ -9,7 +13,11 @@
     - service: switch.toggle
       entity_id: switch.0220052668c63aac1fc7
 
-- alias: 'bouton cuisine long clic volet'
+#############################################################
+# Button kitchen - long press: toggle ground floor shutters #
+#############################################################
+
+- alias: "Button kitchen - long press: toggle ground floor shutters"
   trigger:
     - platform: event
       event_type: xiaomi_aqara.click
@@ -23,7 +31,11 @@
         - switch.cover_state_salon_bas
         - switch.cover_state_salon_haut
 
-- alias: 'bouton cuisine double clic volet'
+############################################################
+# Button kitchen - double click: toggle kitchen's shutters #
+############################################################
+
+- alias: "Button kitchen - double click: toggle kitchen's shutters"
   trigger:
     - platform: event
       event_type: xiaomi_aqara.click
@@ -33,3 +45,7 @@
   action:
     - service: switch.toggle
       entity_id: switch.cover_state_cuisine
+
+#########################################################
+# End                                                   #
+#########################################################

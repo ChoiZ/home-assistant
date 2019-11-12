@@ -1,11 +1,11 @@
 #########################################################
-#                   HOME ASSISTANT START                #
+# Home Assistant Start                                  #
 #########################################################
 
 - alias: Home Assistant Started
   trigger:
-    platform: homeassistant
-    event: start
+    - platform: homeassistant
+      event: start
   action:
     - service: notify.pushbullet
       data:
@@ -13,13 +13,13 @@
         message: "Home Assistant Has Started"
 
 #########################################################
-#                   HOME ASSISTANT STOP                 #
+# Home Assistant Stop                                   #
 #########################################################
 
 - alias: Home Assistant Stopped
   trigger:
-    platform: homeassistant
-    event: shutdown
+    - platform: homeassistant
+      event: shutdown
   action:
     - service: notify.pushbullet
       data:
@@ -27,7 +27,7 @@
         message: "Home Assistant Has Stopped"
 
 #########################################################
-#                   SENSOR BATTERY LOW                  #
+# Sensor for low battery                                #
 #########################################################
 
 - alias: "Sensor Low Battery"
@@ -44,3 +44,7 @@
       data_template:
         title: "Home Assistant Device Battery Low"
         message: " The battery for {{ trigger.to_state.attributes.friendly_name }} is below 20 percent."
+
+#########################################################
+# End                                                   #
+#########################################################

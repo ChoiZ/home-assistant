@@ -1,4 +1,8 @@
-- alias: "alarm automation"
+#########################################################
+# Alarm clock                                           #
+#########################################################
+
+- alias: "alarm clock"
   trigger:
     - platform: template
       value_template: '{{ states.sensor.time.state == states.sensor.alarm_clock_time_long.state }}'
@@ -9,3 +13,7 @@
   action:
     - service: cover.open_cover
       entity_id: cover.chambre_2
+
+#########################################################
+# End                                                   #
+#########################################################
