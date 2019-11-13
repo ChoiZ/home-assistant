@@ -11,8 +11,10 @@
       entity_id: input_boolean.alarm_clock_status
       state: 'on'
   action:
-    - service: cover.open_cover
-      entity_id: cover.chambre_2
+    - service: switch.turn_on
+      entity_id:
+        - switch.cover_state_chambre_1
+        - switch.cover_state_chambre_2
 
 #########################################################
 # End                                                   #

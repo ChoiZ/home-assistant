@@ -1,3 +1,7 @@
+#########################################################
+# Script: Close bedroom shutter                         #
+#########################################################
+
 close_bedroom_shutter:
   alias: "close bedroom shutter"
   sequence:
@@ -17,7 +21,11 @@ close_bedroom_shutter:
     data_template:
       entity_id: "{{ cover_entity_id }}"
 
-open_cover:
+#########################################################
+# Script: Open shutter                                  #
+#########################################################
+
+open_shutter:
   sequence:
     - service: notify.pushbullet
       data_template:
@@ -30,7 +38,11 @@ open_cover:
       data_template:
         entity_id: "{{ input_boolean_entity_id }}"
 
-close_cover:
+#########################################################
+# Script: Close shutter                                 #
+#########################################################
+
+close_shutter:
   sequence:
     - service: notify.pushbullet
       data_template:
@@ -43,8 +55,11 @@ close_cover:
       data_template:
         entity_id: "{{ input_boolean_entity_id }}"
 
+#########################################################
+# Script: Test Pushbullet notification                  #
+#########################################################
+
 test_pushbullet:
-  alias: 'test pushbullet'
   sequence:
   - service: notify.pushbullet
     data:
@@ -52,3 +67,7 @@ test_pushbullet:
       message: This is a notification via pushbullet
       data:
         file_url: http://img.gawkerassets.com/img/17ur6gzij8qbsjpg/original.jpg
+
+#########################################################
+# End                                                   #
+#########################################################
