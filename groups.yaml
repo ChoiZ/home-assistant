@@ -1,3 +1,7 @@
+#########################################################
+# Group: Alarm clock                                    #
+#########################################################
+
 alarm_clock:
   name: "Alarm Clock"
   entities:
@@ -5,3 +9,7 @@ alarm_clock:
   - input_number.alarm_clock_hour
   - input_number.alarm_clock_minute
   - input_boolean.alarm_clock_status
+
+#########################################################
+# End                                                   #
+#########################################################
