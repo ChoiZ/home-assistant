@@ -4,12 +4,12 @@
       friendly_name: "volet salon (bas)"
       value_template: "{% if is_state('input_boolean.cover_salon_bas', 'on') %}True{% else %}False{% endif %}"
       turn_on:
-        service: script.open_cover
+        service: script.open_shutter
         data:
           cover_entity_id: cover.salon_bas
           input_boolean_entity_id: input_boolean.cover_salon_bas
       turn_off:
-        service: script.close_cover
+        service: script.close_shutter
         data:
           cover_entity_id: cover.salon_bas
           input_boolean_entity_id: input_boolean.cover_salon_bas
@@ -24,12 +24,12 @@
       friendly_name: "volet salon (haut)"
       value_template: "{% if is_state('input_boolean.cover_salon_haut', 'on') %}True{% else %}False{% endif %}"
       turn_on:
-        service: script.open_cover
+        service: script.open_shutter
         data:
           cover_entity_id: cover.salon_haut
           input_boolean_entity_id: input_boolean.cover_salon_haut
       turn_off:
-        service: script.close_cover
+        service: script.close_shutter
         data:
           cover_entity_id: cover.salon_haut
           input_boolean_entity_id: input_boolean.cover_salon_haut
@@ -44,12 +44,12 @@
       friendly_name: "volet cuisine"
       value_template: "{% if is_state('input_boolean.cover_cuisine', 'on') %}True{% else %}False{% endif %}"
       turn_on:
-        service: script.open_cover
+        service: script.open_shutter
         data:
           cover_entity_id: cover.cuisine
           input_boolean_entity_id: input_boolean.cover_cuisine
       turn_off:
-        service: script.close_cover
+        service: script.close_shutter
         data:
           cover_entity_id: cover.cuisine
           input_boolean_entity_id: input_boolean.cover_cuisine
@@ -64,7 +64,7 @@
       friendly_name: "volet chambre 1"
       value_template: "{% if is_state('input_boolean.cover_chambre_1', 'on') %}True{% else %}False{% endif %}"
       turn_on:
-        service: script.open_cover
+        service: script.open_shutter
         data:
           cover_entity_id: cover.chambre_1
           input_boolean_entity_id: input_boolean.cover_chambre_1
@@ -84,7 +84,7 @@
       friendly_name: "volet chambre 2"
       value_template: "{% if is_state('input_boolean.cover_chambre_2', 'on') %}True{% else %}False{% endif %}"
       turn_on:
-        service: script.open_cover
+        service: script.open_shutter
         data:
           cover_entity_id: cover.chambre_2
           input_boolean_entity_id: input_boolean.cover_chambre_2

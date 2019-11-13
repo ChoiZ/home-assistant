@@ -1,6 +1,15 @@
+#########################################################
+# Sensor: time                                          #
+#########################################################
+
 - platform: time_date
   display_options:
     - 'time'
+
+#########################################################
+# Sensor: History living room light                     #
+#########################################################
+
 - platform: history_stats
   name: "historique lumière salon"
   entity_id: switch.0220052668c63aac1fc7
@@ -8,6 +17,11 @@
   type: time
   start: '{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}'
   end: '{{ now() }}'
+
+#########################################################
+# Sensor: History coffee machine power supply           #
+#########################################################
+
 - platform: history_stats
   name: "historique alimentation cafetière"
   entity_id: switch.002009152c3ae81bacf6
@@ -15,6 +29,11 @@
   type: time
   start: '{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}'
   end: '{{ now() }}'
+
+#########################################################
+# Sensor: History freebox tv power supply               #
+#########################################################
+
 - platform: history_stats
   name: "historique alimentation freebox mini 4k"
   entity_id: switch.03200172dc4f22245507
@@ -22,36 +41,107 @@
   type: time
   start: '{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}'
   end: '{{ now() }}'
+
+#########################################################
+# Sensor: template                                      #
+#########################################################
+
 - platform: template
   sensors:
+
     alarm_clock_hour:
-      value_template: '{{ states.input_number.alarm_clock_hour.state | int }}'
+      value_template: "{{ states.input_number.alarm_clock_hour.state | int }}"
+
     alarm_clock_minute:
-      value_template: '{{ states.input_number.alarm_clock_minute.state | int }}'
+      value_template: "{{ states.input_number.alarm_clock_minute.state | int }}"
+
     alarm_clock_time:
-      value_template: '{{ states.sensor.alarm_clock_hour.state }}:
+      value_template: "{{ states.sensor.alarm_clock_hour.state }}:
         {%- if states.sensor.alarm_clock_minute.state|length == 1 -%}
           0
         {%- endif -%}
-          {{ states.sensor.alarm_clock_minute.state }}'
+          {{ states.sensor.alarm_clock_minute.state }}"
+
     alarm_clock_time_long:
-      value_template: '{% if states.sensor.alarm_clock_hour.state|length == 1 -%}
+      value_template: "{% if states.sensor.alarm_clock_hour.state|length == 1 -%}
           0
         {%- endif -%}
         {{ states.sensor.alarm_clock_hour.state }}:
         {%- if states.sensor.alarm_clock_minute.state|length == 1 -%}
           0
         {%- endif -%}
-          {{ states.sensor.alarm_clock_minute.state }}'
+          {{ states.sensor.alarm_clock_minute.state }}"
+
+    temp_sensor_chambre_1:
+      friendly_name: "batterie capteur température chambre 1"
+      unit_of_measurement: "%"
+      value_template: "{{ state_attr('sensor.temperature_158d00044b4d7d', 'battery_level') }}"
+
     bouton_chambre_1:
-      friendly_name: "baterie bouton chambre 1"
-      unit_of_measurement: '%'
+      friendly_name: "batterie bouton chambre 1"
+      unit_of_measurement: "%"
       value_template: "{{ state_attr('binary_sensor.switch_158d00033e8984', 'battery_level') }}"
+
+    window_chambre_1:
+      friendly_name: "batterie fenêtre chambre 1"
+      unit_of_measurement: "%"
+      value_template: "{{ state_attr('binary_sensor.door_window_sensor_158d0003f41fe9', 'battery_level') }}"
+
+    temp_sensor_chambre_2:
+      friendly_name: "batterie capteur température chambre 2"
+      unit_of_measurement: "%"
+      value_template: "{{ state_attr('sensor.temperature_158d00036b45e1', 'battery_level') }}"
+
     bouton_chambre_2:
-      friendly_name: "baterie bouton chambre 2"
-      unit_of_measurement: '%'
+      friendly_name: "batterie bouton chambre 2"
+      unit_of_measurement: "%"
       value_template: "{{ state_attr('binary_sensor.switch_158d00033ef6d8', 'battery_level') }}"
+
+    window_chambre_2:
+      friendly_name: "batterie fenêtre chambre 2"
+      unit_of_measurement: "%"
+      value_template: "{{ state_attr('binary_sensor.door_window_sensor_158d0003f4baa8', 'battery_level') }}"
+
+    temp_sensor_bathroom:
+      friendly_name: "batterie capteur température salle de bain"
+      unit_of_measurement: "%"
+      value_template: "{{ state_attr('sensor.temperature_158d00044592d5', 'battery_level') }}"
+
+    temp_sensor_shower_room:
+      friendly_name: "batterie capteur température salle d'eau"
+      unit_of_measurement: "%"
+      value_template: "{{ state_attr('sensor.temperature_158d0004102ae1', 'battery_level') }}"
+
+    temp_sensor_living_room:
+      friendly_name: "batterie capteur température salon"
+      unit_of_measurement: "%"
+      value_template: "{{ state_attr('sensor.temperature_158d00044acc21', 'battery_level') }}"
+
+    window_living_room:
+      friendly_name: "batterie fenêtre salon"
+      unit_of_measurement: "%"
+      value_template: "{{ state_attr('binary_sensor.door_window_sensor_158d00039fe3a9', 'battery_level') }}"
+
     bouton_cuisine:
-      friendly_name: "baterie bouton cuisine"
-      unit_of_measurement: '%'
+      friendly_name: "batterie bouton cuisine"
+      unit_of_measurement: "%"
       value_template: "{{ state_attr('binary_sensor.switch_158d00035a995a', 'battery_level') }}"
+
+    temp_sensor_kitchen:
+      friendly_name: "batterie capteur température cuisine"
+      unit_of_measurement: "%"
+      value_template: "{{ state_attr('sensor.temperature_158d00033b0bd7', 'battery_level') }}"
+
+    window_kitchen:
+      friendly_name: "batterie fenêtre salle à manger"
+      unit_of_measurement: "%"
+      value_template: "{{ state_attr('binary_sensor.door_window_sensor_158d0003a0f809', 'battery_level') }}"
+
+    door_entrance:
+      friendly_name: "batterie porte d'entrée"
+      unit_of_measurement: "%"
+      value_template: "{{ state_attr('binary_sensor.door_window_sensor_158d0003f4ba8d', 'battery_level') }}"
+
+#########################################################
+# End                                                   #
+#########################################################
