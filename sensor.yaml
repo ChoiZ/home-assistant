@@ -7,6 +7,66 @@
     - 'time'
 
 #########################################################
+# Sensor: Average house humidity                        #
+#########################################################
+
+- platform: min_max
+  name: Average house humidity
+  type: mean
+  entity_ids:
+    - sensor.humidity_158d00033b0bd7
+    - sensor.humidity_158d00036b45e1
+    - sensor.humidity_158d0004102ae1
+    - sensor.humidity_158d00044592d5
+    - sensor.humidity_158d00044acc21
+    - sensor.humidity_158d00044b4d7d
+
+#########################################################
+# Sensor: Average house temperature                     #
+#########################################################
+
+- platform: min_max
+  name: Average house temperature
+  type: mean
+  entity_ids:
+    - sensor.temperature_158d00033b0bd7
+    - sensor.temperature_158d00036b45e1
+    - sensor.temperature_158d0004102ae1
+    - sensor.temperature_158d00044592d5
+    - sensor.temperature_158d00044acc21
+    - sensor.temperature_158d00044b4d7d
+
+#########################################################
+# Sensor: Max humidity in house                         #
+#########################################################
+
+- platform: min_max
+  name: Max humidity in house
+  type: max
+  entity_ids:
+    - sensor.humidity_158d00033b0bd7
+    - sensor.humidity_158d00036b45e1
+    - sensor.humidity_158d0004102ae1
+    - sensor.humidity_158d00044592d5
+    - sensor.humidity_158d00044acc21
+    - sensor.humidity_158d00044b4d7d
+
+#########################################################
+# Sensor: Max temperature in house                      #
+#########################################################
+
+- platform: min_max
+  name: Max temperature in home
+  type: max
+  entity_ids:
+    - sensor.temperature_158d00033b0bd7
+    - sensor.temperature_158d00036b45e1
+    - sensor.temperature_158d0004102ae1
+    - sensor.temperature_158d00044592d5
+    - sensor.temperature_158d00044acc21
+    - sensor.temperature_158d00044b4d7d
+
+#########################################################
 # Sensor: History living room light                     #
 #########################################################
 
