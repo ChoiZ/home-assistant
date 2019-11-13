@@ -1,6 +1,14 @@
+#########################################################
+# Input select: Alarm clock action                      #
+#########################################################
+
 alarm_clock_action:
   name: alarm action
   options:
     - ouvrir le volet
     - allumer la lumière
   initial: ouvrir le volet
+
+#########################################################
+# End                                                   #
+#########################################################
