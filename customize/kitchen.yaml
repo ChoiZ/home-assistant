@@ -1,0 +1,22 @@
+#########################################################
+# Kitchen                                               #
+#########################################################
+
+sensor.temperature_158d00033b0bd7:
+  friendly_name: température cuisine
+sensor.humidity_158d00033b0bd7:
+  friendly_name: humidité cuisine
+switch.50052752dc4f22e16c99:
+  friendly_name: lumière salle à manger
+  icon: mdi:lightbulb
+binary_sensor.door_window_sensor_158d0003a0f809:
+  friendly_name: fenêtre salle à manger
+  icon: mdi:window-closed
+binary_sensor.switch_158d00035a995a:
+  friendly_name: bouton cuisine
+binary_sensor.smoke_sensor_158d000399007e:
+  friendly_name: détecteur de fumée cuisine
+
+#########################################################
+# End                                                   #
+#########################################################

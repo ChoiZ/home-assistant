@@ -1,0 +1,18 @@
+#########################################################
+# Bedroom 2                                             #
+#########################################################
+
+sensor.temperature_158d00036b45e1:
+  friendly_name: température chambre 2
+sensor.humidity_158d00036b45e1:
+  friendly_name: humidité chambre 2
+switch.50052752dc4f22e1706a:
+  friendly_name: lumière chambre 2
+  icon: mdi:lightbulb
+binary_sensor.door_window_sensor_158d0003f4baa8:
+  friendly_name: fenêtre chambre 2
+  icon: mdi:window-closed
+
+#########################################################
+# End                                                   #
+#########################################################

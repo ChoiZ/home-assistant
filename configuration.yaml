@@ -1,6 +1,6 @@
-####################################################
-#                 HOME ASSISTANT                   #
-####################################################
+#########################################################
+# Home Assistant                                        #
+#########################################################
 
 homeassistant:
    elevation: 5
@@ -9,7 +9,7 @@ homeassistant:
    name: 'Casa'
    time_zone: 'Europe/Paris'
    unit_system: 'metric'
-   customize: !include customize.yaml
+   customize: !include_dir_merge_named customize
 
 # Configure a default setup of Home Assistant (frontend, api, etc)
 default_config:
@@ -42,3 +42,7 @@ xiaomi_aqara: !include third_party/xiaomi.yaml
 input_boolean: !include_dir_merge_named input_boolean
 input_number: !include_dir_merge_named input_number
 input_select: !include_dir_merge_named input_select
+
+####################################################
+# End                                              #
+####################################################

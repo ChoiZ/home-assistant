@@ -1,0 +1,23 @@
+#########################################################
+# Living room                                           #
+#########################################################
+
+sensor.temperature_158d00044acc21:
+  friendly_name: température salon
+sensor.humidity_158d00044acc21:
+  friendly_name: humidité salon
+binary_sensor.door_window_sensor_158d00039fe3a9:
+  friendly_name: fenêtre salon
+  icon: mdi:window-closed
+switch.0220052668c63aac1fc7:
+  friendly_name: lumière salon
+  icon: mdi:lightbulb
+light.gateway_light_04cf8cb87b01:
+  friendly_name: gateway xiaomi
+  icon: mdi:lightbulb
+sensor.illumination_04cf8cb87b01:
+  friendly_name: capteur luminosité
+
+#########################################################
+# End                                                   #
+#########################################################

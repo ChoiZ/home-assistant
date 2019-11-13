@@ -1,0 +1,15 @@
+#########################################################
+# Entrance                                              #
+#########################################################
+
+binary_sensor.door_window_sensor_158d0003f4ba8d:
+  friendly_name: porte d'entrée
+  icon: mdi:door-closed
+binary_sensor.motion_sensor_158d00044993aa:
+  friendly_name: détecteur de mouvement entrée
+sensor.illumination_158d00044993aa:
+  friendly_name: capteur luminosité
+
+#########################################################
+# End                                                   #
+#########################################################
