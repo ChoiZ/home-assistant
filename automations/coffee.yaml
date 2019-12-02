@@ -1,14 +1,14 @@
 #########################################################
-# Stop coffee machine after 10mn                        #
-#########################################################
+# Stop coffee machine after 5mn                         #
+########################################################
 
-- alias: turn off coffee machine after 10mn on
+- alias: turn off coffee machine after 5mn on
   trigger:
     - platform: state
       entity_id: switch.002009152c3ae81bacf6
       to: 'on'
       for:
-        minutes: 10
+        minutes: 5
   action:
     - service: switch.turn_off
       entity_id: switch.002009152c3ae81bacf6
