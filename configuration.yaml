@@ -17,6 +17,9 @@ default_config:
 # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
 # http:
 #   base_url: example.duckdns.org:8123
+http:
+  base_url: !secret base_url
+
 
 # Text to speech
 tts:
@@ -27,18 +30,24 @@ automation: !include_dir_merge_list automations
 script: !include scripts.yaml
 
 device_tracker: !include device_tracker.yaml
+linky: !include linky.yaml
 notify: !include notify.yaml
 sensor: !include sensor.yaml
 switch: !include switch.yaml
+mqtt: !include mqtt.yaml
+media_player: !include media_player.yaml
+owntracks: !include ontracks.yaml
+zone: !include zone.yaml
 
 # third party
 cover: !include cover.yaml
 rfxtrx:
-  device: /dev/ttyUSB1
+  device: /dev/ttyUSB0
 tuya: !include third_party/tuya.yaml
 xiaomi_aqara: !include third_party/xiaomi.yaml
 
 # input (bool, number…)
+binary_sensor: !include_dir_merge_list binary_sensor
 input_boolean: !include_dir_merge_named input_boolean
 input_number: !include_dir_merge_named input_number
 input_select: !include_dir_merge_named input_select
