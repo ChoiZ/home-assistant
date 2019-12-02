@@ -10,6 +10,14 @@ alarm_clock:
   - input_number.alarm_clock_minute
   - input_boolean.alarm_clock_status
 
+music_spotify:
+  name: Music
+  entities:
+  - input_select.spotify_playlist
+  - input_select.spotify_source
+  - script.spotify_music
+  - input_slider.spotify_volume
+
 #########################################################
 # End                                                   #
 #########################################################

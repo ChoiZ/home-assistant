@@ -5,7 +5,7 @@
 close_bedroom_shutter:
   alias: "close bedroom shutter"
   sequence:
-  - service: notify.pushbullet
+  - service: notify.slack
     data_template:
         title: "close bedroom shutter"
         message: "fermeture {{ cover_entity_id }}"
@@ -27,7 +27,7 @@ close_bedroom_shutter:
 
 open_shutter:
   sequence:
-    - service: notify.pushbullet
+    - service: notify.slack
       data_template:
         title: "ouverture volet"
         message: "ouverture {{ cover_entity_id }}"
@@ -44,7 +44,7 @@ open_shutter:
 
 close_shutter:
   sequence:
-    - service: notify.pushbullet
+    - service: notify.slack
       data_template:
         title: "fermeture volet"
         message: "fermeture {{ cover_entity_id }}"
@@ -55,18 +55,38 @@ close_shutter:
       data_template:
         entity_id: "{{ input_boolean_entity_id }}"
 
-#########################################################
-# Script: Test Pushbullet notification                  #
-#########################################################
+###
+# Spotify
+###
 
-test_pushbullet:
+spotify_music:
+  alias: Play selected spotify playlist
   sequence:
-  - service: notify.pushbullet
-    data:
-      title: TEST ALERT!
-      message: This is a notification via pushbullet
+    - service: media_player.volume_set
       data:
-        file_url: http://img.gawkerassets.com/img/17ur6gzij8qbsjpg/original.jpg
+        entity_id: media_player.spotify
+        volume_level: '0.4'
+    - service: media_player.select_source
+      data_template:
+        entity_id: media_player.spotify
+        source: >
+          {% if is_state("input_select.spotify_source", "tatooine") %}
+            tatooine
+          {% elif is_state("input_select.spotify_source", "mpd") %}
+            mpd
+          {% endif %}
+    - service: media_player.play_media
+      data_template:
+        entity_id: media_player.spotify
+        media_content_type: playlist
+        media_content_id: >
+          {% if is_state("input_select.spotify_playlist", "2k10") %}
+            spotify:user:choizmac:playlist:7peHM8KdQAgZFuLuW7QJ0w
+          {% elif is_state("input_select.spotify_playlist", "90s") %}
+            spotify:user:choizmac:playlist:4WnoRFHYJRaxaVxAafxRRh
+          {% elif is_state("input_select.spotify_playlist", "jazzy") %}
+            spotify:user:choizmac:playlist:2UnTrwYnQusHyX4HvfA0Cb
+          {% endif %}
 
 #########################################################
 # End                                                   #

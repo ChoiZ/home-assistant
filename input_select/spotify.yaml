@@ -1,0 +1,27 @@
+#########################################################
+# Input select: Spotify source                          #
+#########################################################
+
+spotify_source:
+  name: 'Source:'
+  initial: tatooine
+  icon: mdi:speaker-wireless
+  options:
+    - mpd
+    - tatooine
+
+#########################################################
+# Input select: Spotify playlist                        #
+#########################################################
+
+spotify_playlist:
+  name: 'Playlist:'
+  icon: mdi:spotify
+  options:
+    - 2k10
+    - 90s
+    - jazzy
+
+#########################################################
+# End                                                   #
+#########################################################
