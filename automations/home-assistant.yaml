@@ -1,30 +1,30 @@
 #########################################################
-# Home Assistant Start                                  #
+# Home-Assistant Start                                  #
 #########################################################
 
-- alias: Home Assistant Started
+- alias: Home-Assistant Started
   trigger:
     - platform: homeassistant
       event: start
   action:
-    - service: notify.pushbullet
+    - service: notify.slack
       data:
-        title: "Home Assistant Started"
-        message: "Home Assistant Has Started"
+        title: "Home-Assistant Started"
+        message: "Home-Assistant Has Started"
 
 #########################################################
-# Home Assistant Stop                                   #
+# Home-Assistant Stop                                   #
 #########################################################
 
-- alias: Home Assistant Stopped
+- alias: Home-Assistant Stopped
   trigger:
     - platform: homeassistant
       event: shutdown
   action:
-    - service: notify.pushbullet
+    - service: notify.slack
       data:
-        title: "Home Assistant Stopped"
-        message: "Home Assistant Has Stopped"
+        title: "Home-Assistant Stopped"
+        message: "Home-Assistant Has Stopped"
 
 #########################################################
 # Sensor for low battery                                #
@@ -40,9 +40,9 @@
         - sensor.bouton_cuisine
       below: 20
   action:
-    - service: notify.pushbullet
+    - service: notify.slack
       data_template:
-        title: "Home Assistant Device Battery Low"
+        title: "Home-Assistant Device Battery Low"
         message: " The battery for {{ trigger.to_state.attributes.friendly_name }} is below 20 percent."
 
 #########################################################
