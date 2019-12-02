@@ -1,15 +1,15 @@
 #########################################################
-# Sunset +30mn close all shutters                       #
+# Sunset +10mn close all shutters                       #
 #########################################################
 
-- alias: "Sunset +30mn close all shutters"
+- alias: "Sunset +10mn close all shutters"
   trigger:
     - platform: sun
       event: sunset
-      offset: '+00:30:00'
+      offset: '+00:10:00'
   condition:
     - condition: time
-      after: '17:00:00'
+      after: '16:00:00'
       before: '23:00:00'
   action:
     - service: switch.turn_off
@@ -18,6 +18,23 @@
         - switch.cover_state_salon_bas
         - switch.cover_state_salon_haut
         - switch.cover_state_chambre_1
+
+#########################################################
+# Sunset +12mn close bedroom shutter                    #
+#########################################################
+
+- alias: "Sunset +12mn close bedroom shutter"
+  trigger:
+    - platform: sun
+      event: sunset
+      offset: '+00:12:00'
+  condition:
+    - condition: time
+      after: '16:00:00'
+      before: '23:00:00'
+  action:
+    - service: switch.turn_off
+      entity_id:
         - switch.cover_state_chambre_2
 
 #########################################################
