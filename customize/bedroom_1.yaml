@@ -12,6 +12,8 @@ switch.28438258600194a573f3:
 binary_sensor.door_window_sensor_158d0003f41fe9:
   friendly_name: fenêtre chambre 1
   icon: mdi:window-closed
+binary_sensor.switch_158d00033e8984:
+  friendly_name: bouton chambre 1
 
 #########################################################
 # End                                                   #
