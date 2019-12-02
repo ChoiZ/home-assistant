@@ -1,5 +1,7 @@
 .HA_VERSION
+.spotify-token-cache
 .storage
 home-assistant.log
 home-assistant_v2.db
 secrets.yaml
+zone.yaml

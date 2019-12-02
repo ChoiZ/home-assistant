@@ -7,5 +7,16 @@
   api_key: !secret pushbullet_api
 
 #########################################################
+# Notify: slack                                         #
+#########################################################
+
+- platform: slack
+  name: slack
+  api_key: !secret slack_api
+  default_channel: !secret slack_channel
+  user: home-assistant
+  icon: home-assistant
+
+#########################################################
 # End                                                   #
 #########################################################

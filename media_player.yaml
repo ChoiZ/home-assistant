@@ -1,0 +1,13 @@
+- platform: spotify
+  client_id: !secret spotify_client_id
+  client_secret: !secret spotify_client_secret
+- platform: mpd
+  host: !secret mpd_nas_host
+  port: !secret mpd_nas_port
+  name: nas
+- platform: mpd
+  host: !secret mpd_tatooine_host
+  port: !secret mpd_tatooine_port
+  name: tatooine
+- platform: snapcast
+  host: !secret mpd_nas_host

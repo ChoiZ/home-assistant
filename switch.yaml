@@ -1,3 +1,8 @@
+- platform: broadlink
+  host: !secret broadlink_host
+  mac: !secret broadlink_mac
+  type: !secret broadlink_type
+
 - platform: template
   switches:
     cover_state_salon_bas:
