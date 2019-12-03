@@ -81,28 +81,6 @@
         - switch.cover_state_salon_haut
 
 #########################################################
-# Open all shutters in first floor at 10am (weekday)    #
-#########################################################
-
-- alias: "Open all shutters in first floor at 10am (weekday)"
-  trigger:
-    - platform: time
-      at: '10:00:00'
-  condition:
-    - condition: time
-      weekday:
-        - mon
-        - tue
-        - wed
-        - thu
-        - fri
-  action:
-    - service: switch.turn_on
-      entity_id:
-        - switch.cover_state_chambre_1
-        - switch.cover_state_chambre_2
-
-#########################################################
 # Open all shutters in first floor at 10:30am (weekend) #
 #########################################################
 
