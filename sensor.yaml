@@ -163,6 +163,11 @@
       unit_of_measurement: "%"
       value_template: "{{ state_attr('binary_sensor.switch_158d00033ef6d8', 'battery_level') }}"
 
+    cube_chambre_2:
+      friendly_name: "batterie cube chambre 2"
+      unit_of_measurement: "%"
+      value_template: "{{ state_attr('binary_sensor.cube_158d00029b46d6', 'battery_level') }}"
+
     window_chambre_2:
       friendly_name: "batterie fenêtre chambre 2"
       unit_of_measurement: "%"
