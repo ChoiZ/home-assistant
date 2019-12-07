@@ -1,6 +1,4 @@
 #########################################################
-# Button bedroom 1 - one click: toggle light            #
-#########################################################
 
 - alias: "Button bedroom 1 - one click: toggle light"
   trigger:
@@ -14,8 +12,6 @@
       entity_id: switch.28438258600194a573f3
 
 #########################################################
-# Button bedroom 1 - long press: toggle shutters        #
-#########################################################
 
 - alias: "Button bedroom 1 - long press: toggle shutters"
   trigger:
@@ -28,6 +24,4 @@
     - service: switch.toggle
       entity_id: switch.cover_state_chambre_1
 
-#########################################################
-# End                                                   #
 #########################################################
