@@ -1,0 +1,86 @@
+#########################################################
+
+- alias: François is at home
+  trigger:
+    - platform: state
+      entity_id: device_tracker.francois_phone_ip
+      to: 'home'
+  action:
+    - service: input_select.select_option
+      entity_id: input_select.house_mode
+      data:
+        option: 'Home'
+
+#########################################################
+
+- alias: Geraldine is at home
+  trigger:
+    - platform: state
+      entity_id: device_tracker.geraldine_phone_ip
+      to: 'home'
+  action:
+    - service: input_select.select_option
+      entity_id: input_select.house_mode
+      data:
+        option: 'Home'
+
+#########################################################
+
+- alias: Set Night mode
+  trigger:
+    - platform: state
+      entity_id: input_select.house_mode
+      to: 'Night'
+  action:
+    - service: switch.turn_off
+      entity_id:
+        - switch.03200172dc4f22245507 # freebox
+        - switch.64680137bcddc2542a40 # alimentation tv
+        - switch.0220052668c63aac1fc7 # lumière salon
+        - switch.50052752dc4f22e1706a # lumière chambre 2
+
+#########################################################
+
+- alias: Phone set night mode via phone 1
+  trigger:
+    - platform: state
+      entity_id: device_tracker.francois_phone_ip
+      to: 'not_home'
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: device_tracker.choiz_phone
+        state: 'home'
+      - condition: state
+        entity_id: device_tracker.geraldine_phone_ip
+        state: 'not_home'
+  action:
+    - service: input_select.select_option
+      entity_id: input_select.house_mode
+      data:
+        option: 'Night'
+
+#########################################################
+
+- alias: Phone set night mode via phone 2
+  trigger:
+    - platform: state
+      entity_id: device_tracker.geraldine_phone_ip
+      to: 'not_home'
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: device_tracker.choiz_phone
+        state: 'home'
+      - condition: state
+        entity_id: device_tracker.francois_phone_ip
+        state: 'not_home'
+  action:
+    - service: input_select.select_option
+      entity_id: input_select.house_mode
+      data:
+        option: 'Night'
+
+#########################################################

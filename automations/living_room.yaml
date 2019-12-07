@@ -1,0 +1,46 @@
+#########################################################
+
+- alias: Someone is in the living room
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.motion_sensor_158d00044d007b
+      to: 'on'
+  condition:
+    condition: or
+    conditions:
+      - condition: numeric_state
+        entity_id: sensor.illumination_158d00044d007b # salon
+        below: '20'
+      - condition: and
+        conditions:
+          - condition: state
+            entity_id: switch.cover_state_salon_haut
+            state: 'off'
+          - condition: state
+            entity_id: switch.cover_state_salon_bas
+            state: 'off'
+  action:
+    - service: switch.turn_on
+      entity_id: switch.0220052668c63aac1fc7
+
+#########################################################
+
+- alias: Nobody is in the living room
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.motion_sensor_158d00044d007b
+      to: 'off'
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: switch.64680137bcddc2542a40
+        state: 'off'
+      - condition: state
+        entity_id: binary_sensor.ping_tv
+        state: 'off'
+  action:
+    - service: switch.turn_off
+      entity_id: switch.0220052668c63aac1fc7
+
+#########################################################

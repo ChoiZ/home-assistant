@@ -1,0 +1,31 @@
+#########################################################
+
+- alias: Someone enter home
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.motion_sensor_158d00044993aa
+      to: 'on'
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: binary_sensor.door_window_sensor_158d0003f4ba8d
+        state: 'on'
+      - condition: or
+        conditions:
+          - condition: numeric_state
+            entity_id: sensor.illumination_158d00044d007b # salon
+            below: '20'
+          - condition: and
+            conditions:
+              - condition: state
+                entity_id: switch.cover_state_salon_haut
+                state: 'off'
+              - condition: state
+                entity_id: switch.cover_state_salon_bas
+                state: 'off'
+  action:
+    - service: switch.turn_on
+      entity_id: switch.0220052668c63aac1fc7
+
+#########################################################

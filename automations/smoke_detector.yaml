@@ -1,6 +1,4 @@
 #########################################################
-# Start detecting smoke                                 #
-#########################################################
 
 - alias: Start detecting smoke
   trigger:
@@ -18,8 +16,6 @@
         message: "Home-Assistant Smoke detected"
 
 #########################################################
-# Finished detecting smoke                              #
-#########################################################
 
 - alias: Finished detecting smoke
   trigger:
@@ -32,6 +28,4 @@
         title: "Home-Assistant Detect smoke Finished"
         message: "Home-Assistant Smoke detected Finished"
 
-#########################################################
-# End                                                   #
 #########################################################

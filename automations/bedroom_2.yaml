@@ -1,0 +1,45 @@
+#########################################################
+
+- alias: Someone is in the bedroom 2
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.motion_sensor_158d0003faef01
+      to: 'on'
+  condition:
+    condition: or
+    conditions:
+      - condition: and
+        conditions:
+          - condition: numeric_state
+            entity_id: sensor.illumination_158d0003faef01
+            below: '20'
+          - condition: state
+            entity_id: input_select.house_mode
+            state: 'Home'
+          - condition: state
+            entity_id: switch.cover_state_chambre_2
+            state: 'on'
+      - condition: and
+        conditions:
+          - condition: state
+            entity_id: input_select.house_mode
+            state: 'Home'
+          - condition: state
+            entity_id: switch.cover_state_chambre_2
+            state: 'off'
+  action:
+    - service: switch.turn_on
+      entity_id: switch.50052752dc4f22e1706a
+
+#########################################################
+
+- alias: Nobody is in the bedroom 2
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.motion_sensor_158d0003faef01
+      to: 'off'
+  action:
+    - service: switch.turn_off
+      entity_id: switch.50052752dc4f22e1706a
+
+#########################################################

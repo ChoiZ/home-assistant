@@ -1,0 +1,32 @@
+#########################################################
+
+- alias: Someone is in the office and tv don't ping switch off the tv power
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.motion_sensor_158d0003f3cd60
+      to: 'on'
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: switch.64680137bcddc2542a40
+        state: 'on'
+      - condition: state
+        entity_id: binary_sensor.ping_tv
+        state: 'off'
+  action:
+    - service: switch.turn_off
+      entity_id: switch.64680137bcddc2542a40
+
+#########################################################
+
+#- alias: Nobody is in the office
+#  trigger:
+#    - platform: state
+#      entity_id: binary_sensor.motion_sensor_158d0003f3cd60
+#      to: 'off'
+  #action:
+  #  - service: switch.turn_off
+  #    entity_id: switch.0220052668c63aac1fc7
+
+#########################################################

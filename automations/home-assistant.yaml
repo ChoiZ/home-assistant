@@ -1,6 +1,4 @@
 #########################################################
-# Home-Assistant Start                                  #
-#########################################################
 
 - alias: Home-Assistant Started
   trigger:
@@ -13,8 +11,6 @@
         message: "Home-Assistant Has Started"
 
 #########################################################
-# Home-Assistant Stop                                   #
-#########################################################
 
 - alias: Home-Assistant Stopped
   trigger:
@@ -26,8 +22,6 @@
         title: "Home-Assistant Stopped"
         message: "Home-Assistant Has Stopped"
 
-#########################################################
-# Sensor for low battery                                #
 #########################################################
 
 - alias: "Sensor Low Battery"
@@ -50,13 +44,11 @@
         - sensor.bouton_chambre_2
         - sensor.bouton_cuisine
         - sensor.cube_chambre_2
-      below: 25
+      below: 19
   action:
     - service: notify.slack
       data_template:
         title: "Home-Assistant Device Battery Low"
-        message: " The battery for {{ trigger.to_state.attributes.friendly_name }} is below 25 percent."
+        message: "@channel The battery for {{ trigger.to_state.attributes.friendly_name }} is below {{ trigger.below }} percent."
 
-#########################################################
-# End                                                   #
 #########################################################

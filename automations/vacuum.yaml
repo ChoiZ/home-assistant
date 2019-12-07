@@ -1,0 +1,80 @@
+#########################################################
+
+- alias: Vacuum bedroom 1
+  trigger:
+    - platform: time
+      at: "12:00:00"
+  condition:
+    - condition: time
+      weekday:
+        - sat
+  action:
+    - service: vacuum.xiaomi_clean_zone
+      data_template:
+        entity_id: vacuum.xiaomi_vacuum_cleaner
+        repeats: '{{states('input_number.vacuum_passes')|int}}'
+        zone: [[21229,28870,24579,31870]]
+    - service: notify.slack
+      data:
+        title: "Vacuum start cleaning"
+        message: "Vacuum start cleaning bedroom 1"
+
+#########################################################
+
+- alias: Vacuum bedroom 2
+  trigger:
+    - platform: time
+      at: "13:00:00"
+  condition:
+    - condition: time
+      weekday:
+        - sat
+  action:
+    - service: vacuum.xiaomi_clean_zone
+      data_template:
+        entity_id: vacuum.xiaomi_vacuum_cleaner
+        repeats: '{{states('input_number.vacuum_passes')|int}}'
+        zone: [[20979,31722,24979,34822],[24286,30337,25386,32187]]
+    - service: notify.slack
+      data:
+        title: "Vacuum start cleaning"
+        message: "Vacuum start cleaning bedroom 2"
+
+#########################################################
+
+- alias: Vacuum bathroom
+  trigger:
+    - platform: time
+      at: "13:30:00"
+  condition:
+    - condition: time
+      weekday:
+        - sat
+  action:
+    - service: notify.slack
+      data:
+        title: "Vacuum start cleaning"
+        message: "@channel please check the bathroom door is open for cleaning it in 30mn"
+
+#########################################################
+
+- alias: Vacuum bathroom
+  trigger:
+    - platform: time
+      at: "14:00:00"
+  condition:
+    - condition: time
+      weekday:
+        - sat
+  action:
+    - service: vacuum.xiaomi_clean_zone
+      data_template:
+        entity_id: vacuum.xiaomi_vacuum_cleaner
+        repeats: '{{states('input_number.vacuum_passes')|int}}'
+        zone: [[20979,31722,24979,34822],[24286,30337,25386,32187]]
+    - service: notify.slack
+      data:
+        title: "Vacuum start cleaning"
+        message: "Vacuum start cleaning bathroom"
+
+#########################################################

@@ -1,6 +1,4 @@
 #########################################################
-# Sunset +10mn close all shutters                       #
-#########################################################
 
 - alias: "Sunset +10mn close all shutters"
   trigger:
@@ -20,8 +18,6 @@
         - switch.cover_state_chambre_1
 
 #########################################################
-# Sunset +12mn close bedroom shutter                    #
-#########################################################
 
 - alias: "Sunset +12mn close bedroom shutter"
   trigger:
@@ -37,8 +33,6 @@
       entity_id:
         - switch.cover_state_chambre_2
 
-#########################################################
-# Open all shutters in ground floor at 8am (weekday)    #
 #########################################################
 
 - alias: "Open all shutters in ground floor at 8am (weekday)"
@@ -61,8 +55,6 @@
         - switch.cover_state_salon_haut
 
 #########################################################
-# Open all shutters in ground floor at 10am (weekend)   #
-#########################################################
 
 - alias: "Open all shutters in ground floor at 10am (weekend)"
   trigger:
@@ -81,8 +73,6 @@
         - switch.cover_state_salon_haut
 
 #########################################################
-# Open all shutters in first floor at 10:30am (weekend) #
-#########################################################
 
 - alias: "Open all shutters in first floor at 10:30am (weekend)"
   trigger:
@@ -99,6 +89,4 @@
         - switch.cover_state_chambre_1
         - switch.cover_state_chambre_2
 
-#########################################################
-# End                                                   #
 #########################################################
