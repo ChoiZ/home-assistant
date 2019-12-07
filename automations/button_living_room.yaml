@@ -1,0 +1,28 @@
+#########################################################
+
+- alias: "living room - one click: toggle freebox"
+  trigger:
+    - platform: event
+      event_type: xiaomi_aqara.click
+      event_data:
+        entity_id: binary_sensor.switch_158d00033ef6d8
+        click_type: single
+  action:
+    - service: switch.toggle
+      entity_id: switch.03200172dc4f22245507
+
+#########################################################
+
+- alias: "living room - double click: toogle tv"
+  trigger:
+    - platform: event
+      event_type: xiaomi_aqara.click
+      event_data:
+        entity_id: binary_sensor.switch_158d00033ef6d8
+        #click_type: long_click_press
+        click_type: double
+  action:
+    - service: switch.toggle
+      entity_id: switch.64680137bcddc2542a40
+
+#########################################################
