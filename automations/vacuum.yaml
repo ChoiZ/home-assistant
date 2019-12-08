@@ -12,7 +12,7 @@
     - service: vacuum.xiaomi_clean_zone
       data_template:
         entity_id: vacuum.xiaomi_vacuum_cleaner
-        repeats: '{{states('input_number.vacuum_passes')|int}}'
+        repeats: "{{states('input_number.vacuum_passes')|int}}"
         zone: [[21229,28870,24579,31870]]
     - service: notify.slack
       data:
@@ -33,7 +33,7 @@
     - service: vacuum.xiaomi_clean_zone
       data_template:
         entity_id: vacuum.xiaomi_vacuum_cleaner
-        repeats: '{{states('input_number.vacuum_passes')|int}}'
+        repeats: "{{states('input_number.vacuum_passes')|int}}"
         zone: [[20979,31722,24979,34822],[24286,30337,25386,32187]]
     - service: notify.slack
       data:
@@ -70,7 +70,7 @@
     - service: vacuum.xiaomi_clean_zone
       data_template:
         entity_id: vacuum.xiaomi_vacuum_cleaner
-        repeats: '{{states('input_number.vacuum_passes')|int}}'
+        repeats: "{{states('input_number.vacuum_passes')|int}}"
         zone: [[20979,31722,24979,34822],[24286,30337,25386,32187]]
     - service: notify.slack
       data:
