@@ -1,3 +1,5 @@
+#########################################################
+
 cover_salon_haut:
   name: volet salon (haut)
 
@@ -12,3 +14,5 @@ cover_chambre_1:
 
 cover_chambre_2:
   name: volet chambre 2
+
+#########################################################

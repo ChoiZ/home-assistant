@@ -1,6 +1,4 @@
 #########################################################
-# Group: Alarm clock                                    #
-#########################################################
 
 alarm_clock:
   name: "Alarm Clock"
@@ -10,6 +8,8 @@ alarm_clock:
   - input_number.alarm_clock_minute
   - input_boolean.alarm_clock_status
 
+#########################################################
+
 music_spotify:
   name: Music
   entities:
@@ -18,6 +18,4 @@ music_spotify:
   - script.spotify_music
   - input_slider.spotify_volume
 
-#########################################################
-# End                                                   #
 #########################################################

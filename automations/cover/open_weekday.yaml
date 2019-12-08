@@ -1,0 +1,47 @@
+#########################################################
+
+- alias: "alarm clock"
+  trigger:
+    - platform: template
+      value_template: '{{ states.sensor.time.state == states.sensor.alarm_clock_time_long.state }}'
+  condition:
+    condition: and
+    conditions:
+      - condition: time
+        weekday:
+          - mon
+          - tue
+          - wed
+          - thu
+          - fri
+      - condition: state
+        entity_id: input_boolean.alarm_clock_status
+        state: 'on'
+  action:
+    - service: switch.turn_on
+      entity_id:
+        - switch.cover_state_chambre_1
+        - switch.cover_state_chambre_2
+
+#########################################################
+
+- alias: "Open all shutters in ground floor at 8am (weekday)"
+  trigger:
+    - platform: time
+      at: '08:00:00'
+  condition:
+    - condition: time
+      weekday:
+        - mon
+        - tue
+        - wed
+        - thu
+        - fri
+  action:
+    - service: switch.turn_on
+      entity_id:
+        - switch.cover_state_cuisine
+        - switch.cover_state_salon_bas
+        - switch.cover_state_salon_haut
+
+#########################################################

@@ -1,6 +1,4 @@
 #########################################################
-# Script: Close bedroom shutter                         #
-#########################################################
 
 close_bedroom_shutter:
   alias: "close bedroom shutter"
@@ -22,8 +20,6 @@ close_bedroom_shutter:
       entity_id: "{{ cover_entity_id }}"
 
 #########################################################
-# Script: Open shutter                                  #
-#########################################################
 
 open_shutter:
   sequence:
@@ -39,8 +35,6 @@ open_shutter:
         entity_id: "{{ input_boolean_entity_id }}"
 
 #########################################################
-# Script: Close shutter                                 #
-#########################################################
 
 close_shutter:
   sequence:
@@ -55,9 +49,7 @@ close_shutter:
       data_template:
         entity_id: "{{ input_boolean_entity_id }}"
 
-###
-# Spotify
-###
+#########################################################
 
 spotify_music:
   alias: Play selected spotify playlist
@@ -88,6 +80,4 @@ spotify_music:
             spotify:user:choizmac:playlist:2UnTrwYnQusHyX4HvfA0Cb
           {% endif %}
 
-#########################################################
-# End                                                   #
 #########################################################

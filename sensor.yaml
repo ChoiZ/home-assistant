@@ -1,11 +1,7 @@
 #########################################################
-# Sensor: moon                                          #
-#########################################################
 
 - platform: moon
 
-#########################################################
-# Sensor: time                                          #
 #########################################################
 
 - platform: time_date
@@ -13,11 +9,9 @@
     - 'time'
 
 #########################################################
-# Sensor: Average house humidity                        #
-#########################################################
 
 - platform: min_max
-  name: Average house humidity
+  name: average home humidity
   type: mean
   entity_ids:
     - sensor.humidity_158d00033b0bd7
@@ -28,26 +22,9 @@
     - sensor.humidity_158d00044b4d7d
 
 #########################################################
-# Sensor: Average house temperature                     #
-#########################################################
 
 - platform: min_max
-  name: Average house temperature
-  type: mean
-  entity_ids:
-    - sensor.temperature_158d00033b0bd7
-    - sensor.temperature_158d00036b45e1
-    - sensor.temperature_158d0004102ae1
-    - sensor.temperature_158d00044592d5
-    - sensor.temperature_158d00044acc21
-    - sensor.temperature_158d00044b4d7d
-
-#########################################################
-# Sensor: Max humidity in house                         #
-#########################################################
-
-- platform: min_max
-  name: Max humidity in house
+  name: max home humidity
   type: max
   entity_ids:
     - sensor.humidity_158d00033b0bd7
@@ -58,11 +35,22 @@
     - sensor.humidity_158d00044b4d7d
 
 #########################################################
-# Sensor: Max temperature in house                      #
+
+- platform: min_max
+  name: average home temperature
+  type: mean
+  entity_ids:
+    - sensor.temperature_158d00033b0bd7
+    - sensor.temperature_158d00036b45e1
+    - sensor.temperature_158d0004102ae1
+    - sensor.temperature_158d00044592d5
+    - sensor.temperature_158d00044acc21
+    - sensor.temperature_158d00044b4d7d
+
 #########################################################
 
 - platform: min_max
-  name: Max temperature in home
+  name: max home temperature
   type: max
   entity_ids:
     - sensor.temperature_158d00033b0bd7
@@ -73,7 +61,31 @@
     - sensor.temperature_158d00044b4d7d
 
 #########################################################
-# Sensor: History living room light                     #
+
+- platform: min_max
+  name: average home illumination
+  type: mean
+  entity_ids:
+    - sensor.illumination_04cf8cb87b01
+    - sensor.illumination_158d0003f3cd60
+    - sensor.illumination_158d0003faef01
+    - sensor.illumination_158d00044993aa
+    - sensor.illumination_158d00044c67d5
+    - sensor.illumination_158d00044d007b
+
+#########################################################
+
+- platform: min_max
+  name: max home illumination
+  type: max
+  entity_ids:
+    - sensor.illumination_04cf8cb87b01
+    - sensor.illumination_158d0003f3cd60
+    - sensor.illumination_158d0003faef01
+    - sensor.illumination_158d00044993aa
+    - sensor.illumination_158d00044c67d5
+    - sensor.illumination_158d00044d007b
+
 #########################################################
 
 - platform: history_stats
@@ -85,8 +97,6 @@
   end: '{{ now() }}'
 
 #########################################################
-# Sensor: History coffee machine power supply           #
-#########################################################
 
 - platform: history_stats
   name: "historique alimentation cafetière"
@@ -96,8 +106,6 @@
   start: '{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}'
   end: '{{ now() }}'
 
-#########################################################
-# Sensor: History freebox tv power supply               #
 #########################################################
 
 - platform: history_stats
@@ -109,7 +117,25 @@
   end: '{{ now() }}'
 
 #########################################################
-# Sensor: template                                      #
+
+- platform: history_stats
+  name: "historique alimentation tv"
+  entity_id: switch.64680137bcddc2542a40
+  state: 'on'
+  type: time
+  start: '{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}'
+  end: '{{ now() }}'
+
+#########################################################
+
+- platform: history_stats
+  name: "historique lave linge"
+  entity_id: input_boolean.washing_machine
+  state: 'on'
+  type: time
+  start: '{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}'
+  end: '{{ now() }}'
+
 #########################################################
 
 - platform: template
@@ -213,6 +239,32 @@
       unit_of_measurement: "%"
       value_template: "{{ state_attr('binary_sensor.door_window_sensor_158d0003f4ba8d', 'battery_level') }}"
 
-#########################################################
-# End                                                   #
+    last_open_door_entrance:
+      friendly_name: "Dernière ouverture porte d'entrée"
+      value_template: '{{ as_timestamp(states.binary_sensor.door_window_sensor_158d0003f4ba8d.last_updated) | timestamp_custom("%d/%m/%y %H:%M", true) }}'
+
+    last_movement_in_entrance:
+      friendly_name: "Dernier mouvement détecté dans l'entrée"
+      value_template: '{{ as_timestamp(states.binary_sensor.motion_sensor_158d00044993aa.last_updated) | timestamp_custom("%d/%m/%y %H:%M", true) }}'
+
+    last_movement_in_living_room:
+      friendly_name: "Dernier mouvement détecté dans le salon"
+      value_template: '{{ as_timestamp(states.binary_sensor.motion_sensor_158d00044d007b.last_updated) | timestamp_custom("%d/%m/%y %H:%M", true) }}'
+
+    last_movement_in_kitchen:
+      friendly_name: "Dernier mouvement détecté dans la cuisine"
+      value_template: '{{ as_timestamp(states.binary_sensor.motion_sensor_158d00044c67d5.last_updated) | timestamp_custom("%d/%m/%y %H:%M", true) }}'
+
+    last_movement_in_bedroom_2:
+      friendly_name: "Dernier mouvement détecté dans la chambre 2"
+      value_template: '{{ as_timestamp(states.binary_sensor.motion_sensor_158d0003faef01.last_updated) | timestamp_custom("%d/%m/%y %H:%M", true) }}'
+
+    last_movement_in_office:
+      friendly_name: "Dernier mouvement détecté dans le bureau"
+      value_template: '{{ as_timestamp(states.binary_sensor.motion_sensor_158d0003f3cd60.last_updated) | timestamp_custom("%d/%m/%y %H:%M", true) }}'
+
+    last_action_washing_machine:
+      friendly_name: "Derniere action machine a lavée"
+      value_template: '{{ as_timestamp(states.input_boolean.washing_machine.last_updated) | timestamp_custom("%d/%m/%y %H:%M", true) }}'
+
 #########################################################

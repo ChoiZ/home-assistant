@@ -1,6 +1,4 @@
 #########################################################
-# Alarm clock sensors                                   #
-#########################################################
 
 sensor.time:
   hidden: true
@@ -15,8 +13,6 @@ sensor.alarm_clock_time:
   icon: mdi:alarm
 
 #########################################################
-# Alarm clock inputs                                    #
-#########################################################
 
 input_slider.alarm_clock_hour:
   friendly_name: 'Hour'
@@ -28,6 +24,4 @@ input_boolean.alarm_clock_status:
   friendly_name: 'Alarm Clock Status'
   icon: mdi:alarm-check
 
-#########################################################
-# End                                                   #
 #########################################################

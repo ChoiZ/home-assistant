@@ -1,0 +1,36 @@
+#########################################################
+
+- alias: "Open all shutters in ground floor at 10am (weekend)"
+  trigger:
+    - platform: time
+      at: '10:00:00'
+  condition:
+    - condition: time
+      weekday:
+        - sat
+        - sun
+  action:
+    - service: switch.turn_on
+      entity_id:
+        - switch.cover_state_cuisine
+        - switch.cover_state_salon_bas
+        - switch.cover_state_salon_haut
+
+#########################################################
+
+- alias: "Open all shutters in first floor at 10:30am (weekend)"
+  trigger:
+    - platform: time
+      at: '10:30:00'
+  condition:
+    - condition: time
+      weekday:
+        - sat
+        - sun
+  action:
+    - service: switch.turn_on
+      entity_id:
+        - switch.cover_state_chambre_1
+        - switch.cover_state_chambre_2
+
+#########################################################
