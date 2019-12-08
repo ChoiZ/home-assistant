@@ -34,7 +34,7 @@
       data_template:
         entity_id: vacuum.xiaomi_vacuum_cleaner
         repeats: "{{states('input_number.vacuum_passes')|int}}"
-        zone: [[20979,31722,24979,34822],[24286,30337,25386,32187]]
+        zone: [[21252,31988,24852,34788]]
     - service: notify.slack
       data:
         title: "Vacuum start cleaning"
@@ -42,7 +42,7 @@
 
 #########################################################
 
-- alias: Vacuum bathroom
+- alias: Vacuum bathroom alert
   trigger:
     - platform: time
       at: "13:30:00"
@@ -71,7 +71,7 @@
       data_template:
         entity_id: vacuum.xiaomi_vacuum_cleaner
         repeats: "{{states('input_number.vacuum_passes')|int}}"
-        zone: [[20979,31722,24979,34822],[24286,30337,25386,32187]]
+        zone: [[25581,28916,28231,32266]]
     - service: notify.slack
       data:
         title: "Vacuum start cleaning"

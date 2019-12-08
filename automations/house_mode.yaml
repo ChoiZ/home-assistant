@@ -1,6 +1,6 @@
 #########################################################
 
-- alias: François is at home
+- alias: François is at home set mode 'Home'
   trigger:
     - platform: state
       entity_id: device_tracker.francois_phone_ip
@@ -13,7 +13,7 @@
 
 #########################################################
 
-- alias: Geraldine is at home
+- alias: Geraldine is at home set mode 'Home'
   trigger:
     - platform: state
       entity_id: device_tracker.geraldine_phone_ip
@@ -26,7 +26,7 @@
 
 #########################################################
 
-- alias: Set Night mode
+- alias: Set 'Night mode' by hand
   trigger:
     - platform: state
       entity_id: input_select.house_mode
@@ -41,7 +41,7 @@
 
 #########################################################
 
-- alias: Phone set night mode via phone 1
+- alias: François's Phone 'Night mode'
   trigger:
     - platform: state
       entity_id: device_tracker.francois_phone_ip
@@ -63,7 +63,7 @@
 
 #########################################################
 
-- alias: Phone set night mode via phone 2
+- alias: Geraldine's Phone 'Night mode'
   trigger:
     - platform: state
       entity_id: device_tracker.geraldine_phone_ip
