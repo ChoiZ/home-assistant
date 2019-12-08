@@ -1,0 +1,8 @@
+#########################################################
+
+binary_sensor.motion_sensor_158d0003f3cd60:
+  friendly_name: détecteur de mouvement bureau
+sensor.illumination_158d0003f3cd60:
+  friendly_name: capteur luminosité bureau
+
+#########################################################
