@@ -1,43 +1,40 @@
 #########################################################
 
-- alias: "Button kitchen - one click: toggle light"
+- alias: "bedroom 2 - one click: switch on light"
   trigger:
     - platform: event
       event_type: xiaomi_aqara.click
       event_data:
-        entity_id: binary_sensor.switch_158d00035a995a
+        entity_id: binary_sensor.switch_158d00033ef6d8
         click_type: single
   action:
     - service: switch.toggle
-      entity_id: switch.0220052668c63aac1fc7
+      entity_id: switch.50052752dc4f22e1706a
 
 #########################################################
 
-- alias: "Button kitchen - double click: toggle ground floor shutters"
+- alias: "bedroom 2 - double click: switch off light"
   trigger:
     - platform: event
       event_type: xiaomi_aqara.click
       event_data:
-        entity_id: binary_sensor.switch_158d00035a995a
+        entity_id: binary_sensor.switch_158d00033ef6d8
         click_type: double
   action:
     - service: switch.toggle
-      entity_id: switch.50052752dc4f22e16c99
+      entity_id: switch.50052752dc4f22e1706a
 
 #########################################################
 
-- alias: "Button kitchen - long press: toggle shutters"
+- alias: "bedroom 2 - long press: toggle shutters"
   trigger:
     - platform: event
       event_type: xiaomi_aqara.click
       event_data:
-        entity_id: binary_sensor.switch_158d00035a995a
+        entity_id: binary_sensor.switch_158d00033ef6d8
         click_type: long_click_press
   action:
     - service: switch.toggle
-      entity_id:
-        - switch.cover_state_cuisine
-        - switch.cover_state_salon_bas
-        - switch.cover_state_salon_haut
+      entity_id: switch.cover_state_chambre_2
 
 #########################################################

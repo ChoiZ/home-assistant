@@ -1,0 +1,40 @@
+#########################################################
+
+- alias: "Window bedroom 2 is open"
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.door_window_sensor_158d0003f4baa8
+      to: 'on'
+  action:
+    - service: timer.start
+      entity_id: timer.window_bedroom2
+    - service: notify.slack
+      data:
+        message: "The window in bedroom 2 is open"
+
+#########################################################
+
+- alias: timer finish window open
+  trigger:
+    - platform: event
+      event_type: timer.finished
+      event_data:
+        entity_id: timer.window_bedroom2
+  action:
+    - service: notify.slack
+      data:
+        message: "Now you can close the window in bedroom 2"
+
+#########################################################
+
+- alias: "Window bedroom 2 is close"
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.door_window_sensor_158d0003f4baa8
+      to: 'off'
+  action:
+    - service: notify.slack
+      data:
+        message: "The window in bedroom 2 is now closed"
+
+#########################################################

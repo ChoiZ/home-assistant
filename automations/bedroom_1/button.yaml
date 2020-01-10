@@ -25,3 +25,16 @@
       entity_id: switch.cover_state_chambre_1
 
 #########################################################
+
+- alias: Someone switch off the bedroom 1 light
+  trigger:
+    - platform: state
+      entity_id: switch.28438258600194a573f3
+      to: 'unavailable'
+  action:
+    - service: notify.slack
+      data_template:
+        title: "Home-Assistant Light off"
+        message: "@channel someone switch off the bedroom 1 light please turn on again. {{ trigger.to_state.attributes.friendly_name }}"
+
+#########################################################

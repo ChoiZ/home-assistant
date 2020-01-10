@@ -8,9 +8,8 @@
   condition:
     condition: or
     conditions:
-      - condition: numeric_state
-        entity_id: sensor.illumination_158d00044c67d5
-        below: '20'
+      - condition: template
+        value_template: '{{ state_attr("sun.sun", "elevation") < 2 }}'
       - condition: state
         entity_id: switch.cover_state_cuisine
         state: 'off'
@@ -25,6 +24,8 @@
     - platform: state
       entity_id: binary_sensor.motion_sensor_158d00044c67d5
       to: 'off'
+      for:
+        minutes: 3 # 2 mn from detection = 5mn on
   action:
     - service: switch.turn_off
       entity_id: switch.50052752dc4f22e16c99

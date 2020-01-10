@@ -1,28 +1,47 @@
 #########################################################
 
-- alias: "living room - one click: toggle freebox"
+- alias: "living room - one click: switch on tv + freebox"
   trigger:
     - platform: event
       event_type: xiaomi_aqara.click
       event_data:
-        entity_id: binary_sensor.switch_158d00033ef6d8
+        entity_id: binary_sensor.switch_158d00035a643e
         click_type: single
   action:
-    - service: switch.toggle
-      entity_id: switch.03200172dc4f22245507
+    - service: switch.turn_on
+      entity_id: switch.64680137bcddc2542a40 # tv
+    - service: switch.turn_on
+      entity_id: switch.03200172dc4f22245507 # freebox
 
 #########################################################
 
-- alias: "living room - double click: toogle tv"
+- alias: "living room - double click: switch off tv + freebox"
   trigger:
     - platform: event
       event_type: xiaomi_aqara.click
       event_data:
-        entity_id: binary_sensor.switch_158d00033ef6d8
-        #click_type: long_click_press
+        entity_id: binary_sensor.switch_158d00035a643e
         click_type: double
   action:
+    - service: switch.turn_off
+      entity_id: switch.64680137bcddc2542a40 # tv
+    - service: switch.turn_off
+      entity_id: switch.03200172dc4f22245507 # freebox
+
+#########################################################
+
+- alias: "living room - long press: toggle shutters"
+  trigger:
+    - platform: event
+      event_type: xiaomi_aqara.click
+      event_data:
+        entity_id: binary_sensor.switch_158d00035a643e
+        click_type: long_click_press
+  action:
     - service: switch.toggle
-      entity_id: switch.64680137bcddc2542a40
+      entity_id:
+        - switch.cover_state_cuisine
+        - switch.cover_state_salon_bas
+        - switch.cover_state_salon_haut
 
 #########################################################
