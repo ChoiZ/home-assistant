@@ -1,0 +1,15 @@
+washing_60:
+  duration: '01:54:00'
+
+washing_40:
+  duration: '01:21:30'
+
+washing_30:
+  duration: '01:19:00'
+  #duration: '00:00:03'
+
+window_bedroom1:
+  duration: '00:05:00'
+
+window_bedroom2:
+  duration: '00:05:00'

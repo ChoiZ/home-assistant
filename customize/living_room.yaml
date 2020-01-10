@@ -6,6 +6,11 @@ binary_sensor.door_window_sensor_158d00039fe3a9:
 
 #########################################################
 
+binary_sensor.switch_158d00035a643e:
+  friendly_name: bouton salon
+
+#########################################################
+
 light.gateway_light_04cf8cb87b01:
   friendly_name: gateway xiaomi
   icon: mdi:lightbulb
