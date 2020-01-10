@@ -89,6 +89,26 @@
 #########################################################
 
 - platform: history_stats
+  name: "historique fenêtre chambre 1"
+  entity_id: binary_sensor.door_window_sensor_158d0003f41fe9
+  state: 'on'
+  type: time
+  start: '{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}'
+  end: '{{ now() }}'
+
+#########################################################
+
+- platform: history_stats
+  name: "historique fenêtre chambre 2"
+  entity_id: binary_sensor.door_window_sensor_158d0003f4baa8
+  state: 'on'
+  type: time
+  start: '{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}'
+  end: '{{ now() }}'
+
+#########################################################
+
+- platform: history_stats
   name: "historique lumière salon"
   entity_id: switch.0220052668c63aac1fc7
   state: 'on'
@@ -266,5 +286,40 @@
     last_action_washing_machine:
       friendly_name: "Derniere action machine a lavée"
       value_template: '{{ as_timestamp(states.input_boolean.washing_machine.last_updated) | timestamp_custom("%d/%m/%y %H:%M", true) }}'
+
+    last_action_window_living_room:
+      friendly_name: "Dernière action fenêtre salon"
+      value_template: '{{ as_timestamp(states.binary_sensor.door_window_sensor_158d00039fe3a9.last_updated) | timestamp_custom("%d/%m/%y %H:%M", true) }}'
+
+    last_action_window_kitchen:
+      friendly_name: "Dernière action fenêtre salle à manger"
+      value_template: '{{ as_timestamp(states.binary_sensor.door_window_sensor_158d0003a0f809.last_updated) | timestamp_custom("%d/%m/%y %H:%M", true) }}'
+
+    last_action_window_bedroom_1:
+      friendly_name: "Dernière action fenetre chambre 1"
+      value_template: '{{ as_timestamp(states.binary_sensor.door_window_sensor_158d0003f41fe9.last_updated) | timestamp_custom("%d/%m/%y %H:%M", true) }}'
+
+    last_action_window_bedroom_2:
+      friendly_name: "Dernière action fenetre chambre 2"
+      value_template: '{{ as_timestamp(states.binary_sensor.door_window_sensor_158d0003f4baa8.last_updated) | timestamp_custom("%d/%m/%y %H:%M", true) }}'
+
+    last_action_door_entrance:
+      friendly_name: "Dernière action porte d'entrée"
+      value_template: '{{ as_timestamp(states.binary_sensor.door_window_sensor_158d0003f4ba8d.last_updated) | timestamp_custom("%d/%m/%y %H:%M", true) }}'
+
+    sun_elevation:
+      friendly_name: "Élévation du soleil"
+      value_template: "{{ state_attr('sun.sun', 'elevation') }}"
+
+#########################################################
+
+- platform: waze_travel_time
+  name: "Trajet Maison-Travail"
+  origin: zone.Home
+  destination: zone.Work
+  region: 'EU'
+  realtime: true
+  units: 'metric'
+  vehicle_type: 'car'
 
 #########################################################
