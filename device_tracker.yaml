@@ -2,7 +2,7 @@
 
 - platform: ping
   hosts:
-    francois_phone_ip: !secret francois_phone_ip
-    geraldine_phone_ip: !secret geraldine_phone_ip
+    ip_phone_fr: !secret ip_phone_fr
+    ip_phone_ge: !secret ip_phone_ge
 
 #########################################################

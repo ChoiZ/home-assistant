@@ -1,9 +1,9 @@
 #########################################################
 
-- alias: François is at home set mode 'Home'
+- alias: Fr is at home set mode 'Home'
   trigger:
     - platform: state
-      entity_id: device_tracker.francois_phone_ip
+      entity_id: device_tracker.ip_phone_fr
       to: 'home'
   action:
     - service: input_select.select_option
@@ -13,10 +13,10 @@
 
 #########################################################
 
-- alias: Geraldine is at home set mode 'Home'
+- alias: Ge is at home set mode 'Home'
   trigger:
     - platform: state
-      entity_id: device_tracker.geraldine_phone_ip
+      entity_id: device_tracker.ip_phone_ge
       to: 'home'
   action:
     - service: input_select.select_option
@@ -41,10 +41,10 @@
 
 #########################################################
 
-- alias: François's Phone 'Night mode'
+- alias: Fr's Phone 'Night mode'
   trigger:
     - platform: state
-      entity_id: device_tracker.francois_phone_ip
+      entity_id: device_tracker.ip_phone_fr
       to: 'not_home'
   condition:
     condition: and
@@ -53,7 +53,7 @@
         entity_id: device_tracker.choiz_phone
         state: 'home'
       - condition: state
-        entity_id: device_tracker.geraldine_phone_ip
+        entity_id: device_tracker.ip_phone_ge
         state: 'not_home'
   action:
     - service: input_select.select_option
@@ -63,10 +63,10 @@
 
 #########################################################
 
-- alias: Geraldine's Phone 'Night mode'
+- alias: Ge's Phone 'Night mode'
   trigger:
     - platform: state
-      entity_id: device_tracker.geraldine_phone_ip
+      entity_id: device_tracker.ip_phone_ge
       to: 'not_home'
   condition:
     condition: and
@@ -75,7 +75,7 @@
         entity_id: device_tracker.choiz_phone
         state: 'home'
       - condition: state
-        entity_id: device_tracker.francois_phone_ip
+        entity_id: device_tracker.ip_phone_fr
         state: 'not_home'
   action:
     - service: input_select.select_option
