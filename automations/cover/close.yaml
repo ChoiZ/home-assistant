@@ -19,11 +19,11 @@
 
 #########################################################
 
-- alias: "Sunset +12mn close bedroom shutter"
+- alias: "Sunset +10mn10 close bedroom shutter"
   trigger:
     - platform: sun
       event: sunset
-      offset: '+00:12:00'
+      offset: '+00:10:10'
   condition:
     - condition: time
       after: '16:00:00'
