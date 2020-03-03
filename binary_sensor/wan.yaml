@@ -1,0 +1,8 @@
+- platform: ping
+  host: 9.9.9.9
+  name: ping_quad9
+  scan_interval: 60
+- platform: ping
+  host: 1.1.1.1
+  name: ping_cloudflare
+  scan_interval: 60

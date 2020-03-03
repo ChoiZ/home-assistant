@@ -1,0 +1,3 @@
+controllers:
+  - host: !secret unifi_host
+    site: !secret unifi_site

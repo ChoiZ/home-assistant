@@ -1,0 +1,42 @@
+- alias: timer
+  trigger:
+  - platform: state
+    entity_id: input_boolean.dishwasher
+    to: 'on'
+  action:
+  - service: timer.start
+    data_template:
+      entity_id: >
+        {% if is_state("input_select.dishwasher", "eco") %}
+          timer.dishwasher_eco
+        {% elif is_state("input_select.dishwasher", "max") %}
+          timer.dishwasher_max
+        {% endif %}
+
+- alias: timer finish
+  trigger:
+  - platform: event
+    event_type: timer.finished
+    event_data:
+      entity_id: timer.dishwasher_eco
+  action:
+  - service: notify.slack
+    data:
+      title: "Timer done"
+      message: "The dishwasher is finished"
+  - service: input_boolean.turn_off
+    entity_id: input_boolean.dishwasher
+
+- alias: timer finish
+  trigger:
+  - platform: event
+    event_type: timer.finished
+    event_data:
+      entity_id: timer.dishwasher_max
+  action:
+  - service: notify.slack
+    data:
+      title: "Timer done"
+      message: "The dishwasher is finished"
+  - service: input_boolean.turn_off
+    entity_id: input_boolean.dishwasher

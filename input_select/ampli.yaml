@@ -1,0 +1,8 @@
+ampli_sources:
+  name: ampli_sources
+  options:
+    - freebox
+    - tv
+    - vinyle
+    - bluetooth
+    - net
