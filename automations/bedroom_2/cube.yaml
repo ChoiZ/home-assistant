@@ -26,16 +26,22 @@
 
 #########################################################
 
-- alias: "Cube bedroom 2 - move: toggle light"
+- alias: "Cube bedroom 2 - move: night mode - only when vacuum_up is docked :D"
   trigger:
     - platform: event
       event_type: xiaomi_aqara.cube_action
       event_data:
         entity_id: binary_sensor.cube_158d00029b46d6
         action_type: move
+  condition:
+    - condition: state
+      entity_id: vacuum.vacuum_up
+      state: 'docked'
   action:
-    - service: switch.toggle
-      entity_id: switch.50052752dc4f22e1706a
+    - service: input_select.select_option
+      entity_id: input_select.house_mode
+      data:
+        option: 'Night'
 
 #########################################################
 
