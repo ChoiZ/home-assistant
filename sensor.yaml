@@ -62,29 +62,23 @@
 
 #########################################################
 
-- platform: min_max
-  name: average home illumination
-  type: mean
-  entity_ids:
-    - sensor.illumination_04cf8cb87b01
-    - sensor.illumination_158d0003f3cd60
-    - sensor.illumination_158d0003faef01
-    - sensor.illumination_158d00044993aa
-    - sensor.illumination_158d00044c67d5
-    - sensor.illumination_158d00044d007b
+- platform: history_stats
+  name: "historique fenêtre salon"
+  entity_id: binary_sensor.door_window_sensor_158d00039fe3a9
+  state: 'on'
+  type: time
+  start: '{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}'
+  end: '{{ now() }}'
 
 #########################################################
 
-- platform: min_max
-  name: max home illumination
-  type: max
-  entity_ids:
-    - sensor.illumination_04cf8cb87b01
-    - sensor.illumination_158d0003f3cd60
-    - sensor.illumination_158d0003faef01
-    - sensor.illumination_158d00044993aa
-    - sensor.illumination_158d00044c67d5
-    - sensor.illumination_158d00044d007b
+- platform: history_stats
+  name: "historique fenêtre cuisine"
+  entity_id: binary_sensor.door_window_sensor_158d0003a0f809
+  state: 'on'
+  type: time
+  start: '{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}'
+  end: '{{ now() }}'
 
 #########################################################
 
@@ -110,7 +104,77 @@
 
 - platform: history_stats
   name: "historique lumière salon"
-  entity_id: switch.0220052668c63aac1fc7
+  entity_id: light.living_room
+  state: 'on'
+  type: time
+  start: '{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}'
+  end: '{{ now() }}'
+
+#########################################################
+
+- platform: history_stats
+  name: "historique lumière évier"
+  entity_id: switch.wall_switch_left_158d00045fab25
+  state: 'on'
+  type: time
+  start: '{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}'
+  end: '{{ now() }}'
+
+#########################################################
+
+- platform: history_stats
+  name: "historique lumière cuisine"
+  entity_id: switch.wall_switch_right_158d00045fab25
+  state: 'on'
+  type: time
+  start: '{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}'
+  end: '{{ now() }}'
+
+#########################################################
+
+- platform: history_stats
+  name: "historique lumière salle d'eau"
+  entity_id: switch.wall_switch_158d000357da1a
+  state: 'on'
+  type: time
+  start: '{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}'
+  end: '{{ now() }}'
+
+#########################################################
+
+- platform: history_stats
+  name: "historique lumière chambre 1"
+  entity_id: light.bedroom1
+  state: 'on'
+  type: time
+  start: '{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}'
+  end: '{{ now() }}'
+
+#########################################################
+
+- platform: history_stats
+  name: "historique lumière chambre 2"
+  entity_id: light.bedroom2
+  state: 'on'
+  type: time
+  start: '{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}'
+  end: '{{ now() }}'
+
+#########################################################
+
+- platform: history_stats
+  name: "historique lumière salle de bain (plafond)"
+  entity_id: switch.wall_switch_right_158d00039d4efd
+  state: 'on'
+  type: time
+  start: '{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}'
+  end: '{{ now() }}'
+
+#########################################################
+
+- platform: history_stats
+  name: "historique lumière salle de bain (mirroir)"
+  entity_id: switch.wall_switch_left_158d00039d4efd
   state: 'on'
   type: time
   start: '{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}'
@@ -120,17 +184,7 @@
 
 - platform: history_stats
   name: "historique alimentation cafetière"
-  entity_id: switch.002009152c3ae81bacf6
-  state: 'on'
-  type: time
-  start: '{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}'
-  end: '{{ now() }}'
-
-#########################################################
-
-- platform: history_stats
-  name: "historique alimentation freebox mini 4k"
-  entity_id: switch.03200172dc4f22245507
+  entity_id: switch.coffee_socket
   state: 'on'
   type: time
   start: '{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}'
@@ -140,7 +194,7 @@
 
 - platform: history_stats
   name: "historique alimentation tv"
-  entity_id: switch.64680137bcddc2542a40
+  entity_id: switch.sonoff_1000a12e98
   state: 'on'
   type: time
   start: '{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}'
@@ -151,6 +205,16 @@
 - platform: history_stats
   name: "historique lave linge"
   entity_id: input_boolean.washing_machine
+  state: 'on'
+  type: time
+  start: '{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}'
+  end: '{{ now() }}'
+
+#########################################################
+
+- platform: history_stats
+  name: "historique lave vaisselle"
+  entity_id: input_boolean.dishwasher
   state: 'on'
   type: time
   start: '{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}'
@@ -284,8 +348,12 @@
       value_template: '{{ as_timestamp(states.binary_sensor.motion_sensor_158d0003f3cd60.last_updated) | timestamp_custom("%d/%m/%y %H:%M", true) }}'
 
     last_action_washing_machine:
-      friendly_name: "Derniere action machine a lavée"
+      friendly_name: "Derniere action lave linge"
       value_template: '{{ as_timestamp(states.input_boolean.washing_machine.last_updated) | timestamp_custom("%d/%m/%y %H:%M", true) }}'
+
+    last_action_dishwasher:
+      friendly_name: "Derniere action lave vaisselle"
+      value_template: '{{ as_timestamp(states.input_boolean.dishwasher.last_updated) | timestamp_custom("%d/%m/%y %H:%M", true) }}'
 
     last_action_window_living_room:
       friendly_name: "Dernière action fenêtre salon"
@@ -307,9 +375,77 @@
       friendly_name: "Dernière action porte d'entrée"
       value_template: '{{ as_timestamp(states.binary_sensor.door_window_sensor_158d0003f4ba8d.last_updated) | timestamp_custom("%d/%m/%y %H:%M", true) }}'
 
+    history_light_living_room:
+      friendly_name: "Utilisation lumière salon aujourd'hui"
+      value_template: '{{ states.sensor.historique_lumiere_salon.attributes.value }}'
+      icon_template: 'mdi:clock'
+
+    history_light_kitchen:
+      friendly_name: "Utilisation lumière cuisine aujourd'hui"
+      value_template: '{{ states.sensor.historique_lumiere_cuisine.attributes.value }}'
+      icon_template: 'mdi:clock'
+
+    history_light_kitchen_sink:
+      friendly_name: "Utilisation lumière cuisine (évier) aujourd'hui"
+      value_template: '{{ states.sensor.historique_lumiere_evier.attributes.value }}'
+      icon_template: 'mdi:clock'
+
+    history_light_shower_room:
+      friendly_name: "Utilisation lumière salle d'eau aujourd'hui"
+      value_template: '{{ states.sensor.historique_lumiere_salle_d_eau.attributes.value }}'
+      icon_template: 'mdi:clock'
+
+    history_light_bedroom_1:
+      friendly_name: "Utilisation lumière chambre 1 aujourd'hui"
+      value_template: '{{ states.sensor.historique_lumiere_chambre_1.attributes.value }}'
+      icon_template: 'mdi:clock'
+
+    history_light_bedroom_2:
+      friendly_name: "Utilisation lumière chambre 2 aujourd'hui"
+      value_template: '{{ states.sensor.historique_lumiere_chambre_2.attributes.value }}'
+      icon_template: 'mdi:clock'
+
+    history_light_bathroom_top:
+      friendly_name: "Utilisation lumière salle de bain (plafond) aujourd'hui"
+      value_template: '{{ states.sensor.historique_lumiere_salle_de_bain_plafond.attributes.value }}'
+      icon_template: 'mdi:clock'
+
+    history_light_bathroom_mirror:
+      friendly_name: "Utilisation lumière salle de bain (mirroir) aujourd'hui"
+      value_template: '{{ states.sensor.historique_lumiere_salle_de_bain_mirroir.attributes.value }}'
+      icon_template: 'mdi:clock'
+
+    history_dishwasher:
+      friendly_name: "Utilisation du lave vaisselle aujourd'hui"
+      value_template: '{{ states.sensor.historique_lave_vaisselle.attributes.value }}'
+      icon_template: 'mdi:clock'
+
+    history_washing_machine:
+      friendly_name: "Utilisation du lave linge aujourd'hui"
+      value_template: '{{ states.sensor.historique_lave_linge.attributes.value }}'
+      icon_template: 'mdi:clock'
+
+    onkyo_volume:
+      friendly_name: "Volume Ampli"
+      value_template: '{{ states.media_player.onkyo_receiver.attributes.volume_level }}'
+
+    onkyo_muted:
+      friendly_name: "Ampli volume mute"
+      value_template: '{{ states.media_player.onkyo_receiver.attributes.is_volume_muted }}'
+
+    onkyo_source:
+      friendly_name: "Ampli source"
+      value_template: '{{ states.media_player.onkyo_receiver.attributes.source }}'
+
     sun_elevation:
       friendly_name: "Élévation du soleil"
       value_template: "{{ state_attr('sun.sun', 'elevation') }}"
+
+    battery_fr_phone:
+      friendly_name: "Batterie Téléphone Fr"
+      unit_of_measurement: '%'
+      value_template: "{{ state_attr('device_tracker.moto_g_7_2', 'battery_level')|round }}"
+      device_class: battery
 
 #########################################################
 
