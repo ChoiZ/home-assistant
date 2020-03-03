@@ -33,6 +33,8 @@
       entity_id: binary_sensor.door_window_sensor_158d0003f41fe9
       to: 'off'
   action:
+    - service: timer.cancel
+      entity_id: timer.window_bedroom1
     - service: notify.slack
       data:
         message: "The window in bedroom 1 is now closed"
