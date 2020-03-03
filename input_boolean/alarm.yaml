@@ -1,0 +1,3 @@
+disable_alarm:
+  name: Disable alarm
+  icon: mdi:volume-off
