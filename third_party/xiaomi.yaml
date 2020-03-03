@@ -1,4 +1,4 @@
 discovery_retry: 5
+interface: '10.0.0.150'
 gateways:
-  - mac: !secret xiaomi_mac
-    key: !secret xiaomi_key
+  - key: !secret xiaomi_key
