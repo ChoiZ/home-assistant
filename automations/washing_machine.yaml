@@ -8,11 +8,11 @@
     data_template:
       entity_id: >
         {% if is_state("input_select.washing_machine", "60°") %}
-          timer.washing_60
+          timer.washing_machine_60
         {% elif is_state("input_select.washing_machine", "40°") %}
-          timer.washing_40
+          timer.washing_machine_40
         {% elif is_state("input_select.washing_machine", "30°") %}
-          timer.washing_30
+          timer.washing_machine_30
         {% endif %}
 
 - alias: timer finish
@@ -20,33 +20,39 @@
   - platform: event
     event_type: timer.finished
     event_data:
-      entity_id: timer.washing_30
+      entity_id: timer.washing_machine_30
   action:
   - service: notify.slack
     data:
       title: "Timer done"
       message: "The washing machine is finished"
+  - service: input_boolean.turn_off
+    entity_id: input_boolean.washing_machine
 
 - alias: timer finish
   trigger:
   - platform: event
     event_type: timer.finished
     event_data:
-      entity_id: timer.washing_40
+      entity_id: timer.washing_machine_40
   action:
   - service: notify.slack
     data:
       title: "Timer done"
       message: "The washing machine is finished"
+  - service: input_boolean.turn_off
+    entity_id: input_boolean.washing_machine
 
 - alias: timer finish
   trigger:
   - platform: event
     event_type: timer.finished
     event_data:
-      entity_id: timer.washing_60
+      entity_id: timer.washing_machine_60
   action:
   - service: notify.slack
     data:
       title: "Timer done"
       message: "The washing machine is finished"
+  - service: input_boolean.turn_off
+    entity_id: input_boolean.washing_machine
