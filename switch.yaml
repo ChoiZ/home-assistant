@@ -108,3 +108,40 @@
           {% else %}
             mdi:window-shutter
           {% endif %}
+
+#########################################################
+
+- platform: mqtt
+  name: "Coffee Socket"
+  state_topic: "stat/coffee-socket/POWER"
+  command_topic: "cmnd/coffee-socket/POWER"
+  availability_topic: "tele/coffee-socket/LWT"
+  qos: 1
+  optimistic: false
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  retain: true
+- platform: mqtt
+  name: "Camera Socket"
+  state_topic: "stat/camera-socket/POWER"
+  command_topic: "cmnd/camera-socket/POWER"
+  availability_topic: "tele/camera-socket/LWT"
+  qos: 1
+  optimistic: false
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  retain: true
+- platform: mqtt
+  name: "Outdoor Socket #1"
+  state_topic: "stat/outdoor-socket/POWER1"
+  command_topic: "cmnd/outdoor-socket/POWER1"
+  qos: 1
+  optimistic: false
+  retain: true
+- platform: mqtt
+  name: "Outdoor Socket #2"
+  state_topic: "stat/outdoor-socket/POWER2"
+  command_topic: "cmnd/outdoor-socket/POWER2"
+  qos: 1
+  optimistic: false
+  retain: true
