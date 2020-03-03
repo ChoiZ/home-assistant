@@ -8,8 +8,8 @@
         entity_id: binary_sensor.switch_158d00033e8984
         click_type: single
   action:
-    - service: switch.toggle
-      entity_id: switch.28438258600194a573f3
+    - service: light.toggle
+      entity_id: light.bedroom1
 
 #########################################################
 
@@ -29,7 +29,7 @@
 - alias: Someone switch off the bedroom 1 light
   trigger:
     - platform: state
-      entity_id: switch.28438258600194a573f3
+      entity_id: light.bedroom1
       to: 'unavailable'
   action:
     - service: notify.slack
