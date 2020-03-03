@@ -33,13 +33,39 @@ sensor.humidity_158d00044acc21:
 
 #########################################################
 
-switch.0220052668c63aac1fc7:
+light.living_room:
   friendly_name: lumière salon
   icon: mdi:lightbulb
 
 #########################################################
 
+light.led_tv:
+  friendly_name: led tv
+  icon: mdi:lightbulb
+
+#########################################################
+
+light.led_mirror:
+  friendly_name: led mirroir
+  icon: mdi:lightbulb
+
+#########################################################
+
+switch.freeboxtv_socket:
+  friendly_name: Freebox TV
+
+#########################################################
+
 switch.64680137bcddc2542a40:
   friendly_name: alimentation tv
+
+#########################################################
+
+switch.wall_switch_left_158d00045fabbe:
+  icon: mdi:lightbulb
+  friendly_name: lumière entrée
+switch.wall_switch_right_158d00045fabbe:
+  icon: mdi:lightbulb
+  friendly_name: lumière salle à manger
 
 #########################################################

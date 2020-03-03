@@ -4,5 +4,8 @@ sensor.temperature_158d0004102ae1:
   friendly_name: température salle d'eau
 sensor.humidity_158d0004102ae1:
   friendly_name: humidité salle d'eau
+switch.wall_switch_158d000357da1a:
+  icon: mdi:lightbulb
+  friendly_name: lumière salle d'eau
 
 #########################################################

@@ -30,8 +30,17 @@ sensor.humidity_158d00033b0bd7:
 
 #########################################################
 
-switch.50052752dc4f22e16c99:
-  friendly_name: lumière salle à manger
+switch.coffee_socket:
+  friendly_name: cafetière
+  icon: mdi:coffee
+
+#########################################################
+
+switch.wall_switch_left_158d00045fab25:
   icon: mdi:lightbulb
+  friendly_name: lumière évier
+switch.wall_switch_right_158d00045fab25:
+  icon: mdi:lightbulb
+  friendly_name: lumière cuisine
 
 #########################################################

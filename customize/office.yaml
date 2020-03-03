@@ -6,3 +6,9 @@ sensor.illumination_158d0003f3cd60:
   friendly_name: capteur luminosité bureau
 
 #########################################################
+
+light.office:
+  friendly_name: lumière bureau
+  icon: mdi:lightbulb
+
+#########################################################

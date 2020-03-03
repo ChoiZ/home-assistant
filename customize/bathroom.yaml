@@ -4,5 +4,11 @@ sensor.temperature_158d00044592d5:
   friendly_name: température salle de bain
 sensor.humidity_158d00044592d5:
   friendly_name: humidité salle de bain
+switch.wall_switch_left_158d00039d4efd:
+  icon: mdi:lightbulb
+  friendly_name: lumière salle de bain (mirroir)
+switch.wall_switch_right_158d00039d4efd:
+  icon: mdi:lightbulb
+  friendly_name: lumière salle de bain (plafond)
 
 #########################################################
