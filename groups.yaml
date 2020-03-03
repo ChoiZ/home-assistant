@@ -10,12 +10,18 @@ alarm_clock:
 
 #########################################################
 
-music_spotify:
-  name: Music
+house_hold:
+  name: "House Hold"
   entities:
-  - input_select.spotify_playlist
-  - input_select.spotify_source
-  - script.spotify_music
-  - input_slider.spotify_volume
+  - person.francois
+  - person.geraldine
+
+#########################################################
+
+wan:
+  name: "WAN"
+  entities:
+  - binary_sensor.ping_cloudflare
+  - binary_sensor.ping_quad9
 
 #########################################################
