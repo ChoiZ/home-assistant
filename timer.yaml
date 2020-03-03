@@ -1,15 +1,26 @@
-washing_60:
+washing_machine_60:
   duration: '01:54:00'
 
-washing_40:
+washing_machine_40:
   duration: '01:21:30'
 
-washing_30:
+washing_machine_30:
   duration: '01:19:00'
-  #duration: '00:00:03'
+
+dishwasher_eco:
+  duration: '02:59:00'
+
+dishwasher_max:
+  duration: '10:00:00' # to fix
 
 window_bedroom1:
-  duration: '00:05:00'
+  duration: '00:10:00'
 
 window_bedroom2:
-  duration: '00:05:00'
+  duration: '00:10:00'
+
+window_kitchen:
+  duration: '00:10:00'
+
+window_living_room:
+  duration: '00:10:00'
