@@ -8,8 +8,8 @@
         entity_id: binary_sensor.switch_158d00033ef6d8
         click_type: single
   action:
-    - service: switch.toggle
-      entity_id: switch.50052752dc4f22e1706a
+    - service: light.toggle
+      entity_id: light.bedroom2
 
 #########################################################
 
@@ -21,8 +21,8 @@
         entity_id: binary_sensor.switch_158d00033ef6d8
         click_type: double
   action:
-    - service: switch.toggle
-      entity_id: switch.50052752dc4f22e1706a
+    - service: light.toggle
+      entity_id: light.bedroom2
 
 #########################################################
 
