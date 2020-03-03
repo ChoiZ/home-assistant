@@ -9,9 +9,37 @@
         click_type: single
   action:
     - service: switch.turn_on
-      entity_id: switch.64680137bcddc2542a40 # tv
+      entity_id: switch.sonoff_1000a12e98
     - service: switch.turn_on
-      entity_id: switch.03200172dc4f22245507 # freebox
+      entity_id: switch.ampli
+    - delay: "00:00:03"
+    - service: switch.turn_on
+      entity_id: switch.tv
+    - service: media_player.select_source
+      data:
+        entity_id: media_player.onkyo_receiver
+        source: 'video2'
+    - delay: "00:00:58"
+    - service: broadlink.send
+      data:
+        host: !secret broadlink_host
+        packet:
+          - "JgDAAFYfEA0MEA8dDR4sHRANDw4PDw0PDw4PDg8PDw4dDhAODxwQDhANDBAPDh4dDg8bEQ4dHR4PDh8MDx0dHRAACMpVHhANDw8LIBAbLBwODxAQDQ8ODhEMEA0PDg8OHg4QDQ8dDg8NEBAODg8dHA8PGxANHx0dDw4eDg8cHR4QAAjJVx0NEBANDxwPHSofDg4PDg8QDg4MEQ8ODw4PDh0ODw8NHw8NDREPDg8OHR0PDhsRDh4dHQ8OHQ8QHB4bEAANBQAAAAAAAAAA" # freebox down
+          - "JgDAAFYfEA0MEA8dDR4sHRANDw4PDw0PDw4PDg8PDw4dDhAODxwQDhANDBAPDh4dDg8bEQ4dHR4PDh8MDx0dHRAACMpVHhANDw8LIBAbLBwODxAQDQ8ODhEMEA0PDg8OHg4QDQ8dDg8NEBAODg8dHA8PGxANHx0dDw4eDg8cHR4QAAjJVx0NEBANDxwPHSofDg4PDg8QDg4MEQ8ODw4PDh0ODw8NHw8NDREPDg8OHR0PDhsRDh4dHQ8OHQ8QHB4bEAANBQAAAAAAAAAA" # freebox down
+          - "JgDGAFgbEA4QDQ8cDR8sHQ8ODg4PDg8PDRAMEQ8ODRAdDw4OEB0MEA8PDg8QDR0dDg8eDgwgDw4dHR4ODBAOHxAMDwAIylgdEA0ODhAcDR8tGw8OEA4ODg8ODw4PDw8ODw4dDw8ODxwRDg0PDw0QDh0dEA4dDg0eEA4dHR0PDw4PHA8PEAAIyVccDhAODw4dEBssHA4QDw4PDg4PDRAPDg0QDw8dDg8ODx0NEA8QDg4NDx4dDRAdDg8dDw4eHR0ODw4QHA0QDwANBQAA" # freebox ok
+    - service: notify.slack
+      data:
+        title: "tv allumée"
+        message: "tv allumée"
+#    - service: broadlink.send
+#      data:
+#        host: !secret broadlink_host
+#        packet:
+#          - "JgDAAFYfEA0MEA8dDR4sHRANDw4PDw0PDw4PDg8PDw4dDhAODxwQDhANDBAPDh4dDg8bEQ4dHR4PDh8MDx0dHRAACMpVHhANDw8LIBAbLBwODxAQDQ8ODhEMEA0PDg8OHg4QDQ8dDg8NEBAODg8dHA8PGxANHx0dDw4eDg8cHR4QAAjJVx0NEBANDxwPHSofDg4PDg8QDg4MEQ8ODw4PDh0ODw8NHw8NDREPDg8OHR0PDhsRDh4dHQ8OHQ8QHB4bEAANBQAAAAAAAAAA" # freebox down
+#    - service: broadlink.send
+#        host: !secret broadlink_host
+#        packet:
+#          - "JgDGAFgbEA4QDQ8cDR8sHQ8ODg4PDg8PDRAMEQ8ODRAdDw4OEB0MEA8PDg8QDR0dDg8eDgwgDw4dHR4ODBAOHxAMDwAIylgdEA0ODhAcDR8tGw8OEA4ODg8ODw4PDw8ODw4dDw8ODxwRDg0PDw0QDh0dEA4dDg0eEA4dHR0PDw4PHA8PEAAIyVccDhAODw4dEBssHA4QDw4PDg4PDRAPDg0QDw8dDg8ODx0NEA8QDg4NDx4dDRAdDg8dDw4eHR0ODw4QHA0QDwANBQAA" # freebox ok
 
 #########################################################
 
@@ -24,24 +52,24 @@
         click_type: double
   action:
     - service: switch.turn_off
-      entity_id: switch.64680137bcddc2542a40 # tv
-    - service: switch.turn_off
-      entity_id: switch.03200172dc4f22245507 # freebox
+      entity_id: switch.sonoff_1000a12e98
+    - service: media_player.turn_off
+      entity_id: media_player.onkyo_receiver # ampli
 
 #########################################################
-
-- alias: "living room - long press: toggle shutters"
-  trigger:
-    - platform: event
-      event_type: xiaomi_aqara.click
-      event_data:
-        entity_id: binary_sensor.switch_158d00035a643e
-        click_type: long_click_press
-  action:
-    - service: switch.toggle
-      entity_id:
-        - switch.cover_state_cuisine
-        - switch.cover_state_salon_bas
-        - switch.cover_state_salon_haut
-
+#
+#- alias: "living room - long press: toggle shutters"
+#  trigger:
+#    - platform: event
+#      event_type: xiaomi_aqara.click
+#      event_data:
+#        entity_id: binary_sensor.switch_158d00035a643e
+#        click_type: long_click_press
+#  action:
+#    - service: switch.toggle
+#      entity_id:
+#        - switch.cover_state_cuisine
+#        - switch.cover_state_salon_bas
+#        - switch.cover_state_salon_haut
+#
 #########################################################
