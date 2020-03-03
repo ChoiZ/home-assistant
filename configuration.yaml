@@ -26,10 +26,26 @@ tts:
   - platform: google_translate
     language: 'fr'
 
+sonoff:
+  username: !secret sonoff_username
+  password: !secret sonoff_password
+
+camera:
+  - platform: mjpeg
+    name: camera1
+    still_image_url: !secret camera1_image
+    mjpeg_url: !secret camera1_url
+    verify_ssl: false
+
+shopping_list:
+anniversaries: !include anniversaries.yaml
+
 group: !include groups.yaml
 automation: !include_dir_merge_list automations
 script: !include scripts.yaml
 
+light: !include light.yaml
+alarm_control_panel: !include alarm.yaml
 device_tracker: !include device_tracker.yaml
 linky: !include linky.yaml
 notify: !include notify.yaml
@@ -37,7 +53,7 @@ sensor: !include sensor.yaml
 switch: !include switch.yaml
 mqtt: !include mqtt.yaml
 media_player: !include media_player.yaml
-owntracks: !include owntracks.yaml
+timer: !include timer.yaml
 zone: !include zone.yaml
 
 # third party
@@ -45,6 +61,7 @@ cover: !include cover.yaml
 rfxtrx:
   device: /dev/ttyUSB0
 tuya: !include third_party/tuya.yaml
+unifi: !include third_party/unifi.yaml
 xiaomi_aqara: !include third_party/xiaomi.yaml
 vacuum: !include vacuum.yaml
 
