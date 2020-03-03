@@ -1,7 +1,7 @@
 #########################################################
 
 washing_machine:
-  name: washing machine
+  name: washing machine program
   options:
     - '30°'
     - '40°'

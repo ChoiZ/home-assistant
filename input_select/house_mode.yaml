@@ -3,10 +3,10 @@
 house_mode:
   name: mode
   options:
-    - 'Home'
-    - 'Away'
-    - 'Night'
-    - 'Extended Away'
-  initial: 'Home'
+    - 'home'
+    - 'away'
+    - 'night'
+    - 'extended away'
+  initial: 'home'
 
 #########################################################
