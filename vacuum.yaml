@@ -1,3 +1,8 @@
 - platform: xiaomi_miio
-  host: !secret vacuum_host
-  token: !secret vacuum_token
+  host: !secret vacuum_host_down
+  token: !secret vacuum_token_down
+  name: "Vacuum down"
+- platform: xiaomi_miio
+  host: !secret vacuum_host_up
+  token: !secret vacuum_token_up
+  name: "Vacuum up"

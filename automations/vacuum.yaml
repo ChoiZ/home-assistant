@@ -1,24 +1,72 @@
 ##########################################################
-#
-#- alias: Vacuum bedroom 1
-#  trigger:
-#    - platform: time
-#      at: "12:00:00"
-#  condition:
-#    - condition: time
-#      weekday:
-#        - sat
-#  action:
-#    - service: xiaomi_miio.vacuum_clean_zone
-#      data_template:
-#        entity_id: vacuum.xiaomi_vacuum_cleaner
-#        repeats: "{{states('input_number.vacuum_passes')|int}}"
-#        zone: [[28754,26936,31554,30386]]
-#    - service: notify.slack
-#      data:
-#        title: "Vacuum start cleaning"
-#        message: "Vacuum start cleaning bedroom 1"
-#
+
+- alias: Vacuum r+1
+  trigger:
+    - platform: state
+      entity_id: input_select.house_mode
+      to: 'Away'
+  condition:
+    - condition: time
+      weekday:
+        - sat
+  action:
+    - service: vacuum.start
+      entity_id: vacuum.vacuum_up
+    #- service: xiaomi_miio.vacuum_clean_zone
+    #  data_template:
+    #    entity_id: vacuum.vacuum_up
+    #    repeats: "{{states('input_number.vacuum_passes')|int}}"
+    #    zone: [[18135,21754,26035,27154]]
+    - service: notify.slack
+      data:
+        title: "Vacuum up start cleaning"
+        message: "Vacuum up start cleaning"
+
+##########################################################
+
+- alias: Vacuum r0
+  trigger:
+    - platform: state
+      entity_id: input_select.house_mode
+      to: 'Away'
+  condition:
+    - condition: time
+      weekday:
+        - sat
+  action:
+    - service: vacuum.start
+      entity_id: vacuum.vacuum_down
+    - service: notify.slack
+      data:
+        title: "Vacuum up start cleaning"
+        message: "Vacuum up start cleaning"
+
+##########################################################
+
+- alias: Vacuum docked
+  trigger:
+    - platform: state
+      entity_id: vacuum.vacuum_up
+      to: 'docked'
+  action:
+    - service: notify.slack
+      data:
+        title: "Vacuum up is now docked"
+        message: "Vacuum up is now docked"
+
+##########################################################
+
+- alias: Vacuum docked
+  trigger:
+    - platform: state
+      entity_id: vacuum.vacuum_down
+      to: 'docked'
+  action:
+    - service: notify.slack
+      data:
+        title: "Vacuum down is now docked"
+        message: "Vacuum down is now docked"
+
 ##########################################################
 #
 #- alias: Vacuum bedroom 2
@@ -32,7 +80,7 @@
 #  action:
 #    - service: xiaomi_miio.vacuum_clean_zone
 #      data_template:
-#        entity_id: vacuum.xiaomi_vacuum_cleaner
+#        entity_id: vacuum.vacuum_up
 #        repeats: "{{states('input_number.vacuum_passes')|int}}"
 #        zone: [[31688,26694,34688,30294]]
 #    - service: notify.slack
@@ -69,7 +117,7 @@
 #  action:
 #    - service: xiaomi_miio.vacuum_clean_zone
 #      data_template:
-#        entity_id: vacuum.xiaomi_vacuum_cleaner
+#        entity_id: vacuum.vacuum_up
 #        repeats: "{{states('input_number.vacuum_passes')|int}}"
 #        zone: [[25581,28916,28231,32266]]
 #    - service: notify.slack
