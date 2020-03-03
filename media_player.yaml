@@ -1,11 +1,5 @@
 #########################################################
 
-- platform: spotify
-  client_id: !secret spotify_client_id
-  client_secret: !secret spotify_client_secret
-
-#########################################################
-
 - platform: mpd
   host: !secret mpd_nas_host
   port: !secret mpd_nas_port
@@ -38,5 +32,11 @@
 
 - platform: onkyo
   host: !secret onkyo_host
+  sources:
+    video2: 'Freebox'
+    tv: 'TV'
+    phono: 'Vinyle'
+    bluetooth: 'Bluetooth'
+    net: 'Net'
 
 #########################################################
