@@ -9,17 +9,26 @@
       entity_id: binary_sensor.motion_sensor_158d00044993aa
       to: 'on'
   condition:
-    condition: and
+    condition: or
     conditions:
-      - condition: state
-        entity_id: switch.cover_state_salon_haut
-        state: 'off'
-      - condition: state
-        entity_id: switch.cover_state_salon_bas
-        state: 'off'
+      - condition: and
+        conditions:
+          - condition: template
+            value_template: '{{ state_attr("sun.sun", "elevation") < 3 }}'
+          - condition: time
+            after: '16:00:00'
+            before: '04:00:00'
+      - condition: and
+        conditions:
+          - condition: state
+            entity_id: switch.cover_state_salon_haut
+            state: 'off'
+          - condition: state
+            entity_id: switch.cover_state_salon_bas
+            state: 'off'
   action:
-    - service: switch.turn_on
-      entity_id: switch.0220052668c63aac1fc7
+    - service: light.turn_on
+      entity_id: light.living_room
 
 #########################################################
 
@@ -29,18 +38,18 @@
       entity_id: binary_sensor.motion_sensor_158d00044d007b
       to: 'off'
       for:
-        minutes: 13 # 2 mn from detection = 15mn on
+        minutes: 10 # 2 mn from detection = 12mn on
   condition:
     condition: and
     conditions:
       - condition: state
-        entity_id: switch.64680137bcddc2542a40
+        entity_id: switch.sonoff_1000a12e98
         state: 'off'
       - condition: state
         entity_id: binary_sensor.ping_tv
         state: 'off'
   action:
-    - service: switch.turn_off
-      entity_id: switch.0220052668c63aac1fc7
+    - service: light.turn_off
+      entity_id: light.living_room
 
 #########################################################
