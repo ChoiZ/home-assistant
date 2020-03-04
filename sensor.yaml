@@ -11,32 +11,6 @@
 #########################################################
 
 - platform: min_max
-  name: average home humidity
-  type: mean
-  entity_ids:
-    - sensor.humidity_158d00033b0bd7
-    - sensor.humidity_158d00036b45e1
-    - sensor.humidity_158d0004102ae1
-    - sensor.humidity_158d00044592d5
-    - sensor.humidity_158d00044acc21
-    - sensor.humidity_158d00044b4d7d
-
-#########################################################
-
-- platform: min_max
-  name: max home humidity
-  type: max
-  entity_ids:
-    - sensor.humidity_158d00033b0bd7
-    - sensor.humidity_158d00036b45e1
-    - sensor.humidity_158d0004102ae1
-    - sensor.humidity_158d00044592d5
-    - sensor.humidity_158d00044acc21
-    - sensor.humidity_158d00044b4d7d
-
-#########################################################
-
-- platform: min_max
   name: average home temperature
   type: mean
   entity_ids:
@@ -446,16 +420,5 @@
       unit_of_measurement: '%'
       value_template: "{{ state_attr('device_tracker.moto_g_7_2', 'battery_level')|round }}"
       device_class: battery
-
-#########################################################
-
-- platform: waze_travel_time
-  name: "Trajet Maison-Travail"
-  origin: zone.Home
-  destination: zone.Work
-  region: 'EU'
-  realtime: true
-  units: 'metric'
-  vehicle_type: 'car'
 
 #########################################################
