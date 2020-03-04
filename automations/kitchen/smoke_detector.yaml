@@ -10,10 +10,6 @@
       data:
         title: "Home-Assistant Detect smoke"
         message: "Home-Assistant Smoke detected @channel"
-    - service: notify.pushbullet
-      data:
-        title: "Home-Assistant Detect smoke"
-        message: "Home-Assistant Smoke detected"
 
 #########################################################
 
