@@ -118,7 +118,7 @@
 
 - platform: history_stats
   name: "historique lumière chambre 1"
-  entity_id: light.bedroom1
+  entity_id: switch.wall_switch_158d00044fa5de
   state: 'on'
   type: time
   start: '{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}'
