@@ -47,7 +47,6 @@ script: !include scripts.yaml
 light: !include light.yaml
 alarm_control_panel: !include alarm.yaml
 device_tracker: !include device_tracker.yaml
-linky: !include linky.yaml
 notify: !include notify.yaml
 sensor: !include sensor.yaml
 switch: !include switch.yaml
@@ -60,7 +59,7 @@ zone: !include zone.yaml
 cover: !include cover.yaml
 rfxtrx:
   device: /dev/ttyUSB0
-tuya: !include third_party/tuya.yaml
+linky: !include third_party/linky.yaml
 unifi: !include third_party/unifi.yaml
 xiaomi_aqara: !include third_party/xiaomi.yaml
 vacuum: !include vacuum.yaml
