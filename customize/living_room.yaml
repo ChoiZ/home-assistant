@@ -63,7 +63,8 @@ switch.64680137bcddc2542a40:
 
 switch.wall_switch_left_158d00045fabbe:
   icon: mdi:lightbulb
-  friendly_name: lumière entrée
+  friendly_name: lumière salon
+  assumed_state: false
 switch.wall_switch_right_158d00045fabbe:
   icon: mdi:lightbulb
   friendly_name: lumière salle à manger

@@ -12,3 +12,13 @@ sensor.illumination_158d00044993aa:
   friendly_name: capteur luminosité entrée
 
 #########################################################
+
+switch.wall_switch_left_158d00045f9e86:
+  icon: mdi:lightbulb
+  friendly_name: lumière entrée
+switch.wall_switch_right_158d00045f9e86:
+  icon: mdi:lightbulb
+  friendly_name: lumière escalier (bouton bas)
+  assumed_state: false
+
+#########################################################
