@@ -62,7 +62,7 @@ rfxtrx:
 linky: !include third_party/linky.yaml
 unifi: !include third_party/unifi.yaml
 xiaomi_aqara: !include third_party/xiaomi.yaml
-vacuum: !include vacuum.yaml
+vacuum: !include third_party/xiaomi_miio.yaml
 
 # input (bool, number…)
 binary_sensor: !include_dir_merge_list binary_sensor
