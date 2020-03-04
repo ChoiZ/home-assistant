@@ -53,3 +53,25 @@
       entity_id: light.living_room
 
 #########################################################
+
+- alias: switch on the living room from the living_room button
+  trigger:
+    platform: state
+    entity_id: switch.wall_switch_left_158d00045fabbe
+    to: 'on'
+  action:
+    - service: light.toggle
+      entity_id: light.living_room
+
+#########################################################
+
+- alias: switch off the living room from the living_room button
+  trigger:
+    platform: state
+    entity_id: switch.wall_switch_left_158d00045fabbe
+    to: 'off'
+  action:
+    - service: light.toggle
+      entity_id: light.living_room
+
+#########################################################

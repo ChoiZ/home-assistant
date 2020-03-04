@@ -1,0 +1,93 @@
+#########################################################
+
+- alias: Ampli still up be and no one listen
+  trigger:
+    - platform: state
+      entity_id: media_player.onkyo_receiver
+      to: 'on'
+      for:
+        minutes: 10
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: switch.sonoff_1000a12e98
+        state: 'off'
+      - condition: or
+        conditions:
+        - condition: state
+          entity_id: sensor.onkyo_source
+          state: 'TV'
+        - condition: state
+          entity_id: sensor.onkyo_source
+          state: 'Freebox'
+  action:
+    - service: media_player.turn_off
+      entity_id: media_player.onkyo_receiver
+
+#########################################################
+
+- alias: Change ampli source to freebox
+  trigger:
+    - platform: state
+      entity_id: input_select.ampli_sources
+      to: 'freebox'
+  action:
+    - service: media_player.select_source
+      data:
+        entity_id: media_player.onkyo_receiver
+        source: 'video2'
+
+#########################################################
+
+- alias: Change ampli source to tv
+  trigger:
+    - platform: state
+      entity_id: input_select.ampli_sources
+      to: 'tv'
+  action:
+    - service: media_player.select_source
+      data:
+        entity_id: media_player.onkyo_receiver
+        source: 'tv'
+
+#########################################################
+
+- alias: Change ampli source to vinyle
+  trigger:
+    - platform: state
+      entity_id: input_select.ampli_sources
+      to: 'vinyle'
+  action:
+    - service: media_player.select_source
+      data:
+        entity_id: media_player.onkyo_receiver
+        source: 'phono'
+
+#########################################################
+
+- alias: Change ampli source to bluetooth
+  trigger:
+    - platform: state
+      entity_id: input_select.ampli_sources
+      to: 'bluetooth'
+  action:
+    - service: media_player.select_source
+      data:
+        entity_id: media_player.onkyo_receiver
+        source: 'bluetooth'
+
+#########################################################
+
+- alias: Change ampli source to net
+  trigger:
+    - platform: state
+      entity_id: input_select.ampli_sources
+      to: 'net'
+  action:
+    - service: media_player.select_source
+      data:
+        entity_id: media_player.onkyo_receiver
+        source: 'net'
+
+#########################################################

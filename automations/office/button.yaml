@@ -1,0 +1,23 @@
+#########################################################
+
+- alias: switch on the office light from office button
+  trigger:
+    platform: state
+    entity_id: switch.wall_switch_left_158d00045f9f36
+    to: 'on'
+  action:
+    - service: switch.toggle
+      entity_id: switch.wall_switch_158d00044f0b9b
+
+#########################################################
+
+- alias: switch off the office light from office button
+  trigger:
+    platform: state
+    entity_id: switch.wall_switch_left_158d00045f9f36
+    to: 'off'
+  action:
+    - service: switch.toggle
+      entity_id: switch.wall_switch_158d00044f0b9b
+
+#########################################################

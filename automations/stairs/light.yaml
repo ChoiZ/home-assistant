@@ -1,0 +1,23 @@
+#########################################################
+
+- alias: switch on the stairs from the entrance button
+  trigger:
+    platform: state
+    entity_id: switch.wall_switch_right_158d00045f9e86
+    to: 'on'
+  action:
+    - service: switch.toggle
+      entity_id: switch.wall_switch_right_158d00045f9f36
+
+#########################################################
+
+- alias: switch off the stairs from the entrance button
+  trigger:
+    platform: state
+    entity_id: switch.wall_switch_right_158d00045f9e86
+    to: 'off'
+  action:
+    - service: switch.toggle
+      entity_id: switch.wall_switch_right_158d00045f9f36
+
+#########################################################
