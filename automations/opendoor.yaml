@@ -14,10 +14,10 @@
       - condition: and
         conditions:
           - condition: state
-            entity_id: switch.cover_state_salon_haut
+            entity_id: switch.cover_state_mezzanine
             state: 'off'
           - condition: state
-            entity_id: switch.cover_state_salon_bas
+            entity_id: switch.cover_state_living_room
             state: 'off'
   action:
     - service: light.turn_on

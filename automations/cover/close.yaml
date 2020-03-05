@@ -1,6 +1,6 @@
 #########################################################
 
-- alias: "Sunset +10mn close all shutters"
+- alias: "Sunset +10mn close downstair covers"
   trigger:
     - platform: sun
       event: sunset
@@ -10,27 +10,24 @@
       after: '16:00:00'
       before: '23:00:00'
   action:
-    - service: switch.turn_off
+    - service: homeassistant.turn_off
       entity_id:
-        - switch.cover_state_cuisine
-        - switch.cover_state_salon_bas
-        - switch.cover_state_salon_haut
-        - switch.cover_state_chambre_1
+        - group.downstair_covers
 
 #########################################################
 
-- alias: "Sunset +10mn10 close bedroom shutter"
+- alias: "Sunset +11mn close upstair covers"
   trigger:
     - platform: sun
       event: sunset
-      offset: '+00:10:10'
+      offset: '+00:11:00'
   condition:
     - condition: time
       after: '16:00:00'
       before: '23:00:00'
   action:
-    - service: switch.turn_off
+    - service: homeassistant.turn_off
       entity_id:
-        - switch.cover_state_chambre_2
+        - group.upstair_covers
 
 #########################################################

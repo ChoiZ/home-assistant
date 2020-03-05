@@ -11,7 +11,7 @@
       - condition: template
         value_template: '{{ state_attr("sun.sun", "elevation") < 3 }}'
       - condition: state
-        entity_id: switch.cover_state_cuisine
+        entity_id: switch.cover_state_kitchen
         state: 'off'
   action:
     - service: switch.turn_on

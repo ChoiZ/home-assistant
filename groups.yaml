@@ -49,3 +49,31 @@ sockets:
   - switch.coffee_socket
 
 #########################################################
+
+covers:
+  name: "Volets"
+  entities:
+  - switch.cover_state_kitchen
+  - switch.cover_state_living_room
+  - switch.cover_state_mezzanine
+  - switch.cover_state_chambre_1
+  - switch.cover_state_chambre_2
+
+#########################################################
+
+downstair_covers:
+  name: "Volets r0"
+  entities:
+  - switch.cover_state_kitchen
+  - switch.cover_state_living_room
+  - switch.cover_state_mezzanine
+
+#########################################################
+
+upstair_covers:
+  name: "Volets r+1"
+  entities:
+  - switch.cover_state_chambre_1
+  - switch.cover_state_chambre_2
+
+#########################################################

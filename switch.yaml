@@ -185,65 +185,8 @@
         service: switch.turn_off
         data:
           entity_id: switch.ampli
-    test_cover_state_living_room_bottom:
-      friendly_name: "test volet salon (bas)"
-      value_template: "{% if is_state('input_boolean.test_cover_living_room_bottom', 'on') %}True{% else %}False{% endif %}"
-      turn_on:
-        service: script.test_open_shutter
-        data:
-          cover_entity_id: cover.test_living_room_bottom
-          input_boolean_entity_id: input_boolean.test_cover_living_room_bottom
-      turn_off:
-        service: script.test_close_shutter
-        data:
-          cover_entity_id: cover.test_living_room_bottom
-          input_boolean_entity_id: input_boolean.test_cover_living_room_bottom
-      icon_template: >-
-          {% if is_state('input_boolean.test_cover_living_room_bottom', 'on') %}
-            mdi:window-shutter-open
-          {% else %}
-            mdi:window-shutter
-          {% endif %}
-    test_cover_state_living_room_top:
-      friendly_name: "test volet salon (haut)"
-      value_template: "{% if is_state('input_boolean.test_cover_living_room_top', 'on') %}True{% else %}False{% endif %}"
-      turn_on:
-        service: script.test_open_shutter
-        data:
-          cover_entity_id: cover.test_living_room_top
-          input_boolean_entity_id: input_boolean.test_cover_living_room_top
-      turn_off:
-        service: script.test_close_shutter
-        data:
-          cover_entity_id: cover.test_living_room_top
-          input_boolean_entity_id: input_boolean.test_cover_living_room_top
-      icon_template: >-
-          {% if is_state('input_boolean.test_cover_living_room_top', 'on') %}
-            mdi:window-shutter-open
-          {% else %}
-            mdi:window-shutter
-          {% endif %}
-    test_cover_state_kitchen:
-      friendly_name: "test volet cuisine"
-      value_template: "{% if is_state('input_boolean.test_cover_kitchen', 'on') %}True{% else %}False{% endif %}"
-      turn_on:
-        service: script.test_open_shutter
-        data:
-          cover_entity_id: cover.test_kitchen
-          input_boolean_entity_id: input_boolean.test_cover_kitchen
-      turn_off:
-        service: script.test_close_shutter
-        data:
-          cover_entity_id: cover.test_kitchen
-          input_boolean_entity_id: input_boolean.test_cover_kitchen
-      icon_template: >-
-          {% if is_state('input_boolean.test_cover_kitchen', 'on') %}
-            mdi:window-shutter-open
-          {% else %}
-            mdi:window-shutter
-          {% endif %}
-    cover_state_salon_bas:
-      friendly_name: "volet salon (bas)"
+    cover_state_living_room:
+      friendly_name: "volet salon"
       value_template: "{% if is_state('input_boolean.cover_salon_bas', 'on') %}True{% else %}False{% endif %}"
       turn_on:
         service: script.open_shutter
@@ -262,8 +205,8 @@
             mdi:window-shutter
           {% endif %}
 
-    cover_state_salon_haut:
-      friendly_name: "volet salon (haut)"
+    cover_state_mezzanine:
+      friendly_name: "volet mezzanine"
       value_template: "{% if is_state('input_boolean.cover_salon_haut', 'on') %}True{% else %}False{% endif %}"
       turn_on:
         service: script.open_shutter
@@ -282,7 +225,7 @@
             mdi:window-shutter
           {% endif %}
 
-    cover_state_cuisine:
+    cover_state_kitchen:
       friendly_name: "volet cuisine"
       value_template: "{% if is_state('input_boolean.cover_cuisine', 'on') %}True{% else %}False{% endif %}"
       turn_on:
