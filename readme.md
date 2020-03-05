@@ -1,4 +1,4 @@
-# HomeAssistant
+# Home-Assistant
 
 ChoiZ's HomeAssistant configuration.
 

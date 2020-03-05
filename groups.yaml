@@ -25,3 +25,27 @@ wan:
   - binary_sensor.ping_quad9
 
 #########################################################
+
+lights:
+  name: "Lumières"
+  entities:
+  - switch.wall_switch_158d000357da1a # lumière salle d'eau
+  - switch.wall_switch_left_158d00045f9e86 # lumière entrée
+  - switch.wall_switch_right_158d00045f9f36 # lumière escalier
+  - switch.wall_switch_right_158d00045fab25 # lumière cuisine
+  - switch.wall_switch_left_158d00045fab25 # lumière évier
+  - switch.wall_switch_right_158d00045fabbe # lumière salle à manger
+  - switch.wall_switch_158d00044f0b9b # lumière bureau
+  - switch.wall_switch_left_158d00039d4efd # lumière salle de bain (mirroir)
+  - switch.wall_switch_right_158d00039d4efd # lumière salle de bain (plafonier)
+  - switch.wall_switch_158d00044fa5de # lumière chambre 1
+
+#########################################################
+
+sockets:
+  name: "Prises connectées"
+  entities:
+  - switch.sonoff_1000a12e98 # alimentation tv/freeboxtv
+  - switch.coffee_socket
+
+#########################################################
