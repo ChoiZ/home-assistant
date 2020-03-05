@@ -19,17 +19,6 @@
 
 #########################################################
 
-#- platform: braviatv
-#  host: !secret braviatv_host
-
-#########################################################
-
-#- platform: braviatv_psk
-#  host: !secret braviatv_host
-#  psk: 0000
-
-#########################################################
-
 - platform: onkyo
   host: !secret onkyo_host
   sources:
