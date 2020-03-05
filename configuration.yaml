@@ -56,7 +56,7 @@ timer: !include timer.yaml
 zone: !include zone.yaml
 
 # third party
-cover: !include cover.yaml
+cover: !include third_party/cover.yaml
 rfxtrx:
   device: /dev/ttyUSB0
 linky: !include third_party/linky.yaml
