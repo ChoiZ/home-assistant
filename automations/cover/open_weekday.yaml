@@ -18,9 +18,15 @@
         entity_id: input_boolean.alarm_clock_status
         state: 'on'
   action:
-    - service: homeassistant.turn_on
+    #- service: homeassistant.turn_on
+    #  entity_id:
+    #    - group.upstair_covers
+    - service: switch.turn_off
       entity_id:
-        - group.upstair_covers
+        - switch.cover_state_little_bedroom
+    - service: switch.turn_off
+      entity_id:
+        - switch.cover_state_chambre_2
 
 #########################################################
 
@@ -37,8 +43,17 @@
         - thu
         - fri
   action:
-    - service: homeassistant.turn_on
+    #- service: homeassistant.turn_on
+    #  entity_id:
+    #    - group.downstair_covers
+    - service: switch.turn_off
       entity_id:
-        - group.downstair_covers
+        - switch.cover_state_kitchen
+    - service: switch.turn_off
+      entity_id:
+        - switch.cover_state_living_room
+    - service: switch.turn_off
+      entity_id:
+        - switch.cover_state_mezzanine
 
 #########################################################

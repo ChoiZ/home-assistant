@@ -18,8 +18,8 @@
         entity_id: switch.cover_state_chambre_2
         state: 'off'
   action:
-    - service: light.turn_on
-      entity_id: light.bedroom2
+    - service: switch.turn_on
+      entity_id: switch.wall_switch_158d00044f52ec
 
 #########################################################
 
@@ -31,20 +31,7 @@
       for:
         minutes: 3 # 2 mn from detection = 5mn on
   action:
-    - service: light.turn_off
-      entity_id: light.bedroom2
-
-#########################################################
-
-- alias: Someone switch off the bedroom light
-  trigger:
-    - platform: state
-      entity_id: light.bedroom2
-      to: 'unavailable'
-  action:
-    - service: notify.slack
-      data_template:
-        title: "Home-Assistant Light off"
-        message: "@channel someone switch off the bedroom 2 light please turn on again. {{ trigger.to_state.attributes.friendly_name }}"
+    - service: switch.turn_off
+      entity_id: switch.wall_switch_158d00044f52ec
 
 #########################################################

@@ -20,7 +20,7 @@
             entity_id: switch.cover_state_living_room
             state: 'off'
   action:
-    - service: light.turn_on
-      entity_id: light.living_room
+    - service: switch.turn_on
+      entity_id: switch.wall_switch_left_158d00045f9e86
 
 #########################################################

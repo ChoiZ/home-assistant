@@ -27,8 +27,8 @@
             entity_id: switch.cover_state_living_room
             state: 'off'
   action:
-    - service: light.turn_on
-      entity_id: light.living_room
+    - service: switch.turn_on
+      entity_id: switch.wall_switch_left_158d00045fabbe
 
 #########################################################
 
@@ -49,8 +49,8 @@
         entity_id: binary_sensor.ping_tv
         state: 'off'
   action:
-    - service: light.turn_off
-      entity_id: light.living_room
+    - service: switch.turn_off
+      entity_id: switch.wall_switch_left_158d00045fabbe
 
 #########################################################
 

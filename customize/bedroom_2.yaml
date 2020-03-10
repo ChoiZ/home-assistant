@@ -30,7 +30,7 @@ sensor.humidity_158d00036b45e1:
 
 #########################################################
 
-light.bedroom2:
+switch.wall_switch_158d00044f52ec:
   friendly_name: lumière chambre 2
   icon: mdi:lightbulb
 

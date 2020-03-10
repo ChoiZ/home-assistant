@@ -22,7 +22,7 @@
         click_type: long_click_press
   action:
     - service: switch.toggle
-      entity_id: switch.cover_state_chambre_1
+      entity_id: switch.cover_state_little_bedroom
 
 #########################################################
 
