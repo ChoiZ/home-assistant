@@ -62,11 +62,9 @@ switch.64680137bcddc2542a40:
 #########################################################
 
 switch.wall_switch_left_158d00045fabbe:
-  icon: mdi:lightbulb
-  friendly_name: lumière salon
+  friendly_name: bouton lumière salon (remote)
   assumed_state: false
 switch.wall_switch_right_158d00045fabbe:
-  icon: mdi:lightbulb
-  friendly_name: lumière salle à manger
+  friendly_name: bouton lumière salle à manger
 
 #########################################################

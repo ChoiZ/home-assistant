@@ -37,10 +37,8 @@ switch.coffee_socket:
 #########################################################
 
 switch.wall_switch_left_158d00045fab25:
-  icon: mdi:lightbulb
-  friendly_name: lumière évier
+  friendly_name: bouton lumière évier
 switch.wall_switch_right_158d00045fab25:
-  icon: mdi:lightbulb
-  friendly_name: lumière cuisine
+  friendly_name: bouton lumière cuisine
 
 #########################################################

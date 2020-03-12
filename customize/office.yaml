@@ -8,11 +8,9 @@ sensor.illumination_158d0003f3cd60:
 #########################################################
 
 switch.wall_switch_left_158d00045f9f36:
-  icon: mdi:lightbulb
-  friendly_name: lumière bureau (bouton bureau)
+  friendly_name: bouton lumière bureau et couloir (remote)
   assumed_state: false
 switch.wall_switch_right_158d00045f9f36:
-  icon: mdi:lightbulb
-  friendly_name: lumière escalier
+  friendly_name: bouton lumière escalier
 
 #########################################################

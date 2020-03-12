@@ -19,7 +19,6 @@ sensor.humidity_158d00044b4d7d:
 #########################################################
 
 switch.wall_switch_158d00044fa5de:
-  friendly_name: lumière chambre 1
-  icon: mdi:lightbulb
+  friendly_name: bouton lumière chambre 1
 
 #########################################################

@@ -1,7 +1,6 @@
 #########################################################
 
 switch.wall_switch_158d00044f5305:
-  icon: mdi:lightbulb
-  friendly_name: lumière terrasse
+  friendly_name: bouton lumière terrasse
 
 #########################################################

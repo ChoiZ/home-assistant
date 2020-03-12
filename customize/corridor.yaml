@@ -1,7 +1,6 @@
 #########################################################
 
 switch.wall_switch_158d00044f0b9b:
-  icon: mdi:lightbulb
-  friendly_name: lumière bureau
+  friendly_name: bouton lumière bureau et couloir
 
 #########################################################
