@@ -8,8 +8,8 @@
         entity_id: binary_sensor.switch_158d00033e8984
         click_type: single
   action:
-    - service: light.toggle
-      entity_id: light.bedroom1
+    - service: switch.toggle
+      entity_id: switch.wall_switch_158d00044fa5de
 
 #########################################################
 
@@ -22,19 +22,6 @@
         click_type: long_click_press
   action:
     - service: switch.toggle
-      entity_id: switch.cover_state_little_bedroom
-
-#########################################################
-
-- alias: Someone switch off the bedroom 1 light
-  trigger:
-    - platform: state
-      entity_id: light.bedroom1
-      to: 'unavailable'
-  action:
-    - service: notify.slack
-      data_template:
-        title: "Home-Assistant Light off"
-        message: "@channel someone switch off the bedroom 1 light please turn on again. {{ trigger.to_state.attributes.friendly_name }}"
+      entity_id: switch.cover_state_bedroom_1
 
 #########################################################
