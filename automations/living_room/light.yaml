@@ -38,7 +38,7 @@
       entity_id: binary_sensor.motion_sensor_158d00044d007b
       to: 'off'
       for:
-        minutes: 10 # 2 mn from detection = 12mn on
+        minutes: 3
   condition:
     condition: and
     conditions:
