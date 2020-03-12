@@ -10,9 +10,6 @@
       after: '16:00:00'
       before: '23:00:00'
   action:
-    #- service: homeassistant.turn_off
-    #  entity_id:
-    #    - group.downstair_covers
     - service: switch.turn_off
       entity_id:
         - switch.cover_state_kitchen
@@ -22,27 +19,11 @@
     - service: switch.turn_off
       entity_id:
         - switch.cover_state_mezzanine
-
-#########################################################
-
-- alias: "Sunset +1mn close upstair covers"
-  trigger:
-    - platform: sun
-      event: sunset
-      offset: '+00:01:00'
-  condition:
-    - condition: time
-      after: '16:00:00'
-      before: '23:00:00'
-  action:
-    #- service: homeassistant.turn_off
-    #  entity_id:
-    #    - group.upstair_covers
     - service: switch.turn_off
       entity_id:
-        - switch.cover_state_little_bedroom
+        - switch.cover_state_bedroom_1
     - service: switch.turn_off
       entity_id:
-        - switch.cover_state_chambre_2
+        - switch.cover_state_bedroom_2
 
 #########################################################

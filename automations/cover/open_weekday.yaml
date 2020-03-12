@@ -26,7 +26,7 @@
         - switch.cover_state_little_bedroom
     - service: switch.turn_on
       entity_id:
-        - switch.cover_state_chambre_2
+        - switch.cover_state_bedroom_2
 
 #########################################################
 
