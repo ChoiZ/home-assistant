@@ -4,14 +4,14 @@
   automatic_add: false
   devices:
     071a00000a000101:
-      name: "salon haut"
+      name: "mezzanine"
     071a00000a000201:
-      name: "salon bas"
+      name: "living room"
     071a00000a000301:
-      name: "cuisine"
+      name: "kitchen"
     071a00000a000401:
-      name: "chambre 1"
+      name: "bedroom 1"
     071a00000a000501:
-      name: "chambre 2"
+      name: "bedroom 2"
 
 #########################################################
