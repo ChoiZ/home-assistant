@@ -20,7 +20,7 @@
         - sensor.bouton_chambre_2
         - sensor.bouton_cuisine
         - sensor.cube_chambre_2
-      below: 15
+      below: 20
   action:
     - service: notify.slack
       data_template:
