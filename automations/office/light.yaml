@@ -36,12 +36,12 @@
 
 #########################################################
 
-- alias: Blink at 23h00 and 23h30 sunday to thursday
+- alias: Blink at 23h00 and 23h10 sunday to thursday
   trigger:
     - platform: time
       at: '23:00:00'
     - platform: time
-      at: '23:15:00'
+      at: '23:10:00'
   condition:
     condition: and
     conditions:
@@ -60,13 +60,17 @@
       entity_id: switch.wall_switch_158d00044f0b9b
     - service: switch.turn_on
       entity_id: switch.wall_switch_158d00044f0b9b
+    - service: switch.turn_off
+      entity_id: switch.wall_switch_158d00044f0b9b
+    - service: switch.turn_on
+      entity_id: switch.wall_switch_158d00044f0b9b
 
 #########################################################
 
-- alias: Switch off office light at 23:30 and switch on bathroom light sunday to thursday
+- alias: Switch off office light at 23:20 and switch on bathroom light sunday to thursday
   trigger:
     - platform: time
-      at: '23:30:00'
+      at: '23:20:00'
   condition:
     condition: and
     conditions:
