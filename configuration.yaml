@@ -49,7 +49,7 @@ alarm_control_panel: !include alarm.yaml
 device_tracker: !include device_tracker.yaml
 notify: !include notify.yaml
 sensor: !include sensor.yaml
-switch: !include switch.yaml
+switch: !include_dir_merge_list switch
 mqtt: !include mqtt.yaml
 media_player: !include media_player.yaml
 timer: !include timer.yaml
