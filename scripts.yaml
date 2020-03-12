@@ -89,30 +89,6 @@ close_shutter:
 
 #########################################################
 
-test_open_shutter:
-  sequence:
-    - service: notify.slack
-      data_template:
-        title: "ouverture volet"
-        message: "ouverture {{ cover_entity_id }}"
-    - service: input_boolean.turn_on
-      data_template:
-        entity_id: "{{ input_boolean_entity_id }}"
-
-#########################################################
-
-test_close_shutter:
-  sequence:
-    - service: notify.slack
-      data_template:
-        title: "fermeture volet"
-        message: "fermeture {{ cover_entity_id }}"
-    - service: input_boolean.turn_off
-      data_template:
-        entity_id: "{{ input_boolean_entity_id }}"
-
-#########################################################
-
 start_alarm:
   alias: "[alarm] started"
   sequence:
