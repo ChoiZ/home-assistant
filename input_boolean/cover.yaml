@@ -1,18 +1,18 @@
 #########################################################
 
-cover_salon_haut:
-  name: volet salon (haut)
+cover_mezzanine:
+  name: volet mezzanine
 
-cover_salon_bas:
-  name: volet salon (bas)
+cover_living_room:
+  name: volet salon
 
-cover_cuisine:
+cover_kitchen:
   name: volet cuisine
 
-cover_little_bedroom:
+cover_bedroom_1:
   name: volet chambre 1
 
-cover_chambre_2:
+cover_bedroom_2:
   name: volet chambre 2
 
 #########################################################
