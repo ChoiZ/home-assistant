@@ -21,3 +21,16 @@
       entity_id: switch.wall_switch_right_158d00045f9f36
 
 #########################################################
+
+- alias: turn off the stairs after 3mn
+  trigger:
+    - platform: state
+      entity_id: switch.wall_switch_right_158d00045f9f36
+      to: 'on'
+      for:
+        minutes: 3
+  action:
+    - service: switch.turn_off
+      entity_id: switch.wall_switch_right_158d00045f9f36
+
+#########################################################
