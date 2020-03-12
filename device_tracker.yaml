@@ -4,5 +4,7 @@
   hosts:
     ip_phone_fr: !secret ip_phone_fr
     ip_phone_ge: !secret ip_phone_ge
+  interval_seconds: 10
+  consider_home: 40
 
 #########################################################
