@@ -9,7 +9,7 @@
         action_type: flip90
   action:
     - service: switch.toggle
-      entity_id: switch.cover_state_chambre_2
+      entity_id: switch.cover_state_bedroom_2
 
 #########################################################
 
@@ -22,7 +22,7 @@
         action_type: flip180
   action:
     - service: switch.toggle
-      entity_id: switch.cover_state_chambre_2
+      entity_id: switch.cover_state_bedroom_2
 
 #########################################################
 
