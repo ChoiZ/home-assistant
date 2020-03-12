@@ -25,7 +25,7 @@
       entity_id: binary_sensor.motion_sensor_158d00044c67d5
       to: 'off'
       for:
-        minutes: 3 # 2 mn from detection = 5mn on
+        minutes: 3
   action:
     - service: switch.turn_off
       entity_id: switch.wall_switch_right_158d00045fab25

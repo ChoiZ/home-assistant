@@ -1,3 +1,5 @@
+########################################################
+
 - alias: timer
   trigger:
   - platform: state
@@ -40,3 +42,5 @@
       message: "The dishwasher is finished"
   - service: input_boolean.turn_off
     entity_id: input_boolean.dishwasher
+
+########################################################
