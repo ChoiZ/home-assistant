@@ -9,4 +9,4 @@
   action:
     - service: notify.slack
       data:
-        message: "Vacuum {{ entity_id }} is now docked"
+        message: "Vacuum {{ trigger.entity_id }} is now docked"
