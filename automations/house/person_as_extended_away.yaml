@@ -1,0 +1,22 @@
+- alias: "Person as extended away"
+  trigger:
+    - platform: state
+      entity_id: input_select.francois_status_dropdown
+      to: 'away'
+      for:
+        hours: 24
+    - platform: state
+      entity_id: input_select.geraldine_status_dropdown
+      to: 'away'
+      for:
+        hours: 24
+  action:
+    - service: input_select.select_option
+      data_template:
+        entity_id: >
+          {% if trigger.entity_id == 'input_select.francois_status_dropdown' %}
+            input_select.francois_status_dropdown
+          {% else %}
+            input_select.geraldine_status_dropdown
+          {% endif %}
+        option: extended away

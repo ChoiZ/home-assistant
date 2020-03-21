@@ -1,0 +1,29 @@
+- alias: "Alarm on someone open the door or window"
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.door_window_sensor_158d00039fe3a9 # fenetre salon
+      to: 'on'
+    - platform: state
+      entity_id: binary_sensor.door_window_sensor_158d0003a0f809 # fenetre salle a manger
+      to: 'on'
+    - platform: state
+      entity_id: binary_sensor.door_window_sensor_158d0003f41fe9 # fenetre chambre 1
+      to: 'on'
+    - platform: state
+      entity_id: binary_sensor.door_window_sensor_158d0003f4baa8 # fenetre chambre 2
+      to: 'on'
+    - platform: state
+      entity_id: binary_sensor.door_window_sensor_158d0003f4ba8d # porte entrée
+      to: 'on'
+  condition:
+    - condition: or
+      conditions:
+        - condition: state
+          entity_id: alarm_control_panel.home
+          state: armed_away
+        - condition: state
+          entity_id: alarm_control_panel.home
+          state: armed_home
+  action:
+    service: alarm_control_panel.alarm_trigger
+    entity_id: alarm_control_panel.home

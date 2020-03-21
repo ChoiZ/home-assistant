@@ -1,0 +1,80 @@
+#########################################################
+
+- alias: Set 'away' by hand
+  trigger:
+    - platform: state
+      entity_id: input_select.house_mode
+      to: 'away'
+  action:
+    - service: switch.turn_off
+      entity_id:
+        - group.lights
+        - group.sockets
+    - service: light.turn_off
+      entity_id:
+        - light.living_room
+    - service: light.turn_on
+      data:
+        entity_id: light.gateway_light_04cf8cb87b01
+        brightness_pct: 2
+        color_name: red
+    - service: switch.turn_on
+      entity_id: switch.camera_socket
+
+#########################################################
+
+- alias: Fr & Ge are not at home set mode 'away'
+  trigger:
+    - platform: state
+      entity_id: device_tracker.ip_phone_fr
+      to: 'not_home'
+  condition:
+    - condition: and
+      conditions:
+      - condition: state
+        entity_id: input_select.house_mode
+        state: 'home'
+      - condition: state
+        entity_id: device_tracker.ip_phone_ge
+        state: 'not_home'
+      - condition: state
+        entity_id: device_tracker.moto_g_7
+        state: 'not_home'
+  action:
+    - service: input_select.select_option
+      entity_id: input_select.house_mode
+      data:
+        option: 'away'
+    - service: notify.slack
+      data:
+        message: "House Mode away enabled"
+
+#########################################################
+
+- alias: Ge & Fr are not at home set mode 'away'
+  trigger:
+    - platform: state
+      entity_id: device_tracker.ip_phone_ge
+      to: 'not_home'
+  condition:
+    - condition: and
+      conditions:
+      - condition: state
+        entity_id: input_select.house_mode
+        state: 'home'
+      - condition: state
+        entity_id: device_tracker.ip_phone_fr
+        state: 'not_home'
+      - condition: state
+        entity_id: device_tracker.moto_g_7
+        state: 'not_home'
+  action:
+    - service: input_select.select_option
+      entity_id: input_select.house_mode
+      data:
+        option: 'away'
+    - service: notify.slack
+      data:
+        message: "House Mode away enabled"
+
+#########################################################

@@ -1,0 +1,20 @@
+- alias: "Person as just left"
+  trigger:
+    - platform: state
+      entity_id: person.francois
+      from: 'home'
+      to: 'away'
+    - platform: state
+      entity_id: person.geraldine
+      from: 'home'
+      to: 'away'
+  action:
+    - service: input_select.select_option
+      data_template:
+        entity_id: >
+          {% if trigger.entity_id == 'person.francois' %}
+            input_select.francois_status_dropdown
+          {% else %}
+            input_select.geraldine_status_dropdown
+          {% endif %}
+        option: just left

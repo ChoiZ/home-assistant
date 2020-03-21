@@ -1,0 +1,10 @@
+- alias: 'Alarme enclenchée (présent)'
+  initial_state: 'on'
+  trigger:
+    platform: state
+    entity_id: alarm_control_panel.home
+    to: 'armed_home'
+  action:
+    - service: notify.slack
+      data:
+        message: 'Alarme enclenchée (présent)'

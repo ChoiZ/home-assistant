@@ -1,6 +1,4 @@
-#########################################################
-
-- alias: "Sensor Low Battery"
+- alias: "Detect low battery"
   initial_state: true
   trigger:
     - platform: numeric_state
@@ -26,6 +24,3 @@
       data_template:
         title: "Home-Assistant Device Battery Low"
         message: "@channel The battery for {{ trigger.to_state.attributes.friendly_name }} is below {{ trigger.below }} percent."
-
-#########################################################
-

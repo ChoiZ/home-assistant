@@ -1,0 +1,19 @@
+- alias: 'Alarme désactivée'
+  initial_state: 'on'
+  trigger:
+    platform: state
+    entity_id: alarm_control_panel.home
+    to: 'disarmed'
+  action:
+    - service: notify.slack
+      data:
+        message: 'Alarme désactivée'
+    - service: script.turn_off
+      entity_id: script.start_alarm
+    - service: script.turn_off
+      entity_id: script.flash_light
+    - service: xiaomi_aqara.stop_ringtone
+    - service: input_select.select_option
+      entity_id: input_select.house_mode
+      data_template:
+        option: "{{ input_select.house_mode }}"

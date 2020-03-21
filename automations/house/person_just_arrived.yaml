@@ -1,0 +1,33 @@
+- alias: "Person as just arrived"
+  trigger:
+    - platform: state
+      entity_id: person.francois
+      from: 'away'
+      to: 'home'
+    - platform: state
+      entity_id: person.geraldine
+      from: 'away'
+      to: 'home'
+  action:
+    - service: input_select.select_option
+      data_template:
+        entity_id: >
+          {% if trigger.entity_id == 'person.francois' %}
+            input_select.francois_status_dropdown
+          {% else %}
+            input_select.geraldine_status_dropdown
+          {% endif %}
+        option: >
+          {% if trigger.entity_id == 'person.francois' %}
+            {% if states.input_select.francois_status_dropdown.state == 'just left' %}
+              home
+            {% else %}
+              just arrived
+            {% endif %}
+          {% else %}
+            {% if states.input_select.geraldine_status_dropdown.state == 'just left' %}
+              home
+            {% else %}
+              just arrived
+            {% endif %}
+          {% endif %}

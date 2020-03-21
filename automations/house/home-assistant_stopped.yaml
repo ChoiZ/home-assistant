@@ -1,0 +1,8 @@
+- alias: Home-Assistant Stopped
+  trigger:
+    - platform: homeassistant
+      event: shutdown
+  action:
+    - service: notify.slack
+      data:
+        message: "Home-Assistant Has Stopped"

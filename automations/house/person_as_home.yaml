@@ -1,0 +1,31 @@
+- alias: "Person as home"
+  trigger:
+    - platform: state
+      entity_id: input_select.francois_status_dropdown
+      to: 'just arrived'
+      for:
+        minutes: 10
+    - platform: state
+      entity_id: input_select.geraldine_status_dropdown
+      to: 'just arrived'
+      for:
+        minutes: 10
+    - platform: state
+      entity_id: input_select.francois_status_dropdown
+      from: 'just left'
+      to: 'just arrived'
+    - platform: state
+      entity_id: input_select.geraldine_status_dropdown
+      from: 'just left'
+      to: 'just arrived'
+  condition:
+  action:
+    - service: input_select.select_option
+      data_template:
+        entity_id: >
+          {% if trigger.entity_id == 'input_select.francois_status_dropdown' %}
+            input_select.francois_status_dropdown
+          {% else %}
+            input_select.geraldine_status_dropdown
+          {% endif %}
+        option: home

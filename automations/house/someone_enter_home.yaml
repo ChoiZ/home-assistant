@@ -1,5 +1,3 @@
-#########################################################
-
 - alias: Someone enter home
   trigger:
     - platform: state
@@ -22,5 +20,3 @@
   action:
     - service: switch.turn_on
       entity_id: switch.wall_switch_left_158d00045f9e86
-
-#########################################################

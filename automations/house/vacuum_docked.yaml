@@ -1,0 +1,12 @@
+- alias: Vacuum docked
+  trigger:
+    - platform: state
+      entity_id: vacuum.vacuum_up
+      to: 'docked'
+    - platform: state
+      entity_id: vacuum.vacuum_down
+      to: 'docked'
+  action:
+    - service: notify.slack
+      data:
+        message: "Vacuum {{ entity_id }} is now docked"
