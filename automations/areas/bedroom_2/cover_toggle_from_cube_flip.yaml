@@ -1,0 +1,15 @@
+- alias: "Cube bedroom 2 - flip 90: toggle light"
+  trigger:
+    - platform: event
+      event_type: xiaomi_aqara.cube_action
+      event_data:
+        entity_id: binary_sensor.cube_158d00029b46d6
+        action_type: flip90
+    - platform: event
+      event_type: xiaomi_aqara.cube_action
+      event_data:
+        entity_id: binary_sensor.cube_158d00029b46d6
+        action_type: flip180
+  action:
+    - service: switch.toggle
+      entity_id: switch.cover_state_bedroom_2

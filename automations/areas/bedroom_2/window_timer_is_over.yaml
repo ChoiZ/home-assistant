@@ -1,0 +1,10 @@
+- alias: timer finish window open
+  trigger:
+    - platform: event
+      event_type: timer.finished
+      event_data:
+        entity_id: timer.window_bedroom2
+  action:
+    - service: notify.slack
+      data:
+        message: "Now you can close the window in bedroom 2"
