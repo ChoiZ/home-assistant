@@ -1,0 +1,13 @@
+- alias: Set 'home' by hand
+  trigger:
+    - platform: state
+      entity_id: input_select.house_mode
+      to: 'home'
+  action:
+    - service: light.turn_on
+      data:
+        entity_id: light.gateway_light_04cf8cb87b01
+        brightness_pct: 2
+        color_name: green
+    - service: switch.turn_off
+      entity_id: switch.camera_socket

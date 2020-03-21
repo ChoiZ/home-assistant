@@ -1,0 +1,31 @@
+- alias: Fr & Ge are not at home set mode 'away'
+  trigger:
+    - platform: state
+      entity_id: device_tracker.ip_phone_fr
+      to: 'not_home'
+    - platform: state
+      entity_id: device_tracker.ip_phone_ge
+      to: 'not_home'
+  condition:
+    - condition: and
+      conditions:
+      - condition: state
+        entity_id: input_select.house_mode
+        state: 'home'
+      - condition: state
+        entity_id: device_tracker.ip_phone_ge
+        state: 'not_home'
+      - condition: state
+        entity_id: device_tracker.ip_phone_fr
+        state: 'not_home'
+      - condition: state
+        entity_id: device_tracker.moto_g_7
+        state: 'not_home'
+  action:
+    - service: input_select.select_option
+      entity_id: input_select.house_mode
+      data:
+        option: 'away'
+    - service: notify.slack
+      data:
+        message: "House Mode away enabled"

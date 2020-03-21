@@ -1,5 +1,3 @@
-#########################################################
-
 - alias: Set 'home' by hand
   trigger:
     - platform: state

@@ -1,21 +1,3 @@
-#########################################################
-
-- alias: Set 'extended away' by hand
-  trigger:
-    - platform: state
-      entity_id: input_select.house_mode
-      to: 'extended away'
-  action:
-    - service: light.turn_on
-      data:
-        entity_id: light.gateway_light_04cf8cb87b01
-        brightness_pct: 2
-        color_name: red
-    - service: switch.turn_on
-      entity_id: switch.camera_socket
-
-#########################################################
-
 - alias: Fr & Ge are not at home for 24h set mode 'extended away'
   trigger:
     - platform: state
@@ -40,5 +22,3 @@
     - service: notify.slack
       data:
         message: "House Mode extended away enabled"
-
-#########################################################
