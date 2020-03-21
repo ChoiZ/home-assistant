@@ -1,4 +1,4 @@
--alias: "button single or double click switch on/off light"
+- alias: "button single or double click switch on/off light"
   trigger:
     - platform: event
       event_type: xiaomi_aqara.click
