@@ -1,0 +1,16 @@
+- alias: "bathroom washing machine started"
+  trigger:
+  - platform: state
+    entity_id: input_boolean.washing_machine
+    to: 'on'
+  action:
+  - service: timer.start
+    data_template:
+      entity_id: >
+        {% if is_state("input_select.washing_machine", "60°") %}
+          timer.washing_machine_60
+        {% elif is_state("input_select.washing_machine", "40°") %}
+          timer.washing_machine_40
+        {% elif is_state("input_select.washing_machine", "30°") %}
+          timer.washing_machine_30
+        {% endif %}

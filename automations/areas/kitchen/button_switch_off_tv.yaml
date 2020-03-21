@@ -1,0 +1,12 @@
+- alias: "kitchen button switch off tv"
+  trigger:
+    - platform: event
+      event_type: xiaomi_aqara.click
+      event_data:
+        entity_id: binary_sensor.switch_158d00035a995a
+        click_type: double
+  action:
+    - service: media_player.turn_off
+      entity_id: media_player.onkyo_receiver # ampli
+    - service: switch.turn_off
+      entity_id: switch.sonoff_1000a12e98

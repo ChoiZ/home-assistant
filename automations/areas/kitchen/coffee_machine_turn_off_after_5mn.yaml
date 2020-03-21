@@ -1,5 +1,3 @@
-########################################################
-
 - alias: turn off coffee machine after 5mn on
   trigger:
     - platform: state
@@ -10,5 +8,3 @@
   action:
     - service: switch.turn_off
       entity_id: switch.coffee_socket
-
-#########################################################
