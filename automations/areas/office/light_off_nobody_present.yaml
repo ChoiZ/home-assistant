@@ -1,0 +1,10 @@
+- alias: "nobody is in the office"
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.motion_sensor_158d0003f3cd60
+      to: 'off'
+      for:
+        minutes: 3
+  action:
+    - service: switch.turn_off
+      entity_id: switch.wall_switch_158d00044f0b9b
