@@ -1,0 +1,10 @@
+- alias: "kitchen window is still open and the timer is over"
+  trigger:
+    - platform: event
+      event_type: timer.finished
+      event_data:
+        entity_id: timer.window_kitchen
+  action:
+    - service: notify.slack
+      data:
+        message: "Now you can close the window in kitchen"
