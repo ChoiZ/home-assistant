@@ -1,0 +1,19 @@
+- alias: "Open all shutters in first floor at 10:00am (weekend)"
+  trigger:
+    - platform: time
+      at: '10:00:00'
+  condition:
+    - condition: time
+      weekday:
+        - sat
+        - sun
+  action:
+    #- service: homeassistant.turn_on
+    #  entity_id:
+    #    - group.upstair_covers
+    - service: switch.turn_on
+      entity_id:
+        - switch.cover_state_bedroom_1
+    - service: switch.turn_on
+      entity_id:
+        - switch.cover_state_bedroom_2
