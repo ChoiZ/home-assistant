@@ -1,6 +1,4 @@
-#########################################################
-
-- alias: "Button bedroom 1 - one click: toggle light"
+- alias: "button toogle cover"
   trigger:
     - platform: event
       event_type: xiaomi_aqara.click
@@ -9,19 +7,4 @@
         click_type: single
   action:
     - service: switch.toggle
-      entity_id: switch.wall_switch_158d00044fa5de
-
-#########################################################
-
-- alias: "Button bedroom 1 - long press: toggle shutters"
-  trigger:
-    - platform: event
-      event_type: xiaomi_aqara.click
-      event_data:
-        entity_id: binary_sensor.switch_158d00033e8984
-        click_type: long_click_press
-  action:
-    - service: switch.toggle
       entity_id: switch.cover_state_bedroom_1
-
-#########################################################
