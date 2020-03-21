@@ -1,0 +1,10 @@
+- alias: "Change ampli source to net"
+  trigger:
+    - platform: state
+      entity_id: input_select.ampli_sources
+      to: 'net'
+  action:
+    - service: media_player.select_source
+      data:
+        entity_id: media_player.onkyo_receiver
+        source: 'net'

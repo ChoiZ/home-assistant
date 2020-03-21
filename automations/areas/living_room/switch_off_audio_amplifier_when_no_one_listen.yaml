@@ -1,0 +1,24 @@
+- alias: "Ampli still up be and no one listen"
+  trigger:
+    - platform: state
+      entity_id: media_player.onkyo_receiver
+      to: 'on'
+      for:
+        minutes: 10
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: switch.sonoff_1000a12e98
+        state: 'off'
+      - condition: or
+        conditions:
+        - condition: state
+          entity_id: sensor.onkyo_source
+          state: 'TV'
+        - condition: state
+          entity_id: sensor.onkyo_source
+          state: 'Freebox'
+  action:
+    - service: media_player.turn_off
+      entity_id: media_player.onkyo_receiver

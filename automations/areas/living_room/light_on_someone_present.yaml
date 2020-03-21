@@ -1,0 +1,29 @@
+- alias: "Someone is in the living room"
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.motion_sensor_158d00044d007b
+      to: 'on'
+    - platform: state
+      entity_id: binary_sensor.motion_sensor_158d00044993aa
+      to: 'on'
+  condition:
+    condition: or
+    conditions:
+      - condition: and
+        conditions:
+          - condition: template
+            value_template: '{{ state_attr("sun.sun", "elevation") < 3 }}'
+          - condition: time
+            after: '16:00:00'
+            before: '04:00:00'
+      - condition: and
+        conditions:
+          - condition: state
+            entity_id: switch.cover_state_mezzanine
+            state: 'off'
+          - condition: state
+            entity_id: switch.cover_state_living_room
+            state: 'off'
+  action:
+    - service: switch.turn_on
+      entity_id: switch.wall_switch_left_158d00045fabbe

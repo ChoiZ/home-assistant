@@ -1,0 +1,19 @@
+- alias: "Freebox still up but tv and ampli down"
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.ping_tv
+      to: 'off'
+      for:
+        minutes: 2
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: switch.sonoff_1000a12e98
+        state: 'on'
+      - condition: state
+        entity_id: binary_sensor.ping_freebox_4k
+        state: 'on'
+  action:
+    - service: switch.turn_off
+      entity_id: switch.sonoff_1000a12e98
