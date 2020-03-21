@@ -1,4 +1,4 @@
-- alias: "If we close living room window during 3mn after the sunset we close the cover"
+- alias: "If we close living room window during 3mn after the sunset we close the cover and switch off light"
   trigger:
     - platform: state
       entity_id: binary_sensor.door_window_sensor_158d00039fe3a9
@@ -13,12 +13,7 @@
     - service: switch.turn_off
       entity_id:
         - switch.cover_state_living_room
-
-- alias: "Switch on outdoor lights at 20h"
-  trigger:
-    - platform: time
-      at: "19:59:30"
-  action:
-    - service: switch.turn_on
+    - service: switch.turn_off
       entity_id:
         - switch.outdoor_socket_1
+        - switch.outdoor_socket_2

@@ -1,8 +1,0 @@
-- alias: "Switch off outdoor light at 20h30"
-  trigger:
-    - platform: time
-      at: "20:29:30"
-  action:
-    - service: switch.turn_off
-      entity_id:
-        - switch.outdoor_socket_1
