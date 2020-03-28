@@ -10,8 +10,9 @@ sequence:
     data:
       entity_id: vacuum.vacuum_down
       command: app_goto_target
-      params: [29400,29300]
+      params: [22400,21700]
 
+  - delay: "00:00:30"
   - wait_template: "{{ is_state('vacuum.vacuum_down', 'idle') }}"
 
   - service: vacuum.set_fan_speed
@@ -24,8 +25,10 @@ sequence:
       entity_id: vacuum.vacuum_down
       repeats: "{{ repetition | default(1) }}"
       zone:
-        - [28587,30380,31637,31830]
-        - [27889,28965,30089,30365]
+        - [20173,21477,22573,22927]
+        - [19609,19273,22509,20823]
+        - [21242,20820,22542,21520]
+        - [22581,20746,23331,22146]
 
   - service: input_boolean.turn_on
     data:

@@ -10,7 +10,7 @@ sequence:
     data:
       entity_id: vacuum.vacuum_down
       command: app_goto_target
-      params: [29600,26300]
+      params: [21450,24800]
 
   - delay: "00:00:30"
 
@@ -26,7 +26,7 @@ sequence:
       entity_id: vacuum.vacuum_down
       repeats: "{{ repetition | default(1) }}"
       zone:
-        - [28855,25193,31705,27493]
+        - [19587,23664,22337,25864]
 
   - service: input_boolean.turn_on
     data:
