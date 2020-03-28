@@ -1,0 +1,32 @@
+---
+alias: Vacuum in bedroom 2
+sequence:
+  - service: vacuum.set_fan_speed
+    data:
+      entity_id: vacuum.vacuum_up
+      fan_speed: quiet
+
+  - service: vacuum.send_command
+    data:
+      entity_id: vacuum.vacuum_up
+      command: app_goto_target
+      params: [32050,26350]
+
+  - wait_template: "{{ is_state('vacuum.vacuum_up', 'idle') }}"
+
+  - service: vacuum.set_fan_speed
+    data:
+      entity_id: vacuum.vacuum_up
+      fan_speed: standard
+
+  - service: xiaomi_miio.vacuum_clean_zone
+    data_template:
+      entity_id: vacuum.vacuum_up
+      repeats: "{{ repetition | default(1) }}"
+      zone:
+        - [30577,25746,32827,26846]
+        - [31995,26334,34845,30034]
+
+  - service: input_boolean.turn_on
+    data:
+      entity_id: input_boolean.vacuum_up_need_to_be_emptied

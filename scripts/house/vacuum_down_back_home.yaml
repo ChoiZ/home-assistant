@@ -1,0 +1,13 @@
+---
+alias: Faire retourner à la base le robot aspirateur bas
+sequence:
+  - service: vacuum.stop
+    entity_id: vacuum.vacuum_down
+
+  - service: vacuum.set_fan_speed
+    data:
+      entity_id: vacuum.vacuum_down
+      fan_speed: quiet
+
+  - service: vacuum.return_to_base
+    entity_id: vacuum.vacuum_down

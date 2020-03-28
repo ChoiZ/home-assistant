@@ -1,0 +1,17 @@
+---
+alias: Le robot aspirateur haut à besoin d'être vidé
+sequence:
+  - service: vacuum.set_fan_speed
+    data:
+      entity_id: vacuum.vacuum_up
+      fan_speed: quiet
+
+  - service: vacuum.send_command
+    data:
+      entity_id: vacuum.vacuum_up
+      command: app_goto_target
+      params: [30500,24850]
+
+  - service: input_boolean.turn_off
+    data:
+      entity_id: input_boolean.vacuum_up_need_to_be_emptied

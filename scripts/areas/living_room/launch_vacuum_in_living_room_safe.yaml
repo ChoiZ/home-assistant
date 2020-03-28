@@ -1,0 +1,31 @@
+---
+alias: Vacuum in living_room (safe)
+sequence:
+  - service: vacuum.set_fan_speed
+    data:
+      entity_id: vacuum.vacuum_down
+      fan_speed: quiet
+
+  - service: vacuum.send_command
+    data:
+      entity_id: vacuum.vacuum_down
+      command: app_goto_target
+      params: [27350,27000]
+
+  - wait_template: "{{ is_state('vacuum.vacuum_down', 'idle') }}"
+
+  - service: vacuum.set_fan_speed
+    data:
+      entity_id: vacuum.vacuum_down
+      fan_speed: standard
+
+  - service: xiaomi_miio.vacuum_clean_zone
+    data_template:
+      entity_id: vacuum.vacuum_down
+      repeats: "{{ repetition | default(1) }}"
+      zone:
+        - [25176,25231,28776,26781]
+
+  - service: input_boolean.turn_on
+    data:
+      entity_id: input_boolean.vacuum_down_need_to_be_emptied

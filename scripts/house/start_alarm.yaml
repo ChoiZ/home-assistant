@@ -1,0 +1,14 @@
+---
+alias: "[alarm] started"
+sequence:
+  - condition: state
+    entity_id: input_boolean.disable_alarm
+    state: 'off'
+  - service: xiaomi_aqara.play_ringtone
+    data:
+      ringtone_id: 7
+      ringtone_vol: 3
+  - delay: '00:00:20'
+  - service: script.turn_on
+    data:
+      entity_id: script.alarm_loop

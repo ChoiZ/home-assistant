@@ -1,0 +1,33 @@
+---
+alias: Vacuum in dining_room
+sequence:
+  - service: vacuum.set_fan_speed
+    data:
+      entity_id: vacuum.vacuum_down
+      fan_speed: quiet
+
+  - service: vacuum.send_command
+    data:
+      entity_id: vacuum.vacuum_down
+      command: app_goto_target
+      params: [29400,29300]
+
+  - wait_template: "{{ is_state('vacuum.vacuum_down', 'idle') }}"
+
+  - service: vacuum.set_fan_speed
+    data:
+      entity_id: vacuum.vacuum_down
+      fan_speed: Standard
+
+  - service: xiaomi_miio.vacuum_clean_zone
+    data_template:
+      entity_id: vacuum.vacuum_down
+      repeats: "{{ repetition | default(1) }}"
+      zone:
+        - [28587,30380,31637,31830]
+        - [27889,28965,30089,30365]
+        - [30122,29651,31672,30351]
+
+  - service: input_boolean.turn_on
+    data:
+      entity_id: input_boolean.vacuum_down_need_to_be_emptied

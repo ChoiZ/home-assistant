@@ -42,7 +42,7 @@ anniversaries: !include anniversaries.yaml
 
 group: !include groups.yaml
 automation: !include_dir_merge_list automations
-script: !include scripts.yaml
+script: !include_dir_named scripts
 
 light: !include light.yaml
 alarm_control_panel: !include alarm.yaml

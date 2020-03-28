@@ -1,0 +1,8 @@
+---
+alias: "alarm_loop"
+sequence:
+  - delay:
+      milliseconds: 500
+  - service: script.turn_on
+    data:
+      entity_id: script.start_alarm

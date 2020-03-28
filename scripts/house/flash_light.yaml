@@ -1,0 +1,19 @@
+---
+alias: "flash_light"
+sequence:
+  - condition: state
+    entity_id: input_boolean.disable_alarm
+    state: 'off'
+  - service: light.turn_on
+    data:
+      entity_id: light.gateway_light_04cf8cb87b01
+      brightness_pct: 2
+      color_name: red
+  - delay:
+      milliseconds: 500
+  - service: light.turn_off
+    data:
+      entity_id: light.gateway_light_04cf8cb87b01
+  - service: script.turn_on
+    data:
+      entity_id: script.flash_loop

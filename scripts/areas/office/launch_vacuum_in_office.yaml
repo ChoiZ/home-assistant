@@ -1,0 +1,19 @@
+---
+alias: Vacuum in office
+sequence:
+  - service: vacuum.set_fan_speed
+    data:
+      entity_id: vacuum.vacuum_up
+      fan_speed: Standard
+
+  - service: xiaomi_miio.vacuum_clean_zone
+    data_template:
+      entity_id: vacuum.vacuum_up
+      repeats: "{{ repetition | default(1) }}"
+      zone:
+        - [25232,24363,28832,26763]
+        - [28838,25847,30638,26697]
+
+  - service: input_boolean.turn_on
+    data:
+      entity_id: input_boolean.vacuum_up_need_to_be_emptied

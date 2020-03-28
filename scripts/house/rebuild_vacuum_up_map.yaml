@@ -1,0 +1,162 @@
+---
+alias: Reconstruire la map du robot aspirateur haut
+sequence:
+  - service: notify.slack
+    data_template:
+      message: "Start rebuild map vacuum up"
+
+  - service: vacuum.set_fan_speed
+    data:
+      entity_id: vacuum.vacuum_up
+      fan_speed: Silent
+
+  # launch a standard clean during 30 secondes to create the first part of the map
+  - service: vacuum.start
+    data:
+      entity_id: vacuum.vacuum_up
+  - delay:
+      seconds: 30
+  - service: vacuum.stop
+    data:
+      entity_id: vacuum.vacuum_up
+
+  # Discover office
+  - service: notify.slack
+    data_template:
+      message: "rebuild map vacuum up office…"
+
+  - service: vacuum.send_command
+    data:
+      entity_id: vacuum.vacuum_up
+      command: app_goto_target
+      params: [27400,24500]
+  - delay: "00:00:30"
+  - wait_template: "{{ is_state('vacuum.vacuum_up', 'idle') }}"
+  - service: vacuum.send_command
+    data:
+      entity_id: vacuum.vacuum_up
+      command: app_goto_target
+      params: [28750,26300]
+  - delay: "00:00:30"
+  - wait_template: "{{ is_state('vacuum.vacuum_up', 'idle') }}"
+  - service: vacuum.send_command
+    data:
+      entity_id: vacuum.vacuum_up
+      command: app_goto_target
+      params: [29700,26150]
+  - delay: "00:00:30"
+  - wait_template: "{{ is_state('vacuum.vacuum_up', 'idle') }}"
+
+  # Discover bathroom
+  - service: notify.slack
+    data_template:
+      message: "rebuild map vacuum up bathroom…"
+
+  - service: vacuum.send_command
+    data:
+      entity_id: vacuum.vacuum_up
+      command: app_goto_target
+      params: [30750,24800]
+  - delay: "00:00:30"
+  - wait_template: "{{ is_state('vacuum.vacuum_up', 'idle') }}"
+  - service: vacuum.send_command
+    data:
+      entity_id: vacuum.vacuum_up
+      command: app_goto_target
+      params: [29950,24500]
+  - service: vacuum.send_command
+    data:
+      entity_id: vacuum.vacuum_up
+      command: app_goto_target
+      params: [31400,24550]
+  - delay: "00:00:30"
+  - wait_template: "{{ is_state('vacuum.vacuum_up', 'idle') }}"
+
+  # Discover bedroom 1
+  - service: notify.slack
+    data_template:
+      message: "rebuild map vacuum up bedroom 1…"
+
+  - service: vacuum.send_command
+    data:
+      entity_id: vacuum.vacuum_up
+      command: app_goto_target
+      params: [29150,28350]
+  - delay: "00:00:30"
+  - wait_template: "{{ is_state('vacuum.vacuum_up', 'idle') }}"
+  - service: vacuum.send_command
+    data:
+      entity_id: vacuum.vacuum_up
+      command: app_goto_target
+      params: [30650,28800]
+  - delay: "00:00:30"
+  - wait_template: "{{ is_state('vacuum.vacuum_up', 'idle') }}"
+
+  # Discover corridor
+  - service: notify.slack
+    data_template:
+      message: "rebuild map vacuum up corridor…"
+
+  - service: vacuum.send_command
+    data:
+      entity_id: vacuum.vacuum_up
+      command: app_goto_target
+      params: [29550,26400]
+  - delay: "00:00:30"
+  - wait_template: "{{ is_state('vacuum.vacuum_up', 'idle') }}"
+  - service: vacuum.send_command
+    data:
+      entity_id: vacuum.vacuum_up
+      command: app_goto_target
+      params: [30400,26700]
+  - delay: "00:00:30"
+  - wait_template: "{{ is_state('vacuum.vacuum_up', 'idle') }}"
+
+  # Discover bedroom 2
+  - service: notify.slack
+    data_template:
+      message: "rebuild map vacuum up bedroom 2…"
+
+  - service: vacuum.send_command
+    data:
+      entity_id: vacuum.vacuum_up
+      command: app_goto_target
+      params: [32300,26550]
+  - delay: "00:00:30"
+  - wait_template: "{{ is_state('vacuum.vacuum_up', 'idle') }}"
+  - service: vacuum.send_command
+    data:
+      entity_id: vacuum.vacuum_up
+      command: app_goto_target
+      params: [34200,27050]
+  - delay: "00:00:30"
+  - wait_template: "{{ is_state('vacuum.vacuum_up', 'idle') }}"
+  - service: vacuum.send_command
+    data:
+      entity_id: vacuum.vacuum_up
+      command: app_goto_target
+      params: [32450,27650]
+  - delay: "00:00:30"
+  - wait_template: "{{ is_state('vacuum.vacuum_up', 'idle') }}"
+  - service: vacuum.send_command
+    data:
+      entity_id: vacuum.vacuum_up
+      command: app_goto_target
+      params: [32300,29550]
+  - delay: "00:00:30"
+  - wait_template: "{{ is_state('vacuum.vacuum_up', 'idle') }}"
+  - service: vacuum.send_command
+    data:
+      entity_id: vacuum.vacuum_up
+      command: app_goto_target
+      params: [33700,29800]
+  - delay: "00:00:30"
+  - wait_template: "{{ is_state('vacuum.vacuum_up', 'idle') }}"
+
+  - service: notify.slack
+    data_template:
+      message: "Rebuild map vacuum down is finish, back to the station"
+
+  # Return home
+  - service: vacuum.return_to_base
+    entity_id: vacuum.vacuum_up

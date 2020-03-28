@@ -1,0 +1,18 @@
+---
+alias: "switch off tv"
+sequence:
+  - service: notify.slack
+    data_template:
+      message: "call tv off"
+  - service: switch.turn_off
+    entity_id: switch.ampli
+  - delay:
+      milliseconds: 500
+  - service: switch.turn_off
+    entity_id: switch.tv
+  - delay:
+      milliseconds: 500
+  - service: switch.turn_off
+    entity_id: switch.64680137bcddc2542a40 # tv
+  - service: switch.turn_off
+    entity_id: switch.freeboxtv_socket
