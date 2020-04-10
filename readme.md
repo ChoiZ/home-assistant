@@ -49,6 +49,7 @@ Smart socket:
 - 2x Smart Socket Connectée COOSA
 - 1x [Prise Intelligente Extérieure TECKIN 16A 4000W](https://www.amazon.fr/gp/product/B07RFN1V6L)
 - 1x [TRÅDFRI Prise connectée - IKEA](https://www.ikea.com/fr/fr/p/tradfri-prise-connectee-20364476/)
+- 5x Sonoff basic
 
 Camera:
 
@@ -66,6 +67,7 @@ FTDI for sonoff flashing:
 Module Zigbee CC2531 usb:
 
 - 1x [Module d'analyse sans fil Zigbee CC2531](https://fr.aliexpress.com/item/4000070685708.html)
+
 
 ## Old devices
 
