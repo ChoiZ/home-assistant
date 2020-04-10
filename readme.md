@@ -2,11 +2,7 @@
 
 ChoiZ's HomeAssistant configuration.
 
-Devices:
-
-Light bulb:
-
-- 4x [Aicase smart Wifi E27](https://www.amazon.fr/gp/product/B07BTQJG6J)
+## Devices:
 
 InfraRed:
 
@@ -27,7 +23,7 @@ Led light:
 
 Motion detectors:
 
-- 5x [Xiaomi Aqara Détecteur de mouvement Zigbee](https://fr.aliexpress.com/item/32828696729.html)
+- 9x [Xiaomi Aqara Détecteur de mouvement Zigbee](https://fr.aliexpress.com/item/32828696729.html)
 
 Buttons:
 
@@ -38,7 +34,7 @@ Buttons:
 
 Door / Window sensor:
 
-- 5x [Xiaomi Door Window Sensor](https://www.aliexpress.com/item/32714904459.html)
+- 9x [Xiaomi Door Window Sensor](https://www.aliexpress.com/item/32714904459.html)
 
 Humidity/Temperature sensor:
 
@@ -50,13 +46,12 @@ Smoke detector:
 
 Smart socket:
 
-- 1x [AVATTO Prise Wifi intelligente EU16A Power Monitor](https://fr.aliexpress.com/item/33011753732.html)
 - 2x Smart Socket Connectée COOSA
 - 1x [Prise Intelligente Extérieure TECKIN 16A 4000W](https://www.amazon.fr/gp/product/B07RFN1V6L)
+- 1x [TRÅDFRI Prise connectée - IKEA](https://www.ikea.com/fr/fr/p/tradfri-prise-connectee-20364476/)
 
 Camera:
 
-- 3x [Xiaomi Mijia caméra intelligente 1080P](https://fr.aliexpress.com/item/32946393276.html)
 - 1x [SONOFF 1080P Caméra Dome IP Intérieur](https://www.amazon.fr/gp/product/B081RFKPGY)
 - 4x [esp32-cam](https://fr.aliexpress.com/item/32981449079.html)
 
@@ -67,3 +62,17 @@ Vacuum:
 FTDI for sonoff flashing:
 
 - 1x [AZDelivery FTDI Adaptateur convertisseur FT232RL USB vers TTL 3.3V 5.5V](https://www.amazon.fr/gp/product/B01N9RZK6I)
+
+Module Zigbee CC2531 usb:
+
+- 1x [Module d'analyse sans fil Zigbee CC2531](https://fr.aliexpress.com/item/4000070685708.html)
+
+## Old devices
+
+Light bulb:
+
+- 4x [Aicase smart Wifi E27](https://www.amazon.fr/gp/product/B07BTQJG6J)
+
+Smart socket:
+
+- 1x [AVATTO Prise Wifi intelligente EU16A Power Monitor](https://fr.aliexpress.com/item/33011753732.html)
