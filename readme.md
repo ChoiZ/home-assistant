@@ -49,7 +49,11 @@ Smart socket:
 - 2x Smart Socket Connectée COOSA
 - 1x [Prise Intelligente Extérieure TECKIN 16A 4000W](https://www.amazon.fr/gp/product/B07RFN1V6L)
 - 1x [TRÅDFRI Prise connectée - IKEA](https://www.ikea.com/fr/fr/p/tradfri-prise-connectee-20364476/)
-- 5x Sonoff basic
+- 5x Sonoff basic R2
+
+Power mesuring:
+
+- 1x Sonoff Pow R2
 
 Camera:
 
