@@ -31,6 +31,8 @@ ChoiZ's HomeAssistant configuration.
 - 1x [Xiaomi Smoke Detector Honeywell](https://www.aliexpress.com/item/32945252495.html) Smoke detector
 - 2x Smart Socket COOSA flash on tasmoda (OTA)
 
+- 1x [Outdoor smart outlet Teckin 16A 4000W (IP44 Waterproof)](https://www.amazon.fr/gp/product/B07RFN1V6L) Control outdoor lights
+
 - 1x [TRÅDFRI Prise connectée - IKEA](https://www.ikea.com/fr/fr/p/tradfri-prise-connectee-20364476/) works with Zigbee2MQTT
 
 - 5x Sonoff basic R2 smart switch (not flash yet)
