@@ -70,7 +70,7 @@ ChoiZ's HomeAssistant configuration.
 
 ## Old devices:
 
-- 5x [Aicase smart Wifi E27](https://www.amazon.fr/gp/product/B07BTQJG6J) Light bulb flashed on tasmoda (OTA)
+- 4x [Aicase smart Wifi E27](https://www.amazon.fr/gp/product/B07BTQJG6J) Light bulb flashed on tasmoda (OTA)
 
 - 3x Wifi camera 1080p inomega (compatible with tuya smart / smart life)
 
