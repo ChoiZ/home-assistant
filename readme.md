@@ -4,81 +4,49 @@ ChoiZ's HomeAssistant configuration.
 
 ## Devices:
 
-InfraRed:
+- 1x [Broadlink Smart Home Hub RM Mini3](https://www.amazon.fr/gp/product/B07DPHG521) TV and amplifier control via infrared (replaces the remote control to turn on / off, change channels or sources).
 
-- 1x [Broadlink Smart Home Hub RM Mini3](https://www.amazon.fr/gp/product/B07DPHG521)
+- 1x [RFXCOM Émetteur Récepteur USB 433,92 Mhz](https://www.amazon.fr/gp/product/B07HQYXCV5) Control of electric shutters (replaces remote controls)
 
-RFXCOM 433.92mhz:
+- 1x [Xiaomi Mijia passerelle](https://fr.aliexpress.com/item/32821192659.html) It was my default xiaomi gateway but only accepts 32 devices… which should be enough with a small installation but not for me…
 
-- 1x [RFXCOM Émetteur Récepteur USB 433,92 Mhz](https://www.amazon.fr/gp/product/B07HQYXCV5)
+- 1x [SKROSS - Adaptateur de Voyage - Prises Monde vers France](https://www.amazon.fr/gp/product/B005P21MNW) This adapter is very discreet because it is very thin. Thanks Gary ;-)
 
-Xiaomi gateway:
+- 2x [LE Ruban LED TV USB Connecté WIFI 2M](https://www.amazon.fr/gp/product/B07QXMZ7C8) Classic led strip flash on tasmoda (OTA)
 
-- 1x [Xiaomi Mijia passerelle](https://fr.aliexpress.com/item/32821192659.html)
-- 1x [SKROSS - Adaptateur de Voyage - Prises Monde vers France](https://www.amazon.fr/gp/product/B005P21MNW)
+- 9x [Xiaomi Aqara Détecteur de mouvement Zigbee](https://fr.aliexpress.com/item/32828696729.html) Classic motion detector
 
-Led light:
+- 1x [Xiaomi Aqara Cube magique Zigbee](https://www.aliexpress.com/item/32854830262.html) xiaomi magic cube allows to trigger different actions with the 6 gestures: Shake, Rotate 90 degrees, Rotate 180 degrees, Rotate, Tapping, Push
 
-- 2x [LE Ruban LED TV USB Connecté WIFI 2M](https://www.amazon.fr/gp/product/B07QXMZ7C8)
+- 5x [Xiaomi Smart Wireless switch](https://www.aliexpress.com/item/32818007384.html) classic wireless button with 3 modes: single click, double click or long press
 
-Motion detectors:
+- 6x [Xiaomi aqara interrupteur mural Zigbee 1 bouton sans neutre](https://fr.aliexpress.com/item/32950175670.html) classic wall switch 1 button you can also turn it on / off remotely
 
-- 9x [Xiaomi Aqara Détecteur de mouvement Zigbee](https://fr.aliexpress.com/item/32828696729.html)
+- 5x [Xiaomi aqara interrupteur mural Zigbee 2 boutons sans neutre](https://fr.aliexpress.com/item/32950175670.html) classic wall switch 2 button you can also turn it on / off remotely and made go and come with other switches
 
-Buttons:
+- 9x [Xiaomi Door Window Sensor](https://www.aliexpress.com/item/32714904459.html) classic door / window sensor
 
-- 1x [Xiaomi Aqara Cube magique Zigbee](https://www.aliexpress.com/item/32854830262.html)
-- 5x [Xiaomi Smart Wireless switch](https://www.aliexpress.com/item/32818007384.html)
-- 6x [Xiaomi aqara interrupteur mural Zigbee 1 bouton sans neutre](https://fr.aliexpress.com/item/32950175670.html)
-- 5x [Xiaomi aqara interrupteur mural Zigbee 2 boutons sans neutre](https://fr.aliexpress.com/item/32950175670.html)
+- 6x [Xiaomi mijia capteur température humidité Zigbee](https://fr.aliexpress.com/item/32714410866.html) Humidity/Temperature sensor
 
-Door / Window sensor:
+- 1x [Xiaomi Smoke Detector Honeywell](https://www.aliexpress.com/item/32945252495.html) Smoke detector
+- 2x Smart Socket COOSA flash on tasmoda (OTA)
 
-- 9x [Xiaomi Door Window Sensor](https://www.aliexpress.com/item/32714904459.html)
+- 1x [TRÅDFRI Prise connectée - IKEA](https://www.ikea.com/fr/fr/p/tradfri-prise-connectee-20364476/) works with Zigbee2MQTT
 
-Humidity/Temperature sensor:
+- 5x Sonoff basic R2 smart switch (not flash yet)
 
-- 6x [Xiaomi mijia capteur température humidité Zigbee](https://fr.aliexpress.com/item/32714410866.html)
-
-Smoke detector:
-
-- 1x [Xiaomi Smoke Detector Honeywell](https://www.aliexpress.com/item/32945252495.html)
-
-Smart socket:
-
-- 2x Smart Socket Connectée COOSA
-- 1x [Prise Intelligente Extérieure TECKIN 16A 4000W](https://www.amazon.fr/gp/product/B07RFN1V6L)
-- 1x [TRÅDFRI Prise connectée - IKEA](https://www.ikea.com/fr/fr/p/tradfri-prise-connectee-20364476/)
-- 5x Sonoff basic R2
-
-Power mesuring:
-
-- 1x Sonoff Pow R2
-
-Camera:
+- 1x Sonoff Pow R2 smart switch with power messuring (not flash yet)
 
 - 1x [SONOFF 1080P Caméra Dome IP Intérieur](https://www.amazon.fr/gp/product/B081RFKPGY)
+
 - 4x [esp32-cam](https://fr.aliexpress.com/item/32981449079.html)
 
-Vacuum:
+- 2x [Roborock S50](https://fr.aliexpress.com/item/4000034980243.html) Vacuum
 
-- 2x [Roborock S50](https://fr.aliexpress.com/item/4000034980243.html)
+- 1x [AZDelivery FTDI Adaptateur convertisseur FT232RL USB vers TTL 3.3V 5.5V](https://www.amazon.fr/gp/product/B01N9RZK6I) FTDI for sonoff flashing
 
-FTDI for sonoff flashing:
-
-- 1x [AZDelivery FTDI Adaptateur convertisseur FT232RL USB vers TTL 3.3V 5.5V](https://www.amazon.fr/gp/product/B01N9RZK6I)
-
-Module Zigbee CC2531 usb:
-
-- 1x [Module d'analyse sans fil Zigbee CC2531](https://fr.aliexpress.com/item/4000070685708.html)
-
+- 1x [Module d'analyse sans fil Zigbee CC2531](https://fr.aliexpress.com/item/4000070685708.html) Zigbee CC2531 usb module (replace in part xiaomi gateway).
 
 ## Old devices
 
-Light bulb:
-
-- 4x [Aicase smart Wifi E27](https://www.amazon.fr/gp/product/B07BTQJG6J)
-
-Smart socket:
-
-- 1x [AVATTO Prise Wifi intelligente EU16A Power Monitor](https://fr.aliexpress.com/item/33011753732.html)
+- 4x [Aicase smart Wifi E27](https://www.amazon.fr/gp/product/B07BTQJG6J) Light bulb with tasmoda
