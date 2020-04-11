@@ -3,6 +3,9 @@
     - platform: state
       entity_id: binary_sensor.motion_sensor_158d0003faef01
       to: 'on'
+    - platform: state
+      entity_id: binary_sensor.0x00158d000466764e_occupancy
+      to: 'on'
   condition:
     condition: and
     conditions:
