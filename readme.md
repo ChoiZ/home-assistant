@@ -24,23 +24,25 @@ ChoiZ's HomeAssistant configuration.
 
 ### Motions detectors:
 
-- 9x [Xiaomi Aqara Détecteur de mouvement Zigbee](https://fr.aliexpress.com/item/32828696729.html) Classic motion detector (with ZHA).
+- 13x [Xiaomi Aqara Détecteur de mouvement Zigbee](https://fr.aliexpress.com/item/32828696729.html) Classic motion detector work with ZHA.
 
 ### Sensors (door, window, smoke, temperature, humidity):
 
-- 9x [Xiaomi Door Window Sensor](https://www.aliexpress.com/item/32714904459.html) classic door / window sensor (with Zigbee2mqtt).
+- 4x [Xiaomi Mijia smart light sensor](https://www.aliexpress.com/item/4000468141459.html) with ZHA.
 
-- 1x [Xiaomi Smoke Detector Honeywell](https://www.aliexpress.com/item/32945252495.html) Smoke detector (with Zigbee2mqtt).
+- 9x [Xiaomi Door Window Sensor](https://www.aliexpress.com/item/32714904459.html) classic door / window sensor work with Zigbee2Mqtt.
 
-- 6x [Xiaomi mijia capteur température humidité Zigbee](https://fr.aliexpress.com/item/32714410866.html) Humidity/Temperature sensor (with ZHA).
+- 1x [Xiaomi Smoke Detector Honeywell](https://www.aliexpress.com/item/32945252495.html) Smoke detector work with Zigbee2Mqtt.
+
+- 6x [Xiaomi mijia capteur température humidité Zigbee](https://fr.aliexpress.com/item/32714410866.html) Humidity/Temperature sensor work with ZHA.
 
 ### Switches:
 
-- 1x [Xiaomi Smart Wireless switch](https://www.aliexpress.com/item/32818007384.html) classic wireless button with 3 modes: single click, double click or long press (with Zigbee2mqtt).
+- 1x [Xiaomi Smart Wireless switch](https://www.aliexpress.com/item/32818007384.html) classic wireless button with 3 modes: single click, double click or long press work with Zigbee2Mqtt.
 
-- 6x [Xiaomi aqara interrupteur mural Zigbee 1 bouton sans neutre](https://fr.aliexpress.com/item/32950175670.html) classic wall switch 1 button you can also turn it on / off remotely (with ZHA).
+- 6x [Xiaomi aqara interrupteur mural Zigbee 1 bouton sans neutre](https://fr.aliexpress.com/item/32950175670.html) classic wall switch 1 button you can also turn it on / off remotely work with ZHA.
 
-- 5x [Xiaomi aqara interrupteur mural Zigbee 2 boutons sans neutre](https://fr.aliexpress.com/item/32950175670.html) classic wall switch 2 button you can also turn it on / off remotely and made go and come with other switches (with ZHA).
+- 5x [Xiaomi aqara interrupteur mural Zigbee 2 boutons sans neutre](https://fr.aliexpress.com/item/32950175670.html) classic wall switch 2 button you can also turn it on / off remotely and made go and come with other switches work with ZHA.
 
 ### Smart sockets:
 
