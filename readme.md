@@ -6,9 +6,9 @@ ChoiZ's HomeAssistant configuration.
 
 ### Gateways:
 
-- 1x [Broadlink Smart Home Hub RM Mini3](https://www.amazon.fr/gp/product/B07DPHG521) TV and amplifier control via infrared (replaces the remote control to turn on / off, change channels or sources).
+- 1x [Broadlink Smart Home Hub RM Mini3](https://www.amazon.fr/gp/product/B07DPHG521) TV and amplifier control via infrared (replace the remote control to turn on / off, change channels or sources).
 
-- 1x [RFXCOM Émetteur Récepteur USB 433,92 Mhz](https://www.amazon.fr/gp/product/B07HQYXCV5) Control of electric shutters (replaces remote controls).
+- 1x [RFXCOM Émetteur Récepteur USB 433,92 Mhz](https://www.amazon.fr/gp/product/B07HQYXCV5) Control of electric shutters (replace some remote controls).
 
 - 1x [Module d'analyse sans fil Zigbee CC2531](https://fr.aliexpress.com/item/4000070685708.html) Zigbee CC2531 usb module (replace in part xiaomi gateway).
 
