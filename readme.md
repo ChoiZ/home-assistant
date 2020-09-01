@@ -16,7 +16,7 @@ ChoiZ's HomeAssistant configuration.
 
 ### Cameras:
 
-- 5x [esp32-cam](https://fr.aliexpress.com/item/32981449079.html) Used with ESPHome.
+- 5x [esp32-cam](https://fr.aliexpress.com/item/32981449079.html) Work with ESPHome.
 
 ### Lights, leds:
 
@@ -43,6 +43,8 @@ ChoiZ's HomeAssistant configuration.
 - 6x [Xiaomi aqara interrupteur mural Zigbee 1 bouton sans neutre](https://fr.aliexpress.com/item/32950175670.html) classic wall switch 1 button you can also turn it on / off remotely work with ZHA.
 
 - 5x [Xiaomi aqara interrupteur mural Zigbee 2 boutons sans neutre](https://fr.aliexpress.com/item/32950175670.html) classic wall switch 2 button you can also turn it on / off remotely and made go and come with other switches work with ZHA.
+
+- 1x [WeMos D1 Mini Module](https://www.aliexpress.com/item/32671752527.html) For watering work with ESHome.
 
 ### Smart sockets:
 
