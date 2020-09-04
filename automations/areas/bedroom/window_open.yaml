@@ -1,0 +1,8 @@
+- alias: "Window bedroom 1 is open"
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.bedroom_window
+      to: 'on'
+  action:
+    - service: timer.start
+      entity_id: timer.window_bedroom1
