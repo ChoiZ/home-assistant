@@ -1,24 +1,3 @@
-#########################################################
-
-- platform: mpd
-  host: !secret mpd_nas_host
-  port: !secret mpd_nas_port
-  name: nas
-
-#########################################################
-
-- platform: mpd
-  host: !secret mpd_tatooine_host
-  port: !secret mpd_tatooine_port
-  name: tatooine
-
-#########################################################
-
-- platform: snapcast
-  host: !secret mpd_nas_host
-
-#########################################################
-
 - platform: onkyo
   host: !secret onkyo_host
   sources:
@@ -27,5 +6,3 @@
     phono: 'Vinyle'
     bluetooth: 'Bluetooth'
     net: 'Net'
-
-#########################################################
