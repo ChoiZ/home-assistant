@@ -1,7 +1,5 @@
-#########################################################
-
 - platform: workday
-  country: DE
+  country: FRA
   excludes: [sat, sun, holiday]
   add_holidays:
     - '2019-12-31'
