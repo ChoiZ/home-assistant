@@ -15,3 +15,8 @@ sequence:
   - service: input_boolean.turn_off
     data:
       entity_id: input_boolean.vacuum_up_need_to_be_emptied
+
+  - service: var.set
+    data:
+      entity_id: var.vacuum_up_need_to_be_emptied
+      value: "off"

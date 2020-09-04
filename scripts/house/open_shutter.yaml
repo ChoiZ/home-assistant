@@ -1,9 +1,6 @@
 ---
 alias: "open_shutter"
 sequence:
-  - service: notify.slack
-    data_template:
-      message: "ouverture {{ cover_entity_id }}"
   - service: cover.open_cover
     data_template:
       entity_id: "{{ cover_entity_id }}"

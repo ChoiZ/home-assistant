@@ -1,9 +1,6 @@
 ---
 alias: "switch off tv"
 sequence:
-  - service: notify.slack
-    data_template:
-      message: "call tv off"
   - service: switch.turn_off
     entity_id: switch.ampli
   - delay:

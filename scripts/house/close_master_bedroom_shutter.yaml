@@ -1,0 +1,14 @@
+---
+alias: "close master bedroom shutter"
+sequence:
+  - service: input_boolean.turn_off
+    data_template:
+      entity_id: "{{ input_boolean_entity_id }}"
+  - service: cover.close_cover
+    data_template:
+      entity_id: "{{ cover_entity_id }}"
+  - delay:
+      milliseconds: 16900
+  - service: cover.stop_cover
+    data_template:
+      entity_id: "{{ cover_entity_id }}"

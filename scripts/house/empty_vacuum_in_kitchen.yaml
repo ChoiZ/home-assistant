@@ -10,8 +10,13 @@ sequence:
     data:
       entity_id: vacuum.vacuum_down
       command: app_goto_target
-      params: [29400,29300]
+      params: [22400,21700]
 
   - service: input_boolean.turn_off
     data:
       entity_id: input_boolean.vacuum_down_need_to_be_emptied
+
+  - service: var.set
+    data:
+      entity_id: var.vacuum_down_need_to_be_emptied
+      value: "off"

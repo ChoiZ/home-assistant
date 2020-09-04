@@ -1,9 +1,6 @@
 ---
 alias: script switch tv on
 sequence:
-  - service: notify.slack
-    data_template:
-      message: "call tv on"
   - service: switch.turn_on
     entity_id: switch.64680137bcddc2542a40 # tv
   - service: switch.turn_on

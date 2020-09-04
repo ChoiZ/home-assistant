@@ -27,6 +27,7 @@ sequence:
       zone:
         - [22504,20762,26054,24412]
 
-  - service: input_boolean.turn_on
+  - service: var.set
     data:
-      entity_id: input_boolean.vacuum_down_need_to_be_emptied
+      entity_id: var.vacuum_down_need_to_be_emptied
+      value: "on"

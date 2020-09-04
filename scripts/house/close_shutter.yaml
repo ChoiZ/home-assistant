@@ -1,9 +1,6 @@
 ---
 alias: "close_shutter"
 sequence:
-  - service: notify.slack
-    data_template:
-      message: "fermeture {{ cover_entity_id }}"
   - service: cover.close_cover
     data_template:
       entity_id: "{{ cover_entity_id }}"

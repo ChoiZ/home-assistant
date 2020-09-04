@@ -3,16 +3,17 @@ alias: Vacuum in entrance
 sequence:
   - service: vacuum.set_fan_speed
     data:
-      entity_id: vacuum.vacuum_up
+      entity_id: vacuum.vacuum_down
       fan_speed: standard
 
   - service: xiaomi_miio.vacuum_clean_zone
     data_template:
-      entity_id: vacuum.vacuum_up
+      entity_id: vacuum.vacuum_down
       repeats: "{{ repetition | default(1) }}"
       zone:
-        - [25176,25231,28776,26781]
+        - [22439,24366,26039,25916]
 
-  - service: input_boolean.turn_on
+  - service: var.set
     data:
-      entity_id: input_boolean.vacuum_down_need_to_be_emptied
+      entity_id: var.vacuum_down_need_to_be_emptied
+      value: "on"

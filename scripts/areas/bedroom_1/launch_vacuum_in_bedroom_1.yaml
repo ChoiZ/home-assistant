@@ -27,6 +27,7 @@ sequence:
         - [28728,27315,31478,30065]
         - [28718,26803,29668,27353]
 
-  - service: input_boolean.turn_on
+  - service: var.set
     data:
-      entity_id: input_boolean.vacuum_up_need_to_be_emptied
+      entity_id: var.vacuum_up_need_to_be_emptied
+      value: "on"
