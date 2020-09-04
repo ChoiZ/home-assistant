@@ -1,0 +1,12 @@
+- alias: "arrosage on"
+  trigger:
+    - platform: state
+      entity_id: switch.arrosage
+      to: 'on'
+  action:
+    - delay: "00:00:30"
+    - service: switch.turn_off
+      entity_id: switch.outdoor_socket_2
+    - delay: "00:00:01"
+    - service: switch.turn_on
+      entity_id: switch.outdoor_socket_2
