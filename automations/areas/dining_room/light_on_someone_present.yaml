@@ -1,0 +1,30 @@
+#- alias: "Someone is in the dining room"
+#  trigger:
+#    - platform: state
+#      entity_id: binary_sensor.kitchen_motion_corner
+#      to: 'on'
+#  condition:
+#    condition: or
+#    conditions:
+#      - condition: and
+#        conditions:
+#          - condition: template
+#            value_template: '{{ state_attr("sun.sun", "elevation") < 3 }}'
+#          - condition: sun # night
+#            after: sunset
+#          - condition: sun # night
+#            before: sunrise
+#      - condition: and
+#        conditions:
+#          - condition: state
+#            entity_id: switch.cover_state_kitchen
+#            state: 'off'
+#          - condition: state
+#            entity_id: input_boolean.mode_sport
+#            state: 'off'
+#          - condition: state
+#            entity_id: input_boolean.mode_canicule
+#            state: 'off'
+#  action:
+#    - service: switch.turn_on
+#      entity_id: switch.diningroom_light
