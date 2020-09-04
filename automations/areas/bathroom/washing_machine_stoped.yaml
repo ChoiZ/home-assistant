@@ -1,21 +1,22 @@
-- alias: "bathroom washing machine is finished"
+- alias: "washing machine is finished"
   trigger:
-  - platform: event
-    event_type: timer.finished
-    event_data:
-      entity_id: timer.washing_machine_30
-  - platform: event
-    event_type: timer.finished
-    event_data:
-      entity_id: timer.washing_machine_40
-  - platform: event
-    event_type: timer.finished
-    event_data:
-      entity_id: timer.washing_machine_60
+    - platform: state
+      entity_id: sensor.washing_machine_power
+      to: '0'
+      for:
+        seconds: 30
+  condition:
+    - condition: state
+      entity_id: input_boolean.washing_machine_state
+      state: 'on'
   action:
-  - service: notify.slack
-    data:
-      title: "Timer done"
-      message: "The washing machine is finished"
-  - service: input_boolean.turn_off
-    entity_id: input_boolean.washing_machine
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.washing_machine_state
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.washing_machine_finished
+    - service: notify.mobile_app_francois_moto_g_7
+      data:
+        message: "François, le lave linge est à vider."
+    - service: notify.mobile_app_geraldine_moto_g_7
+      data:
+        message: "Geraldine, le lave linge est à vider."
