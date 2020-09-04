@@ -1,0 +1,5 @@
+- platform: ping
+  host: 9.9.9.9
+  name: Quad9
+  count: 2
+  scan_interval: 60

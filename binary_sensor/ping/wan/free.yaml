@@ -1,0 +1,5 @@
+- platform: ping
+  host: free.fr
+  name: Free
+  count: 2
+  scan_interval: 60

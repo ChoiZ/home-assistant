@@ -1,5 +1,3 @@
-#########################################################
-
 alarm_clock:
   name: "Alarm Clock"
   entities:
@@ -8,49 +6,133 @@ alarm_clock:
   - input_number.alarm_clock_minute
   - input_boolean.alarm_clock_status
 
-#########################################################
-
 house_hold:
   name: "House Hold"
   entities:
   - person.francois
   - person.geraldine
 
-#########################################################
-
-wan:
-  name: "WAN"
-  entities:
-  - binary_sensor.ping_cloudflare
-  - binary_sensor.ping_quad9
-
-#########################################################
-
 lights:
   name: "Lumières"
   entities:
-  - switch.wall_switch_158d000357da1a # lumière salle d'eau
-  - switch.wall_switch_left_158d00045f9e86 # lumière entrée
-  - switch.wall_switch_right_158d00045f9f36 # lumière escalier
-  - switch.wall_switch_right_158d00045fab25 # lumière cuisine
-  - switch.wall_switch_left_158d00045fab25 # lumière évier
-  - switch.wall_switch_right_158d00045fabbe # lumière salle à manger
-  - switch.wall_switch_left_158d00045fabbe # lumière salon
-  - switch.wall_switch_158d00044f0b9b # lumière bureau
-  - switch.wall_switch_left_158d00039d4efd # lumière salle de bain (mirroir)
-  - switch.wall_switch_right_158d00039d4efd # lumière salle de bain (plafonier)
-  - switch.wall_switch_158d00044fa5de # lumière chambre 1
-  - switch.wall_switch_158d00044f52ec # lumière chambre 2
+  - switch.entrance_light
+  - switch.shower_room_light
+  - switch.outdoor_light_wall
+  - switch.outdoor_socket_1 # guirlande terrasse
+  - switch.kitchen_light
+  - switch.kitchen_light_small # évier
+  - switch.diningroom_light
+  - switch.office_light
+  - switch.stairs_light
+  - switch.bedroom_light
+  - switch.master_bedroom_light
+  - switch.bathroom_mirror_light # lumière salle de bain (mirroir)
+  #  - switch.bathroom_light # lumière salle de bain (plafonier)
 
-#########################################################
+lights_rdc:
+  name: "Lumières rdc"
+  entities:
+  - switch.entrance_light
+  - switch.shower_room_light
+  - switch.outdoor_light_wall
+  - switch.outdoor_socket_1 # guirlande terrasse
+  - switch.kitchen_light
+  - switch.kitchen_light_small # évier
+  - switch.diningroom_light
+  - switch.stairs_light
+
+lights_r1:
+  name: "Lumières r1"
+  entities:
+  - switch.office_light
+  - switch.stairs_light
+  - switch.bedroom_light
+  - switch.master_bedroom_light
+  - switch.bathroom_mirror_light # lumière salle de bain (mirroir)
+  #  - switch.bathroom_light # lumière salle de bain (plafonier)
+
+terrace_lights:
+  entities:
+  - switch.outdoor_light_wall
+  - switch.outdoor_socket_1 # guirlande terrasse
+
+entrance_light:
+  name: lumière entrée
+  entities:
+  - switch.entrance_light
+
+stairs_light:
+  name: lumière escalier
+  entities:
+  - switch.stairs_light
+
+kitchen_lights:
+  name: lumières cuisine
+  entities:
+  - switch.kitchen_light
+  - switch.kitchen_light_small # évier
+
+dining_room_light:
+  name: lumière salle à manger
+  entities:
+  - switch.diningroom_light
+
+office_light:
+  name: lumière bureau
+  entities:
+  - switch.office_light
+
+bathroom_lights:
+  name: lumières salle de bain
+  entities:
+  - switch.bathroom_mirror_light # lumière salle de bain (mirroir)
+  - switch.bathroom_light # lumière salle de bain (plafonier)
+
+bedroom_light:
+  name: lumière chambre
+  entities:
+  - switch.bedroom_light
+
+master_bedroom_light:
+  name: lumière chambre principale
+  entities:
+  - switch.master_bedroom_light
+
+master_bedroom_little_lights:
+  name: petites lumières chambre principale
+  entities:
+  - light.bedroom_francois
+  - light.bedroom_geraldine
+
+living_room_light_and_leds:
+  name: "Lumière salon et leds"
+  entities:
+  - light.living_room
+  - light.led_tv
+  - light.led_mirror
+
+light_rdc:
+  name: "Light rdc"
+  entities:
+  - light.living_room
+  - light.led_tv
+  - light.led_mirror
+
+light_r1:
+  name: "Light r1"
+  entities:
+  - light.bedroom_francois
+  - light.bedroom_geraldine
 
 sockets:
-  name: "Prises connectées"
+  name: Prises connectées
   entities:
-  - switch.sonoff_1000a12e98 # alimentation tv/freeboxtv
+  - switch.tv_socket
+  - switch.living_room_outlet_ampli
   - switch.coffee_socket
-
-#########################################################
+  - switch.office_outlet_dbx
+  - switch.office_outlet_left_screen
+  - switch.office_outlet_right_screen
 
 covers:
   name: "Volets"
@@ -58,10 +140,8 @@ covers:
   - switch.cover_state_kitchen
   - switch.cover_state_living_room
   - switch.cover_state_mezzanine
-  - switch.cover_state_bedroom_1
-  - switch.cover_state_bedroom_2
-
-#########################################################
+  - switch.cover_state_bedroom
+  - switch.cover_state_master_bedroom
 
 downstair_covers:
   name: "Volets r0"
@@ -70,12 +150,15 @@ downstair_covers:
   - switch.cover_state_living_room
   - switch.cover_state_mezzanine
 
-#########################################################
-
 upstair_covers:
   name: "Volets r+1"
   entities:
-  - switch.cover_state_bedroom_1
-  - switch.cover_state_bedroom_2
+  - switch.cover_state_bedroom
+  - switch.cover_state_master_bedroom
 
-#########################################################
+wan:
+  name: "WAN"
+  entities:
+  - binary_sensor.quad9
+  - binary_sensor.cloudflare
+  - binary_sensor.free

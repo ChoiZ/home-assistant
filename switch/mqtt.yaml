@@ -1,5 +1,3 @@
-#########################################################
-
 - platform: mqtt
   name: "Coffee Socket"
   state_topic: "stat/coffee-socket/POWER"
@@ -9,7 +7,17 @@
   optimistic: false
   payload_available: "Online"
   payload_not_available: "Offline"
-  retain: true
+
+- platform: mqtt
+  name: "TV Socket"
+  state_topic: "stat/socket-tv/POWER"
+  command_topic: "cmnd/socket-tv/POWER"
+  availability_topic: "tele/socket-tv/LWT"
+  qos: 1
+  optimistic: false
+  payload_available: "Online"
+  payload_not_available: "Offline"
+
 - platform: mqtt
   name: "Camera Socket"
   state_topic: "stat/camera-socket/POWER"
@@ -19,20 +27,148 @@
   optimistic: false
   payload_available: "Online"
   payload_not_available: "Offline"
-  retain: true
+
 - platform: mqtt
   name: "Outdoor Socket #1"
   state_topic: "stat/outdoor-socket/POWER1"
   command_topic: "cmnd/outdoor-socket/POWER1"
   qos: 1
   optimistic: false
-  retain: true
+
 - platform: mqtt
   name: "Outdoor Socket #2"
   state_topic: "stat/outdoor-socket/POWER2"
   command_topic: "cmnd/outdoor-socket/POWER2"
   qos: 1
   optimistic: false
-  retain: true
 
 #########################################################
+
+- platform: "mqtt"
+  name: "Wall switch terrasse"
+  state_topic: "zigbee2mqtt/0x00158d00044f5305"
+  availability_topic: "zigbee2mqtt/bridge/state"
+  payload_off: "OFF"
+  payload_on: "ON"
+  value_template: "{{ value_json.state }}"
+  command_topic: "zigbee2mqtt/0x00158d00044f5305/set"
+
+- platform: "mqtt"
+  name: "Wall switch coridor"
+  state_topic: "zigbee2mqtt/0x00158d00044f0b9b"
+  availability_topic: "zigbee2mqtt/bridge/state"
+  payload_off: "OFF"
+  payload_on: "ON"
+  value_template: "{{ value_json.state }}"
+  command_topic: "zigbee2mqtt/0x00158d00044f0b9b/set"
+
+- platform: "mqtt"
+  name: "Wall switch bedroom1"
+  state_topic: "zigbee2mqtt/0x00158d00044fa5de"
+  availability_topic: "zigbee2mqtt/bridge/state"
+  payload_off: "OFF"
+  payload_on: "ON"
+  value_template: "{{ value_json.state }}"
+  command_topic: "zigbee2mqtt/0x00158d00044fa5de/set"
+
+- platform: "mqtt"
+  name: "Wall switch bedroom2"
+  state_topic: "zigbee2mqtt/0x00158d00044f52ec"
+  availability_topic: "zigbee2mqtt/bridge/state"
+  payload_off: "OFF"
+  payload_on: "ON"
+  value_template: "{{ value_json.state }}"
+  command_topic: "zigbee2mqtt/0x00158d00044f52ec/set"
+
+- platform: "mqtt"
+  name: "Wall switch office left"
+  state_topic: "zigbee2mqtt/0x00158d00045f9f36"
+  availability_topic: "zigbee2mqtt/bridge/state"
+  payload_off: "OFF"
+  payload_on: "ON"
+  value_template: "{{ value_json.state_left }}"
+  command_topic: "zigbee2mqtt/0x00158d00045f9f36/left/set"
+
+- platform: "mqtt"
+  name: "Wall switch office right"
+  state_topic: "zigbee2mqtt/0x00158d00045f9f36"
+  availability_topic: "zigbee2mqtt/bridge/state"
+  payload_off: "OFF"
+  payload_on: "ON"
+  value_template: "{{ value_json.state_right }}"
+  command_topic: "zigbee2mqtt/0x00158d00045f9f36/right/set"
+
+- platform: "mqtt"
+  name: "Wall switch bathroom left"
+  state_topic: "zigbee2mqtt/0x00158d00039d4efd"
+  availability_topic: "zigbee2mqtt/bridge/state"
+  payload_off: "OFF"
+  payload_on: "ON"
+  value_template: "{{ value_json.state_left }}"
+  command_topic: "zigbee2mqtt/0x00158d00039d4efd/left/set"
+
+- platform: "mqtt"
+  name: "Wall switch bathroom right"
+  state_topic: "zigbee2mqtt/0x00158d00039d4efd"
+  availability_topic: "zigbee2mqtt/bridge/state"
+  payload_off: "OFF"
+  payload_on: "ON"
+  value_template: "{{ value_json.state_right }}"
+  command_topic: "zigbee2mqtt/0x00158d00039d4efd/right/set"
+
+- platform: "mqtt"
+  name: "Wall switch living_room left"
+  state_topic: "zigbee2mqtt/0x00158d00045fabbe"
+  availability_topic: "zigbee2mqtt/bridge/state"
+  payload_off: "OFF"
+  payload_on: "ON"
+  value_template: "{{ value_json.state_left }}"
+  command_topic: "zigbee2mqtt/0x00158d00045fabbe/left/set"
+
+- platform: "mqtt"
+  name: "Wall switch living_room right"
+  state_topic: "zigbee2mqtt/0x00158d00045fabbe"
+  availability_topic: "zigbee2mqtt/bridge/state"
+  payload_off: "OFF"
+  payload_on: "ON"
+  value_template: "{{ value_json.state_right }}"
+  command_topic: "zigbee2mqtt/0x00158d00045fabbe/right/set"
+
+- platform: "mqtt"
+  name: "Wall switch kitchen left"
+  state_topic: "zigbee2mqtt/0x00158d00045fab25"
+  availability_topic: "zigbee2mqtt/bridge/state"
+  payload_off: "OFF"
+  payload_on: "ON"
+  value_template: "{{ value_json.state_left }}"
+  command_topic: "zigbee2mqtt/0x00158d00045fab25/left/set"
+
+- platform: "mqtt"
+  name: "Wall switch kitchen right"
+  state_topic: "zigbee2mqtt/0x00158d00045fab25"
+  availability_topic: "zigbee2mqtt/bridge/state"
+  payload_off: "OFF"
+  payload_on: "ON"
+  value_template: "{{ value_json.state_right }}"
+  command_topic: "zigbee2mqtt/0x00158d00045fab25/right/set"
+
+#########################################################
+
+- platform: "mqtt"
+  name: "ikea switch dbx 286s switch"
+  state_topic: "zigbee2mqtt/0x000d6ffffefadc6f"
+  availability_topic: "zigbee2mqtt/bridge/state"
+  payload_off: "OFF"
+  payload_on: "ON"
+  value_template: "{{ value_json.state }}"
+  command_topic: "zigbee2mqtt/0x000d6ffffefadc6f/set"
+
+- platform: "mqtt"
+  name: "ikea switch "
+  state_topic: "zigbee2mqtt/0x680ae2fffe3af4cb"
+  availability_topic: "zigbee2mqtt/bridge/state"
+  payload_off: "OFF"
+  payload_on: "ON"
+  value_template: "{{ value_json.state }}"
+  command_topic: "zigbee2mqtt/0x680ae2fffe3af4cb/set"
+

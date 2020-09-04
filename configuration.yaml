@@ -1,44 +1,42 @@
-#########################################################
-# Home Assistant                                        #
-#########################################################
-
 homeassistant:
-   elevation: 5
-   latitude: 48.98160415046025
-   longitude: 2.269970923662186
-   name: 'Casa'
-   time_zone: 'Europe/Paris'
-   unit_system: 'metric'
-   customize: !include_dir_merge_named customize
+  elevation: 5
+  latitude: 48.98160415046025
+  longitude: 2.269970923662186
+  name: 'Casa'
+  time_zone: 'Europe/Paris'
+  unit_system: 'metric'
+  customize: !include_dir_merge_named customize
+  customize_glob: !include customize_glob.yaml
 
 # Configure a default setup of Home Assistant (frontend, api, etc)
 default_config:
+
+recorder:
+  purge_keep_days: 1
+  exclude:
+    domains:
+      - automation
+      - updater
+
+calendar:
+  - platform: caldav
+    username: !secret caldav_user
+    password: !secret caldav_pass
+    url: !secret caldav_url
+    calendars:
+      - Personnel
+      - Congés
+      - Anniversaires des contacts
 
 # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
 # http:
 #   base_url: example.duckdns.org:8123
 http:
-  base_url: !secret base_url
-
 
 # Text to speech
 tts:
   - platform: google_translate
     language: 'fr'
-
-sonoff:
-  username: !secret sonoff_username
-  password: !secret sonoff_password
-
-camera:
-  - platform: mjpeg
-    name: camera1
-    still_image_url: !secret camera1_image
-    mjpeg_url: !secret camera1_url
-    verify_ssl: false
-
-shopping_list:
-anniversaries: !include anniversaries.yaml
 
 group: !include groups.yaml
 automation: !include_dir_merge_list automations
@@ -48,28 +46,36 @@ light: !include light.yaml
 alarm_control_panel: !include alarm.yaml
 device_tracker: !include device_tracker.yaml
 notify: !include notify.yaml
-sensor: !include sensor.yaml
+sensor: !include_dir_merge_list sensors
 switch: !include_dir_merge_list switch
+remote: !include_dir_merge_list remote
 mqtt: !include mqtt.yaml
 media_player: !include media_player.yaml
 timer: !include timer.yaml
 zone: !include zone.yaml
 
-# third party
-cover: !include third_party/cover.yaml
 rfxtrx:
-  device: /dev/ttyUSB0
-linky: !include third_party/linky.yaml
-unifi: !include third_party/unifi.yaml
-xiaomi_aqara: !include third_party/xiaomi.yaml
-vacuum: !include third_party/xiaomi_miio.yaml
+  automatic_add: false
+  device: /dev/serial/by-id/usb-RFXCOM_RFXtrx433XL_DO3MKS4D-if00-port0
+  devices:
+    071a00000a000101:
+    #  name: "mezzanine"
+    071a00000a000201:
+    #  name: "living room"
+    071a00000a000301:
+    #  name: "kitchen"
+    071a00000a000401:
+    #  name: "bedroom 1"
+    071a00000a000501:
+    #  name: "bedroom 2"
 
 # input (bool, number…)
 binary_sensor: !include_dir_merge_list binary_sensor
 input_boolean: !include_dir_merge_named input_boolean
 input_number: !include_dir_merge_named input_number
 input_select: !include_dir_merge_named input_select
+input_datetime: !include_dir_merge_named input_datetime
+var: !include_dir_named variables
 
-variable: !include_dir_named variables
-
-#########################################################
+logger:
+    default: info

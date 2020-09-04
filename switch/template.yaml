@@ -1,5 +1,3 @@
-#########################################################
-
 - platform: template
   switches:
     cover_state_living_room:
@@ -62,41 +60,41 @@
             mdi:window-shutter
           {% endif %}
 
-    cover_state_bedroom_1:
+    cover_state_bedroom:
       friendly_name: "volet chambre 1"
-      value_template: "{% if is_state('input_boolean.cover_bedroom_1', 'on') %}True{% else %}False{% endif %}"
+      value_template: "{% if is_state('input_boolean.cover_bedroom', 'on') %}True{% else %}False{% endif %}"
       turn_on:
         service: script.open_shutter
         data:
-          cover_entity_id: cover.bedroom_1
-          input_boolean_entity_id: input_boolean.cover_bedroom_1
+          cover_entity_id: cover.bedroom
+          input_boolean_entity_id: input_boolean.cover_bedroom
       turn_off:
         service: script.close_shutter
         data:
-          cover_entity_id: cover.bedroom_1
-          input_boolean_entity_id: input_boolean.cover_bedroom_1
+          cover_entity_id: cover.bedroom
+          input_boolean_entity_id: input_boolean.cover_bedroom
       icon_template: >-
-          {% if is_state('input_boolean.cover_bedroom_1', 'on') %}
+          {% if is_state('input_boolean.cover_bedroom', 'on') %}
             mdi:window-shutter-open
           {% else %}
             mdi:window-shutter
           {% endif %}
 
-    cover_state_bedroom_2:
+    cover_state_master_bedroom:
       friendly_name: "volet chambre 2"
-      value_template: "{% if is_state('input_boolean.cover_bedroom_2', 'on') %}True{% else %}False{% endif %}"
+      value_template: "{% if is_state('input_boolean.cover_master_bedroom', 'on') %}True{% else %}False{% endif %}"
       turn_on:
         service: script.open_shutter
         data:
-          cover_entity_id: cover.bedroom_2
-          input_boolean_entity_id: input_boolean.cover_bedroom_2
+          cover_entity_id: cover.master_bedroom
+          input_boolean_entity_id: input_boolean.cover_master_bedroom
       turn_off:
-        service: script.close_bedroom_shutter
+        service: script.close_master_bedroom_shutter
         data:
-          cover_entity_id: cover.bedroom_2
-          input_boolean_entity_id: input_boolean.cover_bedroom_2
+          cover_entity_id: cover.master_bedroom
+          input_boolean_entity_id: input_boolean.cover_master_bedroom
       icon_template: >-
-          {% if is_state('input_boolean.cover_bedroom_2', 'on') %}
+          {% if is_state('input_boolean.cover_master_bedroom', 'on') %}
             mdi:window-shutter-open
           {% else %}
             mdi:window-shutter
@@ -125,5 +123,3 @@
         service: switch.turn_off
         data:
           entity_id: switch.ampli
-
-#########################################################
