@@ -1,0 +1,13 @@
+- alias: "Switch on socket on home mode"
+  trigger:
+    - platform: state
+      entity_id: input_select.house_mode
+      to: 'home'
+  action:
+    - service: switch.turn_on
+      entity_id:
+        - switch.02063503600194face36_1
+        - switch.02063503600194face36_2
+        - switch.02063503600194face36_3
+        - switch.02063503600194face36_4
+        - switch.02063503600194face36_5

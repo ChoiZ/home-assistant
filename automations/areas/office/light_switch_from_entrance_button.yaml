@@ -1,0 +1,15 @@
+- alias: "switch off the office with entrance button"
+  trigger:
+    - platform: state
+      entity_id: switch.entrance_light_remote
+      to: 'on'
+    - platform: state
+      entity_id: switch.entrance_light_remote
+      to: 'off'
+  condition:
+    - condition: state
+      entity_id: switch.office_light
+      state: 'on'
+  action:
+    - service: switch.turn_off
+      entity_id: switch.office_light

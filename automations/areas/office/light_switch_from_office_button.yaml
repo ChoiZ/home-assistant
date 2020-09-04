@@ -1,11 +1,20 @@
 - alias: "switch on/off office light from office button"
   trigger:
     - platform: state
-      entity_id: switch.wall_switch_left_158d00045f9f36
+      entity_id: switch.office_light_remote
       to: 'on'
     - platform: state
-      entity_id: switch.wall_switch_left_158d00045f9f36
+      entity_id: switch.office_light_remote
       to: 'off'
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: input_select.house_mode
+        state: 'home'
+      - condition: state
+        entity_id: switch.cover_state_mezzanine
+        state: 'off'
   action:
     - service: switch.toggle
-      entity_id: switch.wall_switch_158d00044f0b9b
+      entity_id: switch.office_light
