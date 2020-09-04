@@ -1,0 +1,20 @@
+- alias: "living room toggle the light from the living_room button"
+  trigger:
+    - platform: state
+      entity_id: switch.living_room_remote
+      to: 'on'
+    - platform: state
+      entity_id: switch.living_room_remote
+      to: 'off'
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: input_select.house_mode
+        state: 'home'
+      - condition: state
+        entity_id: switch.cover_state_living_room
+        state: 'off'
+  action:
+    - service: light.toggle
+      entity_id: group.living_room_light_and_leds

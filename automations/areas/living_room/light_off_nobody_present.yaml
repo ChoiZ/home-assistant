@@ -1,19 +1,24 @@
 - alias: Nobody is in the living room
   trigger:
     - platform: state
-      entity_id: binary_sensor.motion_sensor_158d00044d007b
+      entity_id: binary_sensor.living_room_motion_mirror
       to: 'off'
       for:
-        minutes: 3
+        minutes: 10
+    - platform: state
+      entity_id: binary_sensor.living_room_motion_tv
+      to: 'off'
+      for:
+        minutes: 10
   condition:
     condition: and
     conditions:
       - condition: state
-        entity_id: switch.sonoff_1000a12e98
+        entity_id: switch.tv_socket
         state: 'off'
       - condition: state
         entity_id: binary_sensor.ping_tv
         state: 'off'
   action:
-    - service: switch.turn_off
-      entity_id: switch.wall_switch_left_158d00045fabbe
+    - service: light.turn_off
+      entity_id: group.living_room_light_and_leds

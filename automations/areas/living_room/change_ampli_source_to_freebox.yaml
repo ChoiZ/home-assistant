@@ -3,8 +3,16 @@
     - platform: state
       entity_id: input_select.ampli_sources
       to: 'freebox'
+  condition:
+    condition: time
+    after: '09:00:00'
+    before: '22:00:00'
   action:
     - service: media_player.select_source
       data:
         entity_id: media_player.onkyo_receiver
         source: 'video2'
+    - service: media_player.volume_set
+      data:
+        entity_id: media_player.onkyo_receiver
+        volume_level: 0.68

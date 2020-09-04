@@ -1,0 +1,9 @@
+- alias: "switch off ampli socket when ampli dont ping for 5mn"
+  trigger:
+    - platform: template
+      value_template: "{{ is_states('binary_sensor.ping_ampli', 'off') }}"
+      for:
+        minutes: 5
+  action:
+    - service: switch.turn_off
+      entity_id: switch.living_room_outlet_ampli

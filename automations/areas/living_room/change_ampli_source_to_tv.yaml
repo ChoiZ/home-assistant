@@ -8,3 +8,7 @@
       data:
         entity_id: media_player.onkyo_receiver
         source: 'tv'
+    - service: media_player.volume_set
+      data:
+        entity_id: media_player.onkyo_receiver
+        volume_level: 0.42

@@ -9,11 +9,11 @@
     condition: and
     conditions:
       - condition: state
-        entity_id: switch.sonoff_1000a12e98
+        entity_id: switch.tv_socket
         state: 'on'
       - condition: state
         entity_id: binary_sensor.ping_freebox_4k
         state: 'on'
   action:
     - service: switch.turn_off
-      entity_id: switch.sonoff_1000a12e98
+      entity_id: switch.tv_socket

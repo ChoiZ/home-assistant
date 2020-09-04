@@ -1,11 +1,8 @@
 - alias: "living room window is now closed"
   trigger:
     - platform: state
-      entity_id: binary_sensor.door_window_sensor_158d00039fe3a9
+      entity_id: binary_sensor.living_room_door
       to: 'off'
   action:
     - service: timer.cancel
       entity_id: timer.window_living_room
-    - service: notify.slack
-      data:
-        message: "The window in living room is now closed"

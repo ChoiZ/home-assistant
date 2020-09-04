@@ -4,12 +4,12 @@
       entity_id: media_player.onkyo_receiver
       to: 'on'
       for:
-        minutes: 10
+        minutes: 2
   condition:
     condition: and
     conditions:
       - condition: state
-        entity_id: switch.sonoff_1000a12e98
+        entity_id: switch.tv_socket
         state: 'off'
       - condition: or
         conditions:
@@ -20,5 +20,5 @@
           entity_id: sensor.onkyo_source
           state: 'Freebox'
   action:
-    - service: media_player.turn_off
-      entity_id: media_player.onkyo_receiver
+    - service: switch.turn_off
+      entity_id: switch.ampli
