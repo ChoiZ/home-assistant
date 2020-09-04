@@ -1,0 +1,19 @@
+francois_status_dropdown:
+  name: francois status
+  options:
+    - 'just arrived'
+    - 'home'
+    - 'just left'
+    - 'away'
+    - 'extended away'
+  initial: 'home'
+
+geraldine_status_dropdown:
+  name: geraldine status
+  options:
+    - 'just arrived'
+    - 'home'
+    - 'just left'
+    - 'away'
+    - 'extended away'
+  initial: 'home'
