@@ -1,0 +1,8 @@
+- alias: "master bedroom window is close"
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.master_bedroom_window
+      to: 'off'
+  action:
+    - service: timer.cancel
+      entity_id: timer.window_master_bedroom

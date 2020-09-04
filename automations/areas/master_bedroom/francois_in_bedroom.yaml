@@ -1,0 +1,25 @@
+- alias: "francois in bedroom"
+  trigger:
+    - platform: state
+      entity_id: light.bedroom_francois
+      to: 'off'
+  condition:
+    condition: and
+    conditions:
+      - condition: time
+        before: '06:00:00'
+        after: '18:00:00'
+      - condition: state
+        entity_id: input_select.house_mode
+        state: 'home'
+  action:
+    - service: var.set
+      data:
+        entity_id:
+          - var.francois_in_bedroom
+        value: 1
+    - service: var.set
+      data:
+        entity_id:
+          - var.geraldine_in_bedroom
+        value: 0

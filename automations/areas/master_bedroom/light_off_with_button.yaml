@@ -1,0 +1,24 @@
+- alias: "switch off light with switch"
+  trigger:
+    - platform: state
+      entity_id: switch.master_bedroom_light
+      to: 'on'
+    - platform: state
+      entity_id: switch.master_bedroom_light
+      to: 'off'
+  condition:
+    condition: or
+    conditions:
+      - condition: state
+        entity_id: light.bedroom_francois
+        state: 'on'
+      - condition: state
+        entity_id: light.bedroom_geraldine
+        state: 'on'
+  action:
+    - service: light.turn_off
+      entity_id: light.bedroom_francois
+    - service: light.turn_off
+      entity_id: light.bedroom_geraldine
+    - service: switch.turn_off
+      entity_id: switch.master_bedroom_light

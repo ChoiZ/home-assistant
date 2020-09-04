@@ -1,0 +1,24 @@
+- alias: "light off after door close"
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.master_bedroom_door
+      to: 'off'
+      for:
+        seconds: 8
+  condition:
+    - condition: state
+      entity_id: input_select.house_mode
+      state: 'night'
+  action:
+    - service: light.turn_off
+      data_template:
+        entity_id: >-
+          {% if (states('var.francois_in_bedroom')) == '1' %}
+            light.bedroom_geraldine
+          {% else %}
+            {% if (states('var.geraldine_in_bedroom')) == '1' %}
+              light.bedroom_francois
+            {% else %}
+              group.master_bedroom_little_lights
+            {% endif %}
+          {% endif %}

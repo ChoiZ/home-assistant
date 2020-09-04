@@ -1,0 +1,34 @@
+- alias: "light on someone is present in bedroom 2"
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.master_bedroom_motion_corner
+      to: 'on'
+    - platform: state
+      entity_id: binary_sensor.master_bedroom_motion_entrance
+      to: 'on'
+  condition:
+    condition: and
+    conditions:
+      - condition: time
+        before: '06:00:00'
+        after: '18:00:00'
+      - condition: state
+        entity_id: input_select.house_mode
+        state: 'home'
+      - condition: state
+        entity_id: switch.cover_state_master_bedroom
+        state: 'off'
+      - condition: state
+        entity_id: input_boolean.mode_canicule
+        state: 'off'
+  action:
+    - service: light.turn_on
+      data_template:
+        entity_id: >-
+          {% if (states('var.francois_in_bedroom')) == '1' %}
+            light.bedroom_geraldine
+          {% elif (states('var.geraldine_in_bedroom')) == '1' %}
+            light.bedroom_francois
+          {% else %}
+            group.master_bedroom_little_lights
+          {% endif %}
