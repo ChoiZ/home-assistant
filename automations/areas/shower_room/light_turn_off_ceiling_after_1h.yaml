@@ -1,10 +1,10 @@
 - alias: "turn off the shower_room light after 1h"
   trigger:
     - platform: state
-      entity_id: switch.wall_switch_158d000357da1a
+      entity_id: switch.shower_room_light
       to: 'on'
       for:
         hours: 1
   action:
     - service: switch.turn_off
-      entity_id: switch.wall_switch_158d000357da1a
+      entity_id: switch.shower_room_light

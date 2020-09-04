@@ -1,0 +1,10 @@
+- alias: "Nobody in the shower_room"
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.shower_room_motion_sensor
+      to: 'off'
+      for:
+        minutes: 5
+  action:
+    - service: switch.turn_off
+      entity_id: switch.shower_room_light
