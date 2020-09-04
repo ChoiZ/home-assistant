@@ -1,0 +1,5 @@
+office_light_timeout:
+  initial: 5
+  min: 0
+  max: 15
+  step: 1
