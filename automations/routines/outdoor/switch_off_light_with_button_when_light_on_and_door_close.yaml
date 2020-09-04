@@ -1,0 +1,24 @@
+- alias: "Switch off light with button when light on and door close"
+  trigger:
+    - platform: state
+      entity_id: switch.outdoor_light_wall
+      to: 'on'
+    - platform: state
+      entity_id: switch.outdoor_light_wall
+      to: 'off'
+  condition:
+    - condition: and
+      conditions:
+      - condition: state  # from sunset until sunrise
+        entity_id: sun.sun
+        state: 'below_horizon'
+      - condition: state
+        entity_id: binary_sensor.living_room_door
+        state: 'off'
+      - condition: state
+        entity_id: switch.outdoor_socket_1
+        state: 'on'
+  action:
+    - service: switch.turn_off
+      entity_id:
+        - switch.outdoor_socket_1

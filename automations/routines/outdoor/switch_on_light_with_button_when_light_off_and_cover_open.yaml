@@ -1,0 +1,24 @@
+- alias: "Switch on light with button when light off and cover open"
+  trigger:
+    - platform: state
+      entity_id: switch.outdoor_light_wall
+      to: 'on'
+    - platform: state
+      entity_id: switch.outdoor_light_wall
+      to: 'off'
+  condition:
+    - condition: and
+      conditions:
+      - condition: state  # from sunset until sunrise
+        entity_id: sun.sun
+        state: 'below_horizon'
+      - condition: state
+        entity_id: switch.outdoor_socket_1
+        state: 'off'
+      - condition: state
+        entity_id: switch.cover_state_living_room
+        state: 'on'
+  action:
+    - service: switch.turn_on
+      entity_id:
+        - switch.outdoor_socket_1

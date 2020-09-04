@@ -1,0 +1,21 @@
+- alias: "Open cover downstair at 9:00 on non working days"
+  trigger:
+    - platform: time
+      at: '09:00:00'
+  condition:
+    - condition: state
+      entity_id: binary_sensor.workday_sensor
+      state: 'off'
+    - condition: state
+      entity_id: input_boolean.mode_canicule
+      state: 'off'
+  action:
+    - service: switch.turn_on
+      entity_id:
+        - switch.cover_state_kitchen
+    - service: switch.turn_on
+      entity_id:
+        - switch.cover_state_living_room
+    - service: switch.turn_on
+      entity_id:
+        - switch.cover_state_mezzanine

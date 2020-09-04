@@ -1,0 +1,8 @@
+- alias: Disable mode sport
+  trigger:
+    - platform: state
+      entity_id: input_boolean.mode_sport
+      to: 'off'
+  action:
+    - service: switch.turn_on
+      entity_id: switch.cover_state_kitchen

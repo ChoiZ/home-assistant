@@ -1,0 +1,17 @@
+- alias: 'Watering'
+  trigger:
+    - platform: time
+      at: '20:00:00'
+  condition:
+    - condition: state
+      entity_id: input_boolean.watering
+      state: 'on'
+  action:
+    - service: switch.turn_on
+      entity_id: switch.outdoor_socket_2
+    - service: notify.mobile_app_francois_moto_g_7
+      data:
+        message: "François, l'arrosage démarre dans 1mn."
+    - delay: "00:01:00"
+    - service: switch.turn_on
+      entity_id: switch.arrosage

@@ -1,0 +1,12 @@
+- alias: Enable mode sport
+  trigger:
+    - platform: state
+      entity_id: input_boolean.mode_sport
+      to: 'on'
+  action:
+    - service: switch.turn_off
+      entity_id: switch.cover_state_kitchen
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.ampli_sources
+        option: 'tv'

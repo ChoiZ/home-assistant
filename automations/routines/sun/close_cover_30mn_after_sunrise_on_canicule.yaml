@@ -1,0 +1,25 @@
+- alias: "Close cover 30mn after sunrise on canicule"
+  trigger:
+    - platform: sun
+      event: sunrise
+      offset: '+00:30:00'
+  condition:
+    - condition: state
+      entity_id: input_boolean.mode_canicule
+      state: 'on'
+  action:
+    - service: switch.turn_off
+      entity_id:
+        - switch.cover_state_kitchen
+    - service: switch.turn_off
+      entity_id:
+        - switch.cover_state_bedroom
+    - service: switch.turn_off
+      entity_id:
+        - switch.cover_state_master_bedroom
+    - service: input_boolean.turn_off
+      entity_id:
+        - input_boolean.cover_master_bedroom
+    - service: cover.close_cover
+      entity_id:
+        - cover.master_bedroom

@@ -1,0 +1,11 @@
+- alias: 'reset bedroom presence at 7:00'
+  trigger:
+    - platform: time
+      at: '07:00:00'
+  action:
+    - service: var.set
+      data:
+        entity_id:
+          - var.francois_in_bedroom
+          - var.geraldine_in_bedroom
+        value: 0

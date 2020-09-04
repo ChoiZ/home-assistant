@@ -1,0 +1,10 @@
+- alias: 'reset watering at 7:00'
+  trigger:
+    - platform: time
+      at: '07:00:00'
+    - platform: state
+      entity_id: input_boolean.watering
+      to: 'off'
+  action:
+    - service: script.turn_off
+      entity_id: script.watering

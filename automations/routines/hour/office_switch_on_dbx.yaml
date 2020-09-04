@@ -1,0 +1,12 @@
+- alias: "Switch on dbx"
+  trigger:
+    - platform: template
+      value_template: "{% if states('sensor.time') == states('input_datetime.time_start_dbx').split(':00')[0] %}true{% endif %}"
+    - platform: template
+      value_template: "{% if states('sensor.time') == states('input_datetime.time_stop_dbx').split(':00')[0] %}true{% endif %}"
+  condition:
+    - condition: template
+      value_template: "{% if states('input_boolean.office_automation_dbx_workday_only') and is_state('binary_sensor.workday_sensor','on') %}true{% endif %}"
+  action:
+    - service_template: "switch.turn_{{ 'on' if states('sensor.time') == states('input_datetime.time_start_dbx').split(':00')[0] else 'off' }}"
+      entity_id: switch.office_outlet_dbx

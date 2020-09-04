@@ -1,0 +1,21 @@
+- alias: "Sunset close living_room cover if door close and light off"
+  trigger:
+    - platform: sun
+      event: sunset
+      offset: '+00:16:00'
+  condition:
+    - condition: and
+      conditions:
+      - condition: time
+        after: '16:00:00'
+        before: '23:00:00'
+      - condition: state
+        entity_id: binary_sensor.living_room_door
+        state: 'off'
+      - condition: state
+        entity_id: switch.outdoor_socket_1
+        state: 'off'
+  action:
+    - service: switch.turn_off
+      entity_id:
+        - switch.cover_state_living_room

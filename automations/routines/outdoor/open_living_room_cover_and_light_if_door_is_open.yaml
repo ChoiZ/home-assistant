@@ -1,0 +1,19 @@
+- alias: "Open living room cover and light if door is open"
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.living_room_door
+      to: 'on'
+  condition:
+    - condition: and
+      conditions:
+      - condition: state  # from sunset until sunrise
+        entity_id: sun.sun
+        state: 'below_horizon'
+      - condition: state
+        entity_id: switch.cover_state_living_room
+        state: 'off'
+  action:
+    - service: switch.turn_on
+      entity_id:
+        - switch.cover_state_living_room
+        - switch.outdoor_socket_1

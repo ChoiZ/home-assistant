@@ -1,0 +1,7 @@
+- alias: 'reset sport mode at 7:00'
+  trigger:
+    - platform: time
+      at: '07:00:00'
+  action:
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.mode_sport

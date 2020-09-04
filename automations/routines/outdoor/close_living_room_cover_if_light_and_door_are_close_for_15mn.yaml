@@ -1,0 +1,22 @@
+- alias: "Close living room cover if light and door are close for 15mn"
+  trigger:
+    - platform: state
+      entity_id: switch.outdoor_socket_1
+      to: 'off'
+      for:
+        minutes: 15
+  condition:
+    - condition: and
+      conditions:
+      - condition: state  # from sunset until sunrise
+        entity_id: sun.sun
+        state: 'below_horizon'
+      - condition: state
+        entity_id: binary_sensor.living_room_door
+        state: 'off'
+        for:
+          minutes: 15
+  action:
+    - service: switch.turn_off
+      entity_id:
+        - switch.cover_state_living_room
