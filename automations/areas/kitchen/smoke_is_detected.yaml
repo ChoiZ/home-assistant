@@ -1,9 +1,0 @@
-- alias: "kitchen smoke is detected"
-  trigger:
-    - platform: state
-      entity_id: binary_sensor.smoke_sensor_158d000399007e
-      to: 'on'
-  action:
-    - service: notify.slack
-      data:
-        message: "Smoke detected in the kitchen! @channel"

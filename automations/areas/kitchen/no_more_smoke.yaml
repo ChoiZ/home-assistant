@@ -1,9 +1,0 @@
-- alias: "There is no more smoke in the kitchen"
-  trigger:
-    - platform: state
-      entity_id: binary_sensor.smoke_sensor_158d000399007e
-      to: 'off'
-  action:
-    - service: notify.slack
-      data:
-        message: "There is no more smoke in the kitchen"
