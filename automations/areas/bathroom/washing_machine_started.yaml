@@ -1,0 +1,19 @@
+- alias: "washing machine is working"
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.washing_machine_power
+      above: '0'
+      for:
+        minutes: 1
+  condition:
+    - condition: state
+      entity_id: input_boolean.washing_machine_state
+      state: 'off'
+  action:
+    - service: notify.mobile_app_francois_moto_g_7
+      data:
+        message: "François, le lave linge a démarré."
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.washing_machine_state
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.washing_machine_finished

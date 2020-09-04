@@ -1,0 +1,12 @@
+- alias: "no presence with light in bathroom"
+  trigger:
+    - platform: state
+      entity_id: switch.bathroom_light
+      to: 'off'
+  action:
+    - service: var.set
+      data_template:
+        entity_id: >-
+          var.bathroom_presence
+        value: >-
+          0

@@ -1,0 +1,8 @@
+- alias: "Someone is present in the bathroom"
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.bathroom_sensor_motion
+      to: 'on'
+  action:
+    - service: switch.turn_on
+      entity_id: switch.bathroom_light

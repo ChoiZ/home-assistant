@@ -1,0 +1,10 @@
+- alias: "bathroom turn off the mirror light after 20mn"
+  trigger:
+    - platform: state
+      entity_id: switch.bathroom_mirror_light
+      to: 'on'
+      for:
+        minutes: 20
+  action:
+    - service: switch.turn_off
+      entity_id: switch.bathroom_mirror_light
