@@ -1,11 +1,15 @@
 - alias: "switch on/off the stairs from the entrance button"
   trigger:
     - platform: state
-      entity_id: switch.wall_switch_right_158d00045f9e86
+      entity_id: switch.stairs_light_remote
       to: 'on'
     - platform: state
-      entity_id: switch.wall_switch_right_158d00045f9e86
+      entity_id: switch.stairs_light_remote
       to: 'off'
+  condition:
+    - condition: state
+      entity_id: switch.light_office
+      state: 'off'
   action:
     - service: switch.toggle
-      entity_id: switch.wall_switch_right_158d00045f9f36
+      entity_id: switch.stairs_light
