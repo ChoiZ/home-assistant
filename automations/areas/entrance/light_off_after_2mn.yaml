@@ -1,10 +1,10 @@
 - alias: turn off entrance light after 2mn
   trigger:
     - platform: state
-      entity_id: switch.wall_switch_left_158d00045f9e86
+      entity_id: switch.entrance_light
       to: 'on'
       for:
         minutes: 2
   action:
     - service: switch.turn_off
-      entity_id: switch.wall_switch_left_158d00045f9e86
+      entity_id: switch.entrance_light

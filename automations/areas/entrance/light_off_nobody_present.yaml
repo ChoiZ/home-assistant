@@ -1,10 +1,10 @@
 - alias: "Nobody is in the entrance"
   trigger:
     - platform: state
-      entity_id: binary_sensor.motion_sensor_158d00044993aa
+      entity_id: binary_sensor.entrance_motion
       to: 'off'
       for:
         minutes: 2
   action:
     - service: switch.turn_off
-      entity_id: switch.wall_switch_left_158d00045f9e86
+      entity_id: switch.entrance_light

@@ -1,26 +1,24 @@
 - alias: "Someone is in the entrance"
   trigger:
     - platform: state
-      entity_id: binary_sensor.motion_sensor_158d00044993aa
+      entity_id: binary_sensor.entrance_motion
       to: 'on'
   condition:
-    condition: or
-    conditions:
-      - condition: and
-        conditions:
-          - condition: template
-            value_template: '{{ state_attr("sun.sun", "elevation") < 3 }}'
-          - condition: time
-            after: '16:00:00'
-            before: '04:00:00'
-      - condition: and
-        conditions:
-          - condition: state
-            entity_id: switch.cover_state_mezzanine
-            state: 'off'
-          - condition: state
-            entity_id: switch.cover_state_living_room
-            state: 'off'
+    - condition: state
+      entity_id: switch.cover_state_mezzanine
+      state: 'off'
+    - condition: state
+      entity_id: switch.cover_state_living_room
+      state: 'off'
+    - condition: state
+      entity_id: switch.tv_socket
+      state: 'off'
+    - condition: state
+      entity_id: binary_sensor.ping_tv
+      state: 'off'
+    - condition: state
+      entity_id: input_boolean.mode_canicule
+      state: 'off'
   action:
     - service: switch.turn_on
-      entity_id: switch.wall_switch_left_158d00045f9e86
+      entity_id: switch.entrance_light
