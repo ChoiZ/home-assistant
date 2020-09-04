@@ -11,7 +11,7 @@
   optimistic: false
   payload_available: "Online"
   payload_not_available: "Offline"
-  retain: true
+
 - platform: mqtt
   name: "Led Mirror"
   state_topic: "stat/mirror-led/POWER"
@@ -25,7 +25,7 @@
   optimistic: false
   payload_available: "Online"
   payload_not_available: "Offline"
-  retain: true
+
 - platform: mqtt
   name: "Living Room"
   state_topic: "stat/livingroom-light/POWER"
@@ -35,4 +35,33 @@
   optimistic: false
   payload_available: "Online"
   payload_not_available: "Offline"
-  retain: true
+
+- platform: mqtt
+  name: "Bedroom François"
+  state_topic: "stat/bedlight-francois/POWER"
+  command_topic: "cmnd/bedlight-francois/POWER"
+  availability_topic: "tele/bedlight-francois/LWT"
+  qos: 1
+  optimistic: false
+  payload_available: "Online"
+  payload_not_available: "Offline"
+
+- platform: mqtt
+  name: "Bedroom Geraldine"
+  state_topic: "stat/bedlight-geraldine/POWER"
+  command_topic: "cmnd/bedlight-geraldine/POWER"
+  availability_topic: "tele/bedlight-geraldine/LWT"
+  qos: 1
+  optimistic: false
+  payload_available: "Online"
+  payload_not_available: "Offline"
+
+- platform: mqtt
+  name: "Bedlight"
+  state_topic: "stat/bedlight/POWER"
+  command_topic: "cmnd/bedlight/POWER"
+  availability_topic: "tele/bedlight/LWT"
+  qos: 1
+  optimistic: false
+  payload_available: "Online"
+  payload_not_available: "Offline"
