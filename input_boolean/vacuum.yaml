@@ -1,0 +1,7 @@
+vacuum_down_need_to_be_emptied:
+  name: Le robot aspirateur bas à besoin d'être vidé
+  icon: mdi:delete-circle-outline
+
+vacuum_up_need_to_be_emptied:
+  name: Le robot aspirateur haut à besoin d'être vidé
+  icon: mdi:delete-circle-outline

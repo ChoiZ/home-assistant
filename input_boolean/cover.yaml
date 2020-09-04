@@ -9,10 +9,10 @@ cover_living_room:
 cover_kitchen:
   name: volet cuisine
 
-cover_bedroom_1:
-  name: volet chambre 1
+cover_bedroom:
+  name: volet chambre
 
-cover_bedroom_2:
-  name: volet chambre 2
+cover_master_bedroom:
+  name: volet chambre principale
 
 #########################################################

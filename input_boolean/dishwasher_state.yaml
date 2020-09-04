@@ -1,0 +1,4 @@
+dishwasher_state:
+  name: état
+  initial: off
+  icon: mdi:dishwasher

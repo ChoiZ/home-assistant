@@ -1,0 +1,4 @@
+washing_machine_finished:
+  name: à vider
+  initial: off
+  icon: mdi:washing-machine-off

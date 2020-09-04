@@ -1,0 +1,4 @@
+dishwasher_finished:
+  name: à vider
+  initial: off
+  icon: mdi:dishwasher-off
