@@ -1,0 +1,12 @@
+- alias: Set 'extended away' by hand
+  trigger:
+    - platform: state
+      entity_id: input_select.house_mode
+      to: 'extended away'
+  condition:
+    - condition: template
+      value_template: "{{ states('input_select.house_mode') != 'extended away' }}"
+  action:
+    - service: notify.mobile_app_francois_moto_g_7
+      data:
+        message: "François, mode extended away actif."

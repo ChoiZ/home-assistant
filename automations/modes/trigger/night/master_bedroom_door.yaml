@@ -1,0 +1,25 @@
+- alias: master bedroom door set night mode
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.master_bedroom_door
+      to: 'off'
+  condition:
+    - condition: and
+      conditions:
+      - condition: state
+        entity_id: input_select.house_mode
+        state: 'home'
+      - condition: state
+        entity_id: device_tracker.ip_phone_fr
+        state: 'not_home'
+      - condition: state
+        entity_id: device_tracker.francois_moto_g7 # geoloc fr
+        state: 'home'
+      - condition: time
+        before: '08:00:00'
+        after: '22:00:00'
+  action:
+    - service: input_select.select_option
+      entity_id: input_select.house_mode
+      data:
+        option: 'night'

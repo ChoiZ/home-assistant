@@ -1,0 +1,21 @@
+- alias: Set 'home' by hand
+  trigger:
+    - platform: state
+      entity_id: input_select.house_mode
+      to: 'home'
+  condition:
+    - condition: template
+      value_template: "{{ states('input_select.house_mode') != 'home' }}"
+  action:
+    - service: socket.turn_on
+      entity_id:
+      - switch.office_outlet_left_screen
+      - switch.office_outlet_right_screen
+    - service: notify.mobile_app_francois_moto_g_7
+      data:
+        message: "François, mode home actif."
+    #- service: light.turn_on
+    #  data:
+    #    entity_id: light.gateway_light_04cf8cb87b01
+    #    brightness_pct: 2
+    #    color_name: green

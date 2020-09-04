@@ -1,0 +1,19 @@
+- alias: Someone open the master bedroom door set mode 'home'
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.master_bedroom_door
+      to: 'on'
+  condition:
+    - condition: and
+      conditions:
+      - condition: state
+        entity_id: input_select.house_mode
+        state: 'night'
+      - condition: time
+        before: '22:00:00'
+        after: '08:00:00'
+  action:
+    - service: input_select.select_option
+      entity_id: input_select.house_mode
+      data:
+        option: 'home'

@@ -1,0 +1,21 @@
+- alias: Fr & Ge are not at home for 24h set mode 'extended away'
+  trigger:
+    - platform: state
+      entity_id: input_select.house_mode
+      to: 'away'
+      for:
+        hours: 24
+  condition:
+    - condition: and
+      conditions:
+      - condition: state
+        entity_id: device_tracker.ip_phone_fr
+        state: 'not_home'
+      - condition: state
+        entity_id: device_tracker.ip_phone_ge
+        state: 'not_home'
+  action:
+    - service: input_select.select_option
+      entity_id: input_select.house_mode
+      data:
+        option: 'extended away'

@@ -1,0 +1,37 @@
+- alias: Set 'night' by hand
+  trigger:
+    - platform: state
+      entity_id: input_select.house_mode
+      to: 'night'
+  condition:
+    - condition: template
+      value_template: "{{ states('input_select.house_mode') != 'night' }}"
+    - condition: time
+      before: '08:00:00'
+      after: '22:00:00'
+  action:
+    - service: switch.turn_off
+      entity_id:
+        - group.lights
+    - service: switch.turn_off
+      entity_id:
+        - group.sockets
+    - service: light.turn_off
+      entity_id: group.living_room_light_and_leds
+    - service: light.turn_on
+      data_template:
+        entity_id: >-
+          {% if (states('var.francois_in_bedroom')) == '1' %}
+            light.bedroom_geraldine
+          {% else %}
+            {% if (states('var.geraldine_in_bedroom')) == '1' %}
+              light.bedroom_francois
+            {% else %}
+              group.master_bedroom_little_lights
+            {% endif %}
+          {% endif %}
+    #- service: light.turn_on
+    #  data:
+    #    entity_id: light.gateway_light_04cf8cb87b01
+    #    brightness_pct: 2
+    #    color_name: yellow

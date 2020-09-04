@@ -1,0 +1,14 @@
+- alias: Ge is at home set mode 'home'
+  trigger:
+    - platform: state
+      entity_id: device_tracker.ip_phone_ge
+      to: 'home'
+  condition:
+    - condition: time
+      before: '22:00:00'
+      after: '08:00:00'
+  action:
+    - service: input_select.select_option
+      entity_id: input_select.house_mode
+      data:
+        option: 'home'
