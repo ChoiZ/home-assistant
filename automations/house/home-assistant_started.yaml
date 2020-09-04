@@ -3,6 +3,16 @@
     - platform: homeassistant
       event: start
   action:
-    - service: notify.slack
+    - service: notify.mobile_app_francois_moto_g_7
       data:
-        message: "Home-Assistant Has Started"
+        message: "François, home assistant a démarré."
+    - service: var.set
+      data:
+        entity_id:
+          - var.francois_in_bedroom
+        value: 0
+    - service: var.set
+      data:
+        entity_id:
+          - var.geraldine_in_bedroom
+        value: 0

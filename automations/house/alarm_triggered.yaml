@@ -5,10 +5,6 @@
     entity_id: alarm_control_panel.home
     to: 'triggered'
   action:
-    - service: notify.slack
+    - service: notify.mobile_app_francois_moto_g_7
       data:
-        message: '@channel Alarme !!!'
-    - service: script.turn_on
-      entity_id: script.start_alarm
-    - service: script.turn_on
-      entity_id: script.flash_light
+        message: "François, Alarme !!!."

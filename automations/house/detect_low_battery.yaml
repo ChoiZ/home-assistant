@@ -1,26 +1,36 @@
-- alias: "Detect low battery"
-  initial_state: true
-  trigger:
-    - platform: numeric_state
-      entity_id:
-        - sensor.temp_sensor_bathroom
-        - sensor.temp_sensor_chambre_1
-        - sensor.temp_sensor_chambre_2
-        - sensor.temp_sensor_kitchen
-        - sensor.temp_sensor_living_room
-        - sensor.temp_sensor_shower_room
-        - sensor.window_chambre_1
-        - sensor.window_chambre_2
-        - sensor.window_kitchen
-        - sensor.window_living_room
-        - sensor.door_entrance
-        - sensor.bouton_chambre_1
-        - sensor.bouton_chambre_2
-        - sensor.bouton_cuisine
-        - sensor.cube_chambre_2
-      below: 20
-  action:
-    - service: notify.slack
-      data_template:
-        title: "Home-Assistant Device Battery Low"
-        message: "@channel The battery for {{ trigger.to_state.attributes.friendly_name }} is below {{ trigger.below }} percent."
+#- alias: "Detect low battery"
+#  initial_state: true
+#  trigger:
+#    - platform: numeric_state
+#      entity_id:
+#        - binary_sensor.bathroom_door
+#        - binary_sensor.bedroom_door
+#        - binary_sensor.bedroom_window
+#        - binary_sensor.entrance_door
+#        - binary_sensor.kitchen_window
+#        - binary_sensor.living_room_door
+#        - binary_sensor.master_bedroom_door
+#        - binary_sensor.master_bedroom_window
+#        - binary_sensor.shower_room_door
+#        - binary_sensor.switch_158d00035a995a # bouton cuisine
+#        - sensor.temp_sensor_bathroom
+#        - sensor.temp_sensor_chambre_1
+#        - sensor.temp_sensor_chambre_2
+#        - sensor.temp_sensor_kitchen
+#        - sensor.temp_sensor_living_room
+#        - sensor.temp_sensor_shower_room
+#        - sensor.window_chambre_1
+#        - sensor.window_chambre_2
+#        - sensor.window_kitchen
+#        - sensor.window_living_room
+#        - sensor.door_entrance
+#        - sensor.bouton_chambre_1
+#        - sensor.bouton_chambre_2
+#        - sensor.bouton_cuisine
+#        - sensor.cube_chambre_2
+#      below: 20
+#  action:
+#   - service: notify.mobile_app_francois_moto_g_7
+#      data_template:
+#        title: "Home-Assistant Device Battery Low"
+#        message: "The battery for {{ trigger.to_state.attributes.friendly_name }} is below {{ trigger.below }} percent."

@@ -10,11 +10,3 @@
   action:
     - service: vacuum.start
       entity_id: vacuum.vacuum_up
-    #- service: xiaomi_miio.vacuum_clean_zone
-    #  data_template:
-    #    entity_id: vacuum.vacuum_up
-    #    repeats: "{{states('input_number.vacuum_passes')|int}}"
-    #    zone: [[18135,21754,26035,27154]]
-    - service: notify.slack
-      data:
-        message: "Vacuum up start cleaning"

@@ -10,6 +10,3 @@
   action:
     - service: vacuum.start
       entity_id: vacuum.vacuum_down
-    - service: notify.slack
-      data:
-        message: "Vacuum up start cleaning"

@@ -1,0 +1,10 @@
+#- alias: Internet is off
+#  trigger:
+#    - platform: state
+#      entity_id: group.wan
+#      from: 'on'
+#      to: 'off'
+#  action:
+#    - service: notify.mobile_app_francois_moto_g_7
+#      data:
+#        message: Internet off-line

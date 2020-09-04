@@ -1,0 +1,10 @@
+#- alias: Internet is on
+#  trigger:
+#    - platform: state
+#      entity_id: group.wan
+#      from: 'off'
+#      to: 'on'
+#  action:
+#    - service: notify.mobile_app_francois_moto_g_7
+#      data:
+#        message: Internet is back!

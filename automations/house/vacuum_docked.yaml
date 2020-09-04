@@ -7,6 +7,6 @@
       entity_id: vacuum.vacuum_down
       to: 'docked'
   action:
-    - service: notify.slack
+    - service: notify.mobile_app_francois_moto_g_7
       data_template:
         message: "Vacuum {{ trigger.entity_id }} is now docked"
