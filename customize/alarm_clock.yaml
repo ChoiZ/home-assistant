@@ -1,27 +1,27 @@
-#########################################################
-
 sensor.time:
   hidden: true
+
 sensor.alarm_clock_hour:
   hidden: true
+
 sensor.alarm_clock_minute:
   hidden: true
+
 sensor.alarm_clock_time_long:
   hidden: true
+
 sensor.alarm_clock_time:
-  friendly_name: 'Alarm Clock Setting'
+  friendly_name: 'alarm clock setting'
   icon: mdi:alarm
 
-#########################################################
-
 input_slider.alarm_clock_hour:
-  friendly_name: 'Hour'
-  icon: mdi:timer
-input_slider.alarm_clock_minute:
-  friendly_name: 'Minute'
-  icon: mdi:timer
-input_boolean.alarm_clock_status:
-  friendly_name: 'Alarm Clock Status'
-  icon: mdi:alarm-check
+  friendly_name: 'hour'
+  icon: mdi:timer-outline
 
-#########################################################
+input_slider.alarm_clock_minute:
+  friendly_name: 'minute'
+  icon: mdi:timer-outline
+
+input_boolean.alarm_clock_status:
+  friendly_name: 'alarm clock status'
+  icon: mdi:alarm-check

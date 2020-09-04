@@ -1,6 +1,15 @@
-#########################################################
-
-switch.wall_switch_158d00044f5305:
+switch.0x00158d00044f5305_switch:
   friendly_name: bouton lumière terrasse
 
-#########################################################
+switch.outdoor_socket_1:
+  friendly_name: guirlande terrasse
+  icon: mdi:lightbulb
+
+switch.outdoor_socket_2:
+  friendly_name: système arrosage
+
+switch.arrosage:
+  icon: mdi:water
+
+input_boolean.watering:
+  icon: mdi:water

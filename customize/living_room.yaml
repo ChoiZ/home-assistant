@@ -1,70 +1,49 @@
-#########################################################
-
-binary_sensor.door_window_sensor_158d00039fe3a9:
-  friendly_name: fenêtre salon
-  icon: mdi:window-closed
-
-#########################################################
+binary_sensor.living_room_door:
+  friendly_name: porte-fenêtre salon
 
 binary_sensor.switch_158d00035a643e:
   friendly_name: bouton salon
 
-#########################################################
-
 light.gateway_light_04cf8cb87b01:
   friendly_name: gateway xiaomi
   icon: mdi:lightbulb
+
 sensor.illumination_04cf8cb87b01:
   friendly_name: capteur luminosité
 
-#########################################################
-
 binary_sensor.motion_sensor_158d00044d007b:
   friendly_name: détecteur de mouvement salon
+
 sensor.illumination_158d00044d007b:
   friendly_name: capteur luminosité salon
 
-#########################################################
-
 sensor.temperature_158d00044acc21:
   friendly_name: température salon
+
 sensor.humidity_158d00044acc21:
   friendly_name: humidité salon
-
-#########################################################
 
 light.living_room:
   friendly_name: lumière salon
   icon: mdi:lightbulb
 
-#########################################################
-
 light.led_tv:
   friendly_name: led tv
   icon: mdi:lightbulb
-
-#########################################################
 
 light.led_mirror:
   friendly_name: led mirroir
   icon: mdi:lightbulb
 
-#########################################################
-
 switch.freeboxtv_socket:
   friendly_name: Freebox TV
-
-#########################################################
 
 switch.64680137bcddc2542a40:
   friendly_name: alimentation tv
 
-#########################################################
-
-switch.wall_switch_left_158d00045fabbe:
+switch.0x00158d00045fabbe_switch_left:
   friendly_name: bouton lumière salon (remote)
   assumed_state: false
-switch.wall_switch_right_158d00045fabbe:
-  friendly_name: bouton lumière salle à manger
 
-#########################################################
+switch.0x00158d00045fabbe_switch_right:
+  friendly_name: bouton lumière salle à manger

@@ -1,36 +1,24 @@
-#########################################################
-
 binary_sensor.door_window_sensor_158d0003f4baa8:
   friendly_name: fenêtre chambre 2
   icon: mdi:window-closed
 
-#########################################################
-
 binary_sensor.switch_158d00033ef6d8:
   friendly_name: bouton chambre 2
-
-#########################################################
 
 binary_sensor.cube_158d00029b46d6:
   friendly_name: cube chambre 2
 
-#########################################################
-
 binary_sensor.motion_sensor_158d0003faef01:
   friendly_name: détecteur de mouvement chambre 2
+
 sensor.illumination_158d0003faef01:
   friendly_name: capteur luminosité chambre 2
 
-#########################################################
-
 sensor.temperature_158d00036b45e1:
   friendly_name: température chambre 2
+
 sensor.humidity_158d00036b45e1:
   friendly_name: humidité chambre 2
 
-#########################################################
-
-switch.wall_switch_158d00044f52ec:
+switch.0x00158d00044f52ec_switch:
   friendly_name: bouton lumière chambre 2
-
-#########################################################

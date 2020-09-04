@@ -1,0 +1,5 @@
+input_boolean.mode_sport:
+  icon: mdi:heart-pulse
+
+input_select.house_mode:
+  icon: mdi:home-variant

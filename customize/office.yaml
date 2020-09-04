@@ -1,16 +1,14 @@
-#########################################################
+binary_sensor.office_motion_desk_francois:
+  device_class: motion
 
-binary_sensor.motion_sensor_158d0003f3cd60:
-  friendly_name: détecteur de mouvement bureau
 sensor.illumination_158d0003f3cd60:
   friendly_name: capteur luminosité bureau
 
-#########################################################
-
-switch.wall_switch_left_158d00045f9f36:
+switch.0x00158d00045f9f36_switch_left:
   friendly_name: bouton lumière bureau et couloir (remote)
   assumed_state: false
-switch.wall_switch_right_158d00045f9f36:
-  friendly_name: bouton lumière escalier
+  icon: mdi:lightbulb
 
-#########################################################
+switch.0x00158d00045f9f36_switch_right:
+  friendly_name: bouton lumière escalier
+  icon: mdi:lightbulb

@@ -1,24 +1,15 @@
-#########################################################
-
 binary_sensor.door_window_sensor_158d0003f41fe9:
   friendly_name: fenêtre chambre 1
   icon: mdi:window-closed
 
-#########################################################
-
 binary_sensor.switch_158d00033e8984:
   friendly_name: bouton chambre 1
 
-#########################################################
-
 sensor.temperature_158d00044b4d7d:
   friendly_name: température chambre 1
+
 sensor.humidity_158d00044b4d7d:
   friendly_name: humidité chambre 1
 
-#########################################################
-
-switch.wall_switch_158d00044fa5de:
+switch.0x00158d00044fa5de_switch:
   friendly_name: bouton lumière chambre 1
-
-#########################################################

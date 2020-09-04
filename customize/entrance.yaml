@@ -1,22 +1,16 @@
-#########################################################
-
-binary_sensor.door_window_sensor_158d0003f4ba8d:
+binary_sensor.entrance_door:
   friendly_name: porte d'entrée
   icon: mdi:door-closed
 
-#########################################################
-
 binary_sensor.motion_sensor_158d00044993aa:
   friendly_name: détecteur de mouvement entrée
+
 sensor.illumination_158d00044993aa:
   friendly_name: capteur luminosité entrée
 
-#########################################################
-
 switch.wall_switch_left_158d00045f9e86:
   friendly_name: bouton lumière entrée
+
 switch.wall_switch_right_158d00045f9e86:
   friendly_name: bouton lumière escalier (remote)
   assumed_state: false
-
-#########################################################
