@@ -1,0 +1,21 @@
+- alias: "dishwasher is finished"
+  trigger:
+    - platform: event
+      event_type: timer.finished
+      event_data:
+        entity_id: timer.dishwasher
+  condition:
+    - condition: state
+      entity_id: input_boolean.dishwasher_state
+      state: 'on'
+  action:
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.dishwasher_state
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.dishwasher_finished
+    - service: notify.mobile_app_francois_moto_g_7
+      data:
+        message: "François, le lave vaisselle est à vider."
+    - service: notify.mobile_app_geraldine_moto_g_7
+      data:
+        message: "Geraldine, le lave vaisselle est à vider."

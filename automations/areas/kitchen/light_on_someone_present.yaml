@@ -1,16 +1,24 @@
 - alias: "kitchen light on someone is present"
   trigger:
     - platform: state
-      entity_id: binary_sensor.motion_sensor_158d00044c67d5
+      entity_id: binary_sensor.kitchen_motion_entrance
       to: 'on'
   condition:
-    condition: or
+    condition: and
     conditions:
-      - condition: template
-        value_template: '{{ state_attr("sun.sun", "elevation") < 3 }}'
       - condition: state
-        entity_id: switch.cover_state_kitchen
+        entity_id: input_boolean.mode_sport
         state: 'off'
+      - condition: state
+        entity_id: input_boolean.mode_canicule
+        state: 'off'
+      - condition: or
+        conditions:
+        - condition: template
+          value_template: '{{ state_attr("sun.sun", "elevation") < 3 }}'
+        - condition: state
+          entity_id: switch.cover_state_kitchen
+          state: 'off'
   action:
     - service: switch.turn_on
-      entity_id: switch.wall_switch_right_158d00045fab25
+      entity_id: switch.kitchen_light

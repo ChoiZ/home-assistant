@@ -1,0 +1,22 @@
+- alias: "kitchen button switch off tv music on"
+  trigger:
+    - platform: state
+      entity_id: sensor.kitchen_button_click
+      to: 'double'
+  condition:
+    - condition: or
+      conditions:
+      - condition: template
+        value_template: '{{ states.media_player.onkyo_receiver.attributes.source == Vinyle }}'
+      - condition: template
+        value_template: '{{ states.media_player.onkyo_receiver.attributes.source == Bluetooth }}'
+      - condition: template
+        value_template: '{{ states.media_player.onkyo_receiver.attributes.source == Net }}'
+  action:
+    - service: switch.turn_off
+      entity_id: switch.tv_socket
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.mode_sport
+    - delay: "00:00:10"
+    - service: switch.turn_off
+      entity_id: switch.living_room_outlet_ampli

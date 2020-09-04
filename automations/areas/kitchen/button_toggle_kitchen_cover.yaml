@@ -1,0 +1,8 @@
+- alias: "Enable / Disable mode sport"
+  trigger:
+    - platform: state
+      entity_id: sensor.kitchen_button_click
+      to: 'triple'
+  action:
+    - service: input_boolean.toggle
+      entity_id: input_boolean.mode_sport

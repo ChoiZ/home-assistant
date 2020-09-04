@@ -7,6 +7,9 @@
   action:
   - service: input_boolean.turn_off
     entity_id: input_boolean.dishwasher
-  - service: notify.slack
+  - service: notify.mobile_app_francois_moto_g_7
     data:
-      message: "The dishwasher is finished"
+      message: "François, le lave vaisselle est à vider."
+  - service: notify.mobile_app_geraldine_moto_g_7
+    data:
+      message: "Geraldine, le lave vaisselle est à vider."

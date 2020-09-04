@@ -5,6 +5,6 @@
       event_data:
         entity_id: timer.window_kitchen
   action:
-    - service: notify.slack
+    - service: notify.mobile_app_francois_moto_g_7
       data:
         message: "Now you can close the window in kitchen"

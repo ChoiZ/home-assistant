@@ -1,12 +1,18 @@
 - alias: "kitchen button switch off tv"
   trigger:
-    - platform: event
-      event_type: xiaomi_aqara.click
-      event_data:
-        entity_id: binary_sensor.switch_158d00035a995a
-        click_type: double
+    - platform: state
+      entity_id: sensor.kitchen_button_click
+      to: 'double'
+  condition:
+    - condition: or
+      conditions:
+      - condition: template
+        value_template: '{{ states.media_player.onkyo_receiver.attributes.source == Freebox }}'
+      - condition: template
+        value_template: '{{ states.media_player.onkyo_receiver.attributes.source == TV }}'
   action:
-    - service: media_player.turn_off
-      entity_id: media_player.onkyo_receiver # ampli
     - service: switch.turn_off
-      entity_id: switch.sonoff_1000a12e98
+      entity_id: switch.tv_socket
+    - delay: "00:00:02"
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.mode_sport

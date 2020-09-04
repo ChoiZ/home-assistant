@@ -1,10 +1,10 @@
 - alias: "kitchen light off nobody present"
   trigger:
     - platform: state
-      entity_id: binary_sensor.motion_sensor_158d00044c67d5
+      entity_id: binary_sensor.kitchen_motion_entrance
       to: 'off'
       for:
-        minutes: 2
+        minutes: 3
   action:
     - service: switch.turn_off
-      entity_id: switch.wall_switch_right_158d00045fab25
+      entity_id: switch.kitchen_light

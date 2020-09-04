@@ -1,8 +1,21 @@
-- alias: "dishwasher started"
+- alias: "dishwasher is working"
   trigger:
-  - platform: state
-    entity_id: input_boolean.dishwasher
-    to: 'on'
+    - platform: numeric_state
+      entity_id: sensor.dishwasher_power
+      above: '5'
+      for:
+        minutes: 1
+  condition:
+    - condition: state
+      entity_id: input_boolean.dishwasher_state
+      state: 'off'
   action:
-  - service: timer.start
-    entity_id: timer.dishwasher_eco
+    - service: timer.start
+      entity_id: timer.dishwasher
+    - service: notify.mobile_app_francois_moto_g_7
+      data:
+        message: "The dishwasher is working"
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.dishwasher_state
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.dishwasher_finished
