@@ -1,4 +1,0 @@
-discovery_retry: 5
-interface: '10.0.0.150'
-gateways:
-  - key: !secret xiaomi_key

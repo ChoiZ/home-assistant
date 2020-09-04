@@ -1,9 +1,0 @@
-#########################################################
-
-- platform: ping
-  name: ping Freebox 4k
-  host: !secret ip_freebox_4k
-  count: 5
-  scan_interval: 30
-
-#########################################################
